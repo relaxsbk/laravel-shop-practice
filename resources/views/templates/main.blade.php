@@ -11,12 +11,7 @@
 </head>
 <body>
 <header>
-
-
     @include('components.navbar')
-
-
-
 </header>
 
 <main>
