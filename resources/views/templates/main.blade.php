@@ -23,8 +23,8 @@
     @yield('main')
 </main>
 
-<footer class="bg-dark text-white py-4">
+
     @include('components.footer')
-</footer>
+
 </body>
 </html>
