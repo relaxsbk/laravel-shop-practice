@@ -1,0 +1,21 @@
+
+
+
+
+@import "/node_modules/bootstrap/scss/bootstrap";
+
+// Обязательные
+@import "/node_modules/bootstrap/scss/functions";
+
+// Переопределения переменных по умолчанию
+$primary: #49A8A8;
+// Обязательные
+@import "/node_modules/bootstrap/scss/variables";
+@import "/node_modules/bootstrap/scss/variables-dark";
+@import "/node_modules/bootstrap/scss/maps";
+@import "/node_modules/bootstrap/scss/mixins";
+@import "/node_modules/bootstrap/scss/root";
+
+// Дополнительные компоненты Bootstrap здесь
+@import "/node_modules/bootstrap/scss/reboot";
+@import "/node_modules/bootstrap/scss/type";
