@@ -55,7 +55,7 @@
 
 
 
-                <iframe class=" col-lg-2 mb-3" src="https://yandex.ru/map-widget/v1/?um=constructor%3A74c3c7f73f3acd020993c133315967fa733ec60d7c2ca5e91f67a1b7482983d1&amp;source=constructor" width="225" height="182" ></iframe>
+{{--                <iframe class=" col-lg-2 mb-3" src="https://yandex.ru/map-widget/v1/?um=constructor%3A74c3c7f73f3acd020993c133315967fa733ec60d7c2ca5e91f67a1b7482983d1&amp;source=constructor" width="225" height="182" ></iframe>--}}
 
         </div>
     </div>

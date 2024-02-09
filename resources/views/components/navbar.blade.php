@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav style="background-color: #f9f7f7 " class="navbar navbar-expand-lg  border-bottom border-body mb-4 fixed-top">
     <div class="container">
         <a class="navbar-brand h-5 " href="/">
             <img class="primary-logo" src="{{asset('storage/static/header/logo-name.svg')}}" alt="Основной логотип">

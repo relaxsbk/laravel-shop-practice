@@ -9,17 +9,7 @@
 }
 
 /* Медиа-запрос для устройств с шириной экрана менее 768px (мобильные устройства) */
-@media (max-width: 768px) {
-    /* Скрываем основной логотип на мобильных устройствах */
-    .primary-logo {
-        display: none;
-    }
 
-    /* Отображаем альтернативный логотип на мобильных устройствах */
-    .secondary-logo {
-        display: block;
-    }
-}
 .phone-number {
     font-size: 20px;
 }
@@ -46,4 +36,54 @@
 /* Активная кнопка индикатора */
 .carousel-indicators button.active {
     background-color: #49A8A8; /* Цвет активной кнопки */
+}
+
+.card {
+    border: none;
+}
+
+
+.card-hover {
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 0 0 rgba(0,0,0,0); /* Начальное состояние без тени */
+}
+.card-hover:hover {
+    box-shadow: 0 0 20px rgba(0,0,0,0.2); /* Тень при наведении */
+}
+
+
+
+
+
+
+/*Медиа контент*/
+@media (max-width: 1199px) {
+    #carouselExampleCaptions .carousel-caption {
+        font-size: smaller; /* Уменьшение размера шрифта */
+    }
+    #carouselExampleCaptions .btn {
+        font-size: smaller; /* Уменьшение размера кнопок */
+        padding: 0.25rem 0.5rem; /* Уменьшение отступов у кнопок */
+    }
+}
+@media (max-width: 1335px) {
+    #carouselExampleCaptions .carousel-caption {
+        font-size: smaller; /* Уменьшение размера шрифта */
+    }
+    #carouselExampleCaptions .btn {
+        font-size: smaller; /* Уменьшение размера кнопок */
+        padding: 0.15rem 0.25rem; /* Уменьшение отступов у кнопок */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Скрываем основной логотип на мобильных устройствах */
+    .primary-logo {
+        display: none;
+    }
+
+    /* Отображаем альтернативный логотип на мобильных устройствах */
+    .secondary-logo {
+        display: block;
+    }
 }
