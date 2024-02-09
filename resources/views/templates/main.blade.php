@@ -20,7 +20,7 @@
 </header>
 
 <main class="flex-grow-1 mb-5">
-    @yield('main')
+       @yield('main')
 </main>
 
 

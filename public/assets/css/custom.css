@@ -23,3 +23,27 @@
 .phone-number {
     font-size: 20px;
 }
+.carousel-caption h5,
+.carousel-caption p {
+    color: #000;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%); /* Инвертируем цвет иконок */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    color: #000;
+}
+
+.carousel-indicators button {
+    background-color: rgba(166, 232, 232, 0.36); /* Цвет неактивной кнопки */
+    border-color: #000; /* Цвет обводки неактивной кнопки */
+}
+
+/* Активная кнопка индикатора */
+.carousel-indicators button.active {
+    background-color: #49A8A8; /* Цвет активной кнопки */
+}
