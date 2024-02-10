@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Views\HomeController;
 use App\Http\Controllers\Views\CategoryController;
+use \App\Http\Controllers\Views\CategoryAndProductsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,8 +21,8 @@ Route::controller(HomeController::class)->group(function () {
 });
 Route::controller(CategoryController::class)->group(function () {
    Route::get('/catalog', 'index')->name('CatalogPage');
+   Route::get('/catalog/products', 'products')->name('ProductsPage');
 });
-
 
 
 
