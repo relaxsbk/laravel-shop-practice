@@ -1,6 +1,6 @@
 <nav style="background-color: #f9f7f7 " class="navbar navbar-expand-lg  border-bottom border-body mb-4 fixed-top">
     <div class="container">
-        <a class="navbar-brand h-5 " href="/">
+        <a class="navbar-brand h-5 " href="{{route('HomePage')}}">
             <img class="primary-logo" src="{{asset('storage/static/header/logo-name.svg')}}" alt="Основной логотип">
             <img class="secondary-logo" src="{{asset('storage/static/header/alternative-logo.svg')}}" alt="Альтернативный логотип">
         </a>
@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a @style(['color: white', 'white-space: nowrap'])  class="btn btn-primary me-3 d-flex align-items-center" aria-current="page" href="#"  >
+                    <a @style(['color: white', 'white-space: nowrap'])  class="btn btn-primary me-3 d-flex align-items-center" aria-current="page" href="{{route('CatalogPage')}}"  >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list me-1" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
                         </svg>
