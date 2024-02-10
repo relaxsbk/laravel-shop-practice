@@ -18,6 +18,10 @@ class CategoryController extends Controller
     {
         return view('catalog_products');
     }
+    public function product()
+    {
+        return view('product');
+    }
 
     /**
      * Show the form for creating a new resource.
