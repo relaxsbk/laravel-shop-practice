@@ -15,11 +15,11 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-<header>
+<header class="mb-5">
     @include('components.navbar')
 </header>
 
-<main class="flex-grow-1 mb-5">
+<main class="flex-grow-1 mt-5 mb-5">
        @yield('main')
 </main>
 
