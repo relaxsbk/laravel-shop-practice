@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active d-flex align-items-center" aria-current="page" href="#">
+                    <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{route('cart')}}">
                         <div class="d-flex flex-column align-items-center">
                             <img style="width: 20px; height: 18px;" src="{{asset('storage/static/header/basket.svg')}}" alt="heart">
                             <span class="ms-1">Корзина</span>

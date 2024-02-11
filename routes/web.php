@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Views\HomeController;
 use App\Http\Controllers\Views\CategoryController;
+use App\Http\Controllers\Views\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +25,9 @@ Route::controller(CategoryController::class)->group(function () {
    Route::get('/catalog/product', 'product')->name('Product');
 });
 
+Route::controller(CartController::class)->group(function () {
+    Route::get('/cart', 'index')->name('cart');
+});
 
 
 //Route::get('/', function () {
