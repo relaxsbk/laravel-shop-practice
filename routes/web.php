@@ -7,6 +7,9 @@ use App\Http\Controllers\Views\CategoryController;
 use App\Http\Controllers\Views\CartController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\RegisterController;
+
+//admin
+use App\Http\Controllers\Admin\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,12 +41,17 @@ Route::controller(RegisterController::class)->group(function () {
     Route::get('/register', 'index')->name('register');
 });
 
+Route::controller(AdminController::class)->group(function (){
+    Route::get('/admin', 'index')->name('admin_home');
+});
 
 //Route::get('/', function () {
 //    return view('home');
 //});
 
-
+//Route::get('/', function () {
+//    return view('test.test');
+//});
 
 
 /*
