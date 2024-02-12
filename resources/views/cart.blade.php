@@ -16,8 +16,8 @@
         <h2 class="h2 fw-bold mt-4 mb-4">Корзина</h2>
 
 
-        <div class="d-flex justify-content-between">
-            <div class="w-100 me-5">
+        <div class="row">
+            <div class="col-lg-8">
                 <!-- Карточки товаров -->
                 <div class="card bg-white border mb-3" style="max-width: 100%;">
                     <div class="card-body row align-items-center">
@@ -27,7 +27,6 @@
                         <div class="col">
                             <h5 class="card-title mb-0">Название продукта с очень длинным названием, которое может занимать несколько строк</h5>
                         </div>
-
                         <div class="col-auto mr-3">
                             <label>
                                 <input type="number" value="1" class="form-control ">
@@ -42,22 +41,29 @@
                     </div>
                 </div>
 
-                <!-- Добавьте здесь другие карточки товаров при необходимости -->
+                <!--  другие карточки  -->
             </div>
-            <div class="ml-auto">
+
+            <div class="col-lg-4">
                 <!-- Блок с итогом -->
-                <div class="card mb-3" style="width: 24rem; background-color: #DEF9F9">
+                <div class="card mb-3" style="background-color: #DEF9F9;">
                     <div class="card-body">
                         <h5 class="card-title fw-bold fs-3">Итого</h5>
-                        <span class="card-text text-secondary">Товаров на сумму:</span>
-                        <span   class="card-text fw-bold fs-5">185 000 Р</span>
-                        <br>
-                        <span   class="card-text text-secondary">Стоимость доставки: </span>
-                        <span   class="card-text fw-bold fs-5">500 Р</span>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="card-text text-secondary">Товаров на сумму:</span>
+                            <span class="card-text fw-bold fs-5">185 000 Р</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="card-text text-secondary">Стоимость доставки:</span>
+                            <span class="card-text fw-bold fs-5">500 Р</span>
+                        </div>
                         <hr>
-                        <h6 class="card-text fw-bold fs-5 mt-3" >К Оплате</h6>
-                        <h6 class="card-text fw-bold fs-4">185 500 Р</h6>
-                        <div class="form-check mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h6 class="card-text fw-bold fs-5 mt-3">К Оплате</h6>
+                            <h6 class="card-text fw-bold fs-4">185 500 Р</h6>
+                        </div>
+
+                        <div class="form-check mt-auto mb-3">
                             <input class="form-check-input" type="checkbox" value="" id="agreeCheckbox">
                             <label class="form-check-label" for="agreeCheckbox">
                                 Я согласен с условиями использования пользовательского соглашения
@@ -68,12 +74,8 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
     </div>
+
 
 
 
