@@ -19,6 +19,7 @@
 
 <main class="flex-grow-1 mt-5 mb-5">
        <div class="container  mt-5">
+           @yield('nav_bread')
            <div class="row">
                <!-- Sidebar -->
                <div class="col-md-3">
