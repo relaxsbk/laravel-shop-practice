@@ -102,18 +102,24 @@
             </div>
             <div class="ml-auto">
                 <!-- Блок с итогом -->
-                <div class="card mb-3" style="width: 24rem; background-color: #DEF9F9">
-                    <div class="card-body">
+                <div class="card mb-3" style="width: 24rem; background-color: #DEF9F9;">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold fs-3">Итого</h5>
-                        <span class="card-text text-secondary">Товаров на сумму:</span>
-                        <span   class="card-text fw-bold fs-5">185 000 Р</span>
-                        <br>
-                        <span   class="card-text text-secondary">Стоимость доставки: </span>
-                        <span   class="card-text fw-bold fs-5">500 Р</span>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="card-text text-secondary">Товаров на сумму:</span>
+                            <span class="card-text fw-bold fs-5">185 000 Р</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="card-text text-secondary">Стоимость доставки:</span>
+                            <span class="card-text fw-bold fs-5">500 Р</span>
+                        </div>
                         <hr>
-                        <h6 class="card-text fw-bold fs-5 mt-3" >К Оплате</h6>
-                        <h6 class="card-text fw-bold fs-4">185 500 Р</h6>
-                        <div class="form-check mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h6 class="card-text fw-bold fs-5 mt-3">К Оплате</h6>
+                            <h6 class="card-text fw-bold fs-4">185 500 Р</h6>
+                        </div>
+
+                        <div class="form-check mt-auto mb-3">
                             <input class="form-check-input" type="checkbox" value="" id="agreeCheckbox">
                             <label class="form-check-label" for="agreeCheckbox">
                                 Я согласен с условиями использования пользовательского соглашения
@@ -122,6 +128,7 @@
                         <button class="btn btn-primary text-white btn-block" id="orderButton" disabled>Оформить заказ</button>
                     </div>
                 </div>
+
             </div>
         </div>
 
