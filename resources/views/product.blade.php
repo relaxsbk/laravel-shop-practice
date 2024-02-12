@@ -92,7 +92,62 @@
         </div>
         <div class="d-flex justify-content-center mt-3">
             <div class="accordion w-100" id="accordionExample">
-                <!-- Контент аккордеона -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingCharacteristics">
+                        <button class="accordion-button fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCharacteristics" aria-expanded="true" aria-controls="collapseCharacteristics">
+                            Характеристики
+                        </button>
+                    </h2>
+                    <div id="collapseCharacteristics" class="accordion-collapse collapse show" aria-labelledby="headingCharacteristics" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <!-- Здесь разместите контент с характеристиками -->
+                            <p>Характеристика 1: Значение 1</p>
+                            <p>Характеристика 2: Значение 2</p>
+                            <p>Характеристика 3: Значение 3</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingReviews">
+                        <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReviews" aria-expanded="false" aria-controls="collapseReviews">
+                            Отзывы
+                        </button>
+                    </h2>
+                    <div id="collapseReviews" class="accordion-collapse collapse" aria-labelledby="headingReviews" data-bs-parent="#accordionExample">
+                        <div class="accordion-body fs-5">
+                            <div class="border-bottom border-body">
+                                <div class="user-rating">
+                                    <p><span class="fw-bold">Пользователь 1</span> - Оценка: 5</p>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet,
+                                    consectetur adipisicing elit. Adipisci aliquid autem dolorum eligendi magnam nesciunt
+                                    nostrum obcaecati quis, reprehenderit sunt!
+                                    Ad dolore doloremque id laboriosam necessitatibus nemo rem sint ullam.
+                                </p>
+                            </div>
+                            <div class="border-bottom border-body">
+                                <div class="user-rating">
+                                    <p><span class="fw-bold">Пользователь 2</span> - Оценка: 4</p>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet,
+                                    consectetur adipisicing elit. Adipisci aliquid autem dolorum eligendi magnam nesciunt
+                                    nostrum obcaecati quis, reprehenderit sunt!
+                                    Ad dolore doloremque id laboriosam necessitatibus nemo rem sint ullam.
+                                </p>
+                            </div>
+                            <div class="border-bottom border-body">
+                                <div class="user-rating">
+                                    <p><span class="fw-bold">Пользователь 10</span> - Оценка: 2</p>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet,
+                                    consectetur adipisicing elit. Adipisci aliquid autem dolorum eligendi magnam nesciunt
+                                    nostrum obcaecati quis, reprehenderit sunt!
+                                    Ad dolore doloremque id laboriosam necessitatibus nemo rem sint ullam.
+                                </p>
+                            </div>
             </div>
         </div>
     </div>
