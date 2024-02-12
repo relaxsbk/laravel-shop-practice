@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Views\HomeController;
 use App\Http\Controllers\Views\CategoryController;
 use App\Http\Controllers\Views\CartController;
+use App\Http\Controllers\User\LoginController;
+use App\Http\Controllers\User\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +29,13 @@ Route::controller(CategoryController::class)->group(function () {
 
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart', 'index')->name('cart');
+});
+
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login', 'index')->name('login');
+});
+Route::controller(RegisterController::class)->group(function () {
+    Route::get('/register', 'index')->name('register');
 });
 
 

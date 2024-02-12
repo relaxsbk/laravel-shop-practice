@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active d-flex align-items-center" aria-current="page" href="#">
+                    <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{route('login')}}">
                         <div class="d-flex flex-column align-items-center">
                             <img style="width: 20px;" src="{{asset('storage/static/header/profile.svg')}}" alt="heart">
                             <span class="ms-1">Аккаунт</span>
