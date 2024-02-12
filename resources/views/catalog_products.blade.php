@@ -7,7 +7,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('HomePage')}}">ГиперКвант</a></li>
                 <li class="breadcrumb-item"><a href="{{route('CatalogPage')}}">Каталог товаров</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Смартфоны</li>
+                <li class="breadcrumb-item active" aria-current="page">{{$}}</li>
             </ol>
         </nav>
     </div>

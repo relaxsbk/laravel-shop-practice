@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Views;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -12,10 +13,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('catalog');
+        $category = Category::where('is_public', true);
+        return view('catalog', ['category' => $category->get()]);
     }
     public function products()
     {
+        
         return view('catalog_products');
     }
     public function product()
