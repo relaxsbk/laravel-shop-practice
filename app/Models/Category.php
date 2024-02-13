@@ -16,4 +16,9 @@ class Category extends Model
         'img',
         'is_public'
     ];
+
+    public function product(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Product::class);
+    }
 }

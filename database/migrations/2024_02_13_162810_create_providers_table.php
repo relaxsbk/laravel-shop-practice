@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('contact_person');
-            $table->string('email')->nullable();
-            $table->integer('phone')->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->integer('phone')->unique()->nullable();
             $table->timestamps();
         });
     }
