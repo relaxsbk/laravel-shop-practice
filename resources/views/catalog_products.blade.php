@@ -7,12 +7,13 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('HomePage')}}">ГиперКвант</a></li>
                 <li class="breadcrumb-item"><a href="{{route('CatalogPage')}}">Каталог товаров</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{$}}</li>
+                <li class="breadcrumb-item active" aria-current="page">{{$category->title}}</li>
             </ol>
         </nav>
     </div>
 
     <div  class="container mt-5">
+        <h2 class="h2 fw-bold mt-4 mb-4">{{$category->title}}</h2>
         <div  class="row">
 {{--            фильтры--}}
             <div class="col-lg-3">

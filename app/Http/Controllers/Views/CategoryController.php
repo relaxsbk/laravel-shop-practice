@@ -16,10 +16,15 @@ class CategoryController extends Controller
         $category = Category::where('is_public', true);
         return view('catalog', ['category' => $category->get()]);
     }
-    public function products()
+    public function products($category)
     {
-        
-        return view('catalog_products');
+        $category = Category::where('code', $category)->first();
+
+        if (is_null($category)) {
+            abort(404);
+        }
+
+        return view('catalog_products', ['category' => $category]);
     }
     public function product()
     {
