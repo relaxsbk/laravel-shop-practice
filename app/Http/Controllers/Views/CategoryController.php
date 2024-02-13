@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Views;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
@@ -26,9 +27,10 @@ class CategoryController extends Controller
 
         return view('catalog_products', ['category' => $category]);
     }
-    public function product()
+    public function product($product)
     {
-        return view('product');
+        $product = Product::find($product);
+        return view('product', ['product' => $product]);
     }
 
     /**

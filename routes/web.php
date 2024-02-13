@@ -27,7 +27,7 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(CategoryController::class)->group(function () {
    Route::get('/catalog', 'index')->name('CatalogPage');
    Route::get('/catalog/{category}', 'products')->name('ProductsPage');
-//   Route::get('/catalog/product', 'product')->name('Product');
+   Route::get('/catalog/{category}/{product}', 'product')->name('Product');
 });
 
 Route::controller(CartController::class)->group(function () {
