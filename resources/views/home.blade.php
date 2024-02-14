@@ -61,203 +61,213 @@
     {{--Карточки категорий--}}
 
         <div class="d-flex justify-content-between flex-wrap">
-            <div class="card me-3 mb-4 text-bg-li card-hover" style="background-color: white; width: 16rem; height: 16rem;">
-                <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
-                    <img style="width: 50%" src="{{asset('storage/static/homePage/category-smartphone.png')}}" class="card-img-top mt-3" alt="category">
-                    <div class="card-body text-center">
-                        <p class="card-text fs-4 fw-bold">Смартфоны</p>
+            @foreach( $category as $item)
+                <div class="card me-3 mb-4 text-bg-li card-hover" style="background-color: white; width: 16rem; height: 16rem;">
+                    <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
+                        <img style="width: 50%" src="{{asset('storage/static/homePage/category-smartphone.png')}}" class="card-img-top mt-3" alt="category">
+                        <div class="card-body text-center">
+                            <p class="card-text fs-4 fw-bold">{{$item->title}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card me-3 mb-4 text-bg-li card-hover" style="background-color: white; width: 16rem; height: 16rem;">
-                <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
-                    <img style="width: 50%" src="{{asset('storage/static/homePage/category-smartphone.png')}}" class="card-img-top mt-3" alt="category">
-                    <div class="card-body text-center">
-                        <p class="card-text fs-4 fw-bold">Смартфоны</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card me-3 mb-4 text-bg-li card-hover" style="background-color: white; width: 16rem; height: 16rem;">
-                <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
-                    <img style="width: 50%" src="{{asset('storage/static/homePage/category-smartphone.png')}}" class="card-img-top mt-3" alt="category">
-                    <div class="card-body text-center">
-                        <p class="card-text fs-4 fw-bold">Смартфоны</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card text-bg-li card-hover" style="background-color: white; width: 16rem; height: 16rem;">
-                <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
-                    <img style="width: 50%" src="{{asset('storage/static/homePage/category-smartphone.png')}}" class="card-img-top mt-3" alt="category">
-                    <div class="card-body text-center">
-                        <p class="card-text fs-4 fw-bold">Смартфоны</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
+{{--            <div class="card me-3 mb-4 text-bg-li card-hover" style="background-color: white; width: 16rem; height: 16rem;">--}}
+{{--                <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">--}}
+{{--                    <img style="width: 50%" src="{{asset('storage/static/homePage/category-smartphone.png')}}" class="card-img-top mt-3" alt="category">--}}
+{{--                    <div class="card-body text-center">--}}
+{{--                        <p class="card-text fs-4 fw-bold">Смартфоны</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="card me-3 mb-4 text-bg-li card-hover" style="background-color: white; width: 16rem; height: 16rem;">--}}
+{{--                <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">--}}
+{{--                    <img style="width: 50%" src="{{asset('storage/static/homePage/category-smartphone.png')}}" class="card-img-top mt-3" alt="category">--}}
+{{--                    <div class="card-body text-center">--}}
+{{--                        <p class="card-text fs-4 fw-bold">Смартфоны</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="card text-bg-li card-hover" style="background-color: white; width: 16rem; height: 16rem;">--}}
+{{--                <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">--}}
+{{--                    <img style="width: 50%" src="{{asset('storage/static/homePage/category-smartphone.png')}}" class="card-img-top mt-3" alt="category">--}}
+{{--                    <div class="card-body text-center">--}}
+{{--                        <p class="card-text fs-4 fw-bold">Смартфоны</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
 
         <h2 class="h2 fw-bold  mb-4">Хиты Продаж</h2>
 
         <div class="d-flex justify-content-between flex-wrap">
-            <div class="card card-hover" style="width: 18rem; background-color: white">
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                    <img style="width: 60%" src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="card-img mt-3" alt="product">
-                    <div class="card-body">
-                        <h5 class="fs-6 text-secondary card-title">Смартфон</h5>
-                        <p class="fs-5 card-text">Смартфон Apple iPhone 15 Pro Max 256Gb, A3108</p>
-                        <div class="d-flex align-items-center mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-star-fill me-1" viewBox="0 0 16 16">
-                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                            </svg>
-                            <p class="card-text mt-3 me-3">5</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chat-fill me-1" viewBox="0 0 16 16">
-                                <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15"/>
-                            </svg>
-                            <p class="card-text">21</p>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <p class="fs-5 card-text mt-3">55 550 Р</p>
-                            <div class="d-flex">
+            @foreach($products as $product)
+                <div class="card card-hover" style="width: 18rem; background-color: white">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <img style="width: 60%" src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="card-img mt-3" alt="product">
+                        <div class="card-body w-100">
+                            <h5 class="fs-6 text-secondary card-title">
+{{--                                {{$category->title}}--}}
+                            </h5>
+                            <p class="fs-5 card-text">
+                                <a  class="custom-link">{{$product->title}} {{$product->model}}</a>
+                            </p>
+                            <div class="d-flex align-items-center mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-star-fill me-1" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                                <p class="card-text mt-3 me-3">{{$product->rating}}</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chat-fill me-1" viewBox="0 0 16 16">
+                                    <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15"/>
+                                </svg>
+                                <p class="card-text">21</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <p class="fs-5 card-text mt-3">{{$product->price}} Р</p>
+                                <div class="d-flex">
 
 
-                                <button type="button" class="btn btn-outline-secondary me-2" data-bs-toggle="button">
+                                    <button type="button" class="btn btn-outline-secondary me-2" data-bs-toggle="button">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                             <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
                                         </svg>
-                                </button>
+                                    </button>
 
+                                </div>
                             </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="btn btn-outline-primary flex-grow-1 me-2">Купить</a>
-                            <a href="#" class="btn btn-primary me-2 align-items-center" role="button" data-bs-toggle="button" >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3 " viewBox="0 0 16 16">
-                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card card-hover" style="width: 18rem; background-color: white">
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                    <img style="width: 60%" src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="card-img mt-3" alt="product">
-                    <div class="card-body">
-                        <h5 class="fs-6 text-secondary card-title">Смартфон</h5>
-                        <p class="fs-5 card-text">Смартфон Apple iPhone 15 Pro Max 256Gb, A3108</p>
-                        <div class="d-flex align-items-center mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-star-fill me-1" viewBox="0 0 16 16">
-                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                            </svg>
-                            <p class="card-text mt-3 me-3">5</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chat-fill me-1" viewBox="0 0 16 16">
-                                <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15"/>
-                            </svg>
-                            <p class="card-text">21</p>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <p class="fs-5 card-text mt-3">55 550 Р</p>
-                            <div class="d-flex">
-
-
-                                <button type="button" class="btn btn-outline-secondary me-2" data-bs-toggle="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-outline-primary flex-grow-1 me-2">Купить</a>
+                                <a href="#" class="btn btn-primary me-2 align-items-center" role="button" data-bs-toggle="button" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3 " viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
                                     </svg>
-                                </button>
-
+                                </a>
                             </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="btn btn-outline-primary flex-grow-1 me-2">Купить</a>
-                            <a href="#" class="btn btn-primary me-2 align-items-center" role="button" data-bs-toggle="button" >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3 " viewBox="0 0 16 16">
-                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-                                </svg>
-                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="card card-hover" style="width: 18rem; background-color: white">
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                    <img style="width: 60%" src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="card-img mt-3" alt="product">
-                    <div class="card-body">
-                        <h5 class="fs-6 text-secondary card-title">Смартфон</h5>
-                        <p class="fs-5 card-text">Смартфон Apple iPhone 15 Pro Max 256Gb, A3108</p>
-                        <div class="d-flex align-items-center mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-star-fill me-1" viewBox="0 0 16 16">
-                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                            </svg>
-                            <p class="card-text mt-3 me-3">5</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chat-fill me-1" viewBox="0 0 16 16">
-                                <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15"/>
-                            </svg>
-                            <p class="card-text">21</p>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <p class="fs-5 card-text mt-3">55 550 Р</p>
-                            <div class="d-flex">
+            @endforeach
+
+{{--            <div class="card card-hover" style="width: 18rem; background-color: white">--}}
+{{--                <div class="d-flex flex-column justify-content-center align-items-center">--}}
+{{--                    <img style="width: 60%" src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="card-img mt-3" alt="product">--}}
+{{--                    <div class="card-body">--}}
+{{--                        <h5 class="fs-6 text-secondary card-title">Смартфон</h5>--}}
+{{--                        <p class="fs-5 card-text">Смартфон Apple iPhone 15 Pro Max 256Gb, A3108</p>--}}
+{{--                        <div class="d-flex align-items-center mb-2">--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-star-fill me-1" viewBox="0 0 16 16">--}}
+{{--                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>--}}
+{{--                            </svg>--}}
+{{--                            <p class="card-text mt-3 me-3">5</p>--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chat-fill me-1" viewBox="0 0 16 16">--}}
+{{--                                <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15"/>--}}
+{{--                            </svg>--}}
+{{--                            <p class="card-text">21</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex justify-content-between align-items-center mb-2">--}}
+{{--                            <p class="fs-5 card-text mt-3">55 550 Р</p>--}}
+{{--                            <div class="d-flex">--}}
 
 
-                                <button type="button" class="btn btn-outline-secondary me-2" data-bs-toggle="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                                    </svg>
-                                </button>
+{{--                                <button type="button" class="btn btn-outline-secondary me-2" data-bs-toggle="button">--}}
+{{--                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">--}}
+{{--                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>--}}
+{{--                                    </svg>--}}
+{{--                                </button>--}}
 
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="btn btn-outline-primary flex-grow-1 me-2">Купить</a>
-                            <a href="#" class="btn btn-primary me-2 align-items-center" role="button" data-bs-toggle="button" >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3 " viewBox="0 0 16 16">
-                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card card-hover" style="width: 18rem; background-color: white">
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                    <img style="width: 60%" src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="card-img mt-3" alt="product">
-                    <div class="card-body">
-                        <h5 class="fs-6 text-secondary card-title">Смартфон</h5>
-                        <p class="fs-5 card-text">Смартфон Apple iPhone 15 Pro Max 256Gb, A3108</p>
-                        <div class="d-flex align-items-center mb-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-star-fill me-1" viewBox="0 0 16 16">
-                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                            </svg>
-                            <p class="card-text mt-3 me-3">5</p>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chat-fill me-1" viewBox="0 0 16 16">
-                                <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15"/>
-                            </svg>
-                            <p class="card-text">21</p>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <p class="fs-5 card-text mt-3">55 550 Р</p>
-                            <div class="d-flex">
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex justify-content-between">--}}
+{{--                            <a href="#" class="btn btn-outline-primary flex-grow-1 me-2">Купить</a>--}}
+{{--                            <a href="#" class="btn btn-primary me-2 align-items-center" role="button" data-bs-toggle="button" >--}}
+{{--                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3 " viewBox="0 0 16 16">--}}
+{{--                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>--}}
+{{--                                </svg>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="card card-hover" style="width: 18rem; background-color: white">--}}
+{{--                <div class="d-flex flex-column justify-content-center align-items-center">--}}
+{{--                    <img style="width: 60%" src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="card-img mt-3" alt="product">--}}
+{{--                    <div class="card-body">--}}
+{{--                        <h5 class="fs-6 text-secondary card-title">Смартфон</h5>--}}
+{{--                        <p class="fs-5 card-text">Смартфон Apple iPhone 15 Pro Max 256Gb, A3108</p>--}}
+{{--                        <div class="d-flex align-items-center mb-2">--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-star-fill me-1" viewBox="0 0 16 16">--}}
+{{--                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>--}}
+{{--                            </svg>--}}
+{{--                            <p class="card-text mt-3 me-3">5</p>--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chat-fill me-1" viewBox="0 0 16 16">--}}
+{{--                                <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15"/>--}}
+{{--                            </svg>--}}
+{{--                            <p class="card-text">21</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex justify-content-between align-items-center mb-2">--}}
+{{--                            <p class="fs-5 card-text mt-3">55 550 Р</p>--}}
+{{--                            <div class="d-flex">--}}
 
 
-                                <button type="button" class="btn btn-outline-secondary me-2" data-bs-toggle="button">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                                    </svg>
-                                </button>
+{{--                                <button type="button" class="btn btn-outline-secondary me-2" data-bs-toggle="button">--}}
+{{--                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">--}}
+{{--                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>--}}
+{{--                                    </svg>--}}
+{{--                                </button>--}}
 
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="btn btn-outline-primary flex-grow-1 me-2">Купить</a>
-                            <a href="#" class="btn btn-primary me-2 align-items-center" role="button" data-bs-toggle="button" >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3 " viewBox="0 0 16 16">
-                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex justify-content-between">--}}
+{{--                            <a href="#" class="btn btn-outline-primary flex-grow-1 me-2">Купить</a>--}}
+{{--                            <a href="#" class="btn btn-primary me-2 align-items-center" role="button" data-bs-toggle="button" >--}}
+{{--                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3 " viewBox="0 0 16 16">--}}
+{{--                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>--}}
+{{--                                </svg>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="card card-hover" style="width: 18rem; background-color: white">--}}
+{{--                <div class="d-flex flex-column justify-content-center align-items-center">--}}
+{{--                    <img style="width: 60%" src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="card-img mt-3" alt="product">--}}
+{{--                    <div class="card-body">--}}
+{{--                        <h5 class="fs-6 text-secondary card-title">Смартфон</h5>--}}
+{{--                        <p class="fs-5 card-text">Смартфон Apple iPhone 15 Pro Max 256Gb, A3108</p>--}}
+{{--                        <div class="d-flex align-items-center mb-2">--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-star-fill me-1" viewBox="0 0 16 16">--}}
+{{--                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>--}}
+{{--                            </svg>--}}
+{{--                            <p class="card-text mt-3 me-3">5</p>--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chat-fill me-1" viewBox="0 0 16 16">--}}
+{{--                                <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15"/>--}}
+{{--                            </svg>--}}
+{{--                            <p class="card-text">21</p>--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex justify-content-between align-items-center mb-2">--}}
+{{--                            <p class="fs-5 card-text mt-3">55 550 Р</p>--}}
+{{--                            <div class="d-flex">--}}
+
+
+{{--                                <button type="button" class="btn btn-outline-secondary me-2" data-bs-toggle="button">--}}
+{{--                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">--}}
+{{--                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>--}}
+{{--                                    </svg>--}}
+{{--                                </button>--}}
+
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex justify-content-between">--}}
+{{--                            <a href="#" class="btn btn-outline-primary flex-grow-1 me-2">Купить</a>--}}
+{{--                            <a href="#" class="btn btn-primary me-2 align-items-center" role="button" data-bs-toggle="button" >--}}
+{{--                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3 " viewBox="0 0 16 16">--}}
+{{--                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>--}}
+{{--                                </svg>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </div>
 

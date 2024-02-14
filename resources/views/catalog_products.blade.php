@@ -261,9 +261,6 @@
                            </div>
                        </div>
 
-
-
-
                    </div>
                    @endforeach
 {{--                       <div class="col mb-4">--}}
