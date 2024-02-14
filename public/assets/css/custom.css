@@ -50,6 +50,15 @@
 .card-hover:hover {
     box-shadow: 0 0 20px rgba(0,0,0,0.2); /* Тень при наведении */
 }
+.custom-link {
+    color: black;
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+    transition: color 0.3s ease; /* Добавляем плавную анимацию для смены цвета */
+}
+
+.custom-link:hover {
+    color: #49A8A8; /* Цвет ссылки при наведении на неё */
+}
 
 
 .nav-link-bread {

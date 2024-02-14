@@ -19,6 +19,7 @@ class CategoryController extends Controller
     }
     public function products($category)
     {
+
         $category = Category::where('code', $category)->first();
 
         if (is_null($category)) {
@@ -27,10 +28,11 @@ class CategoryController extends Controller
 
         return view('catalog_products', ['category' => $category]);
     }
-    public function product($product)
+    public function product($category ,$product)
     {
-        $product = Product::find($product);
-        return view('product', ['product' => $product]);
+       $category = Category::where('code', $category)->firstOrFail();
+        $product = Product::findOrFail($product);
+        return view('product', ['category' => $category,'product' => $product]);
     }
 
     /**

@@ -219,9 +219,13 @@
                        <div class="card card-hover" style="width: 18rem; background-color: white">
                            <div class="d-flex flex-column justify-content-center align-items-center">
                                <img style="width: 60%" src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="card-img mt-3" alt="product">
-                               <div class="card-body">
-                                   <h5 class="fs-6 text-secondary card-title">{{$product->title}}</h5>
-                                   <p class="fs-5 card-text">{{$product->model}}</p>
+                               <div class="card-body w-100">
+                                   <h5 class="fs-6 text-secondary card-title">
+                                       {{$category->title}}
+                                   </h5>
+                                   <p class="fs-5 card-text">
+                                       <a href="{{route('Product', ['category' => $category->code, 'product' => $product->id])}}" class="custom-link">{{$product->title}}</a>
+                                   </p>
                                    <div class="d-flex align-items-center mb-2">
                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-star-fill me-1" viewBox="0 0 16 16">
                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
