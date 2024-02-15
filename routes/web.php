@@ -38,6 +38,9 @@ Route::controller(ProductController::class)->group(function () {
 
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart', 'index')->name('cart');
+    Route::get('/cart/clear', 'clear')->name('clearCart');
+
+
     Route::get('/cart/{product:id}', 'remove')->name('removeCart');
 });
 

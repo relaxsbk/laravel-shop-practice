@@ -20,6 +20,7 @@ class CartController extends Controller
 
     public function index()
     {
+
         $cart = $this->cartService;
         return view('cart', ['cart' => $cart]);
     }
@@ -32,6 +33,16 @@ class CartController extends Controller
         }
         session()->flash('message_error', 'Товар не удалён!');
         return back();
+    }
+
+    public function clear()
+    {
+        if (session()->has('cart')) {
+            $this->cartService->clear();
+            return back()->with('message', 'Корзина очищена');
+        }
+        return back()->with('message_error', 'Корзина пуста');
+
     }
 
 

@@ -36,7 +36,7 @@ class CartService
 
     public function clear(): void
     {
-
+        session()->pull('cart', []);
     }
 
     public function remove(Product $product): bool
@@ -53,7 +53,13 @@ class CartService
 
     public function isEmpty(): bool
     {
-        if (count($this->get()) > 0) return false;
+        if (!session()->has('cart')) {
+            return true;
+        }
+
+        if (count($this->get()) > 0) {
+            return false;
+        }
 
         return true;
     }

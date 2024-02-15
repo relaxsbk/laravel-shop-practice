@@ -13,7 +13,12 @@
             </ol>
         </nav>
 
-        <h2 class="h2 fw-bold mt-4 mb-4">Корзина</h2>
+        <h2 class="h2 fw-bold mt-4 mb-4">
+            Корзина
+            @if(!$cart->isEmpty())
+                <a class="fs-6 text-decoration-none" href="{{route('clearCart')}}">очистить</a>
+            @endif
+        </h2>
 
 
         <div class="row">
