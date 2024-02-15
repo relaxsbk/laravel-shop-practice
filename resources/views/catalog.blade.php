@@ -19,7 +19,7 @@
                     <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
                         <img style="width: 50%" src="{{asset('storage/static/homePage/category-smartphone.png')}}" class="card-img-top mt-3" alt="category">
                         <div class="card-body text-center">
-                            <p class="card-text fs-4 fw-bold">{{$item->title}}</p>
+                            <p class="card-text fs-5 fw-bold">{{$item->title}}</p>
                         </div>
                     </div>
                 </a>
