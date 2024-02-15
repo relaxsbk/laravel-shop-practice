@@ -1,5 +1,7 @@
 @extends('templates.main')
 
+@section('title', 'Регистрация')
+
 @section('main')
     <div class="container mt-5">
 
