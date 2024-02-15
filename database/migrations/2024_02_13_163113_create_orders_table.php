@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->enum('status', ['new', 'completed', 'delivered', 'canceled'])->default('new');
             $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
-            $table->foreignId('status_pay_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->double('total')->default(0);
             $table->timestamps();
         });
     }

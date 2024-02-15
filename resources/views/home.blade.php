@@ -2,6 +2,11 @@
 
 @section('main')
     {{--  Карусель  --}}
+    @if(session()->has('message'))
+        <div class="alert alert-success" role="alert">
+            {{session()->get('message')}}
+        </div>
+    @endif
     <div id="carouselExampleCaptions" class="carousel slide mb-4 d-none d-lg-block" data-bs-ride="carousel" data-bs-interval="10000">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

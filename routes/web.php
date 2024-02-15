@@ -38,6 +38,7 @@ Route::controller(ProductController::class)->group(function () {
 
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart', 'index')->name('cart');
+    Route::get('/cart/create', 'createOrder')->middleware('auth')->name('createOrder');
     Route::get('/cart/clear', 'clear')->name('clearCart');
 
 

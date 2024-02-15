@@ -88,7 +88,7 @@
                                     Я согласен с условиями использования пользовательского соглашения
                                 </label>
                             </div>
-                            <button class="btn btn-primary text-white btn-block" id="orderButton" disabled>Оформить заказ</button>
+                            <a href="{{route('createOrder')}}" class="btn btn-primary text-white btn-block disabled" id="orderButton" onclick="return validateCheckbox()">Оформить заказ</a>
                         </div>
                     </div>
                 </div>
@@ -105,11 +105,25 @@
 
 
     <script>
+        function validateCheckbox() {
+            var agreeCheckbox = document.getElementById('agreeCheckbox');
+            if (!agreeCheckbox.checked) {
+                alert("Пожалуйста, согласитесь с условиями использования пользовательского соглашения.");
+                return false; // Предотвращаем переход по ссылке
+            }
+            // Если чекбокс отмечен, разрешаем переход по ссылке
+            return true;
+        }
+
         // Слушаем изменения чекбокса
         document.getElementById('agreeCheckbox').addEventListener('change', function() {
             // Если чекбокс отмечен, разблокируем кнопку оформления заказа, иначе блокируем
             var orderButton = document.getElementById('orderButton');
-            orderButton.disabled = !this.checked;
+            if (this.checked) {
+                orderButton.classList.remove('disabled'); // Убираем класс "disabled"
+            } else {
+                orderButton.classList.add('disabled'); // Добавляем класс "disabled"
+            }
         });
     </script>
 

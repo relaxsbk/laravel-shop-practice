@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Views;
 
 use App\Http\Controllers\Controller;
+use App\Models\Detail_order;
+use App\Models\Order;
 use App\Models\Product;
 use App\Services\CartService;
 use Illuminate\Http\Request;
@@ -34,6 +36,28 @@ class CartController extends Controller
         session()->flash('message_error', 'Товар не удалён!');
         return back();
     }
+
+    public function createOrder()
+    {
+        $order = Order::query()->create([
+            'user_id' => auth()->user()->getAuthIdentifier(),
+            'total' => $this->cartService->getTotal()
+        ]);
+
+        foreach ($this->cartService->get() as $item) {
+            Detail_order::query()->create([
+                'order_id' => $order->id,
+                'product_id' => $item->id
+            ]);
+        }
+
+        $this->cartService->clear();
+
+        return redirect()->route('HomePage')->with('message', 'Заказ зарегистрирован');
+
+
+    }
+
 
     public function clear()
     {
