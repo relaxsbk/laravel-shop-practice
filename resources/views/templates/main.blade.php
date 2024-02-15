@@ -11,7 +11,7 @@
     {{--    use bootstrap--}}
     @vite(['resources/sass/app.scss' , 'resources/js/app.js'])
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-    <title>Пока шаблон</title>
+    <title>@yield('title')</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
 

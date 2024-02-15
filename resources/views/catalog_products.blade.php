@@ -1,5 +1,7 @@
 @extends('templates.main')
 
+@section('title', $category->title)
+
 @section('main')
 
     <div class="container mt-4">

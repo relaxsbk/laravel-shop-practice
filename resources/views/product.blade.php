@@ -1,5 +1,7 @@
 @extends('templates.main')
 
+@section('title', $product->title)
+
 @section('main')
     <div class="container mt-4">
         <nav class="fs-6 mt-4 mb-" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
