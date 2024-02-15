@@ -1,15 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\Views\HomeController;
-use App\Http\Controllers\Views\CategoryController;
-use App\Http\Controllers\Views\CartController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\RegisterController;
+use App\Http\Controllers\Views\CartController;
+use App\Http\Controllers\Views\CategoryController;
+use App\Http\Controllers\Views\HomeController;
+use App\Http\Controllers\Views\ProductController;
+use Illuminate\Support\Facades\Route;
 
 //admin
-use App\Http\Controllers\Admin\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,13 +26,19 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('HomePage');
 });
 Route::controller(CategoryController::class)->group(function () {
-   Route::get('/catalog', 'index')->name('CatalogPage');
-   Route::get('/catalog/{category}', 'products')->name('ProductsPage');
-   Route::get('/catalog/{category}/{product}', 'product')->name('Product');
+    Route::get('/catalog', 'index')->name('CatalogPage');
+    Route::get('/catalog/{category}', 'products')->name('ProductsPage');
+    Route::get('/catalog/{category}/{product}', 'product')->name('Product');
 });
+
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/product/{id}/addToCart', 'addToCart')->name('addToCart');
+});
+
 
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart', 'index')->name('cart');
+    Route::get('/cart/{product:id}', 'remove')->name('removeCart');
 });
 
 Route::controller(LoginController::class)->group(function () {
@@ -41,7 +48,7 @@ Route::controller(RegisterController::class)->group(function () {
     Route::get('/register', 'index')->name('register');
 });
 
-Route::controller(AdminController::class)->group(function (){
+Route::controller(AdminController::class)->group(function () {
     Route::get('/admin', 'index')->name('admin_home');
 });
 

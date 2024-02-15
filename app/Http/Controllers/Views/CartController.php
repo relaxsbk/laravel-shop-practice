@@ -3,63 +3,37 @@
 namespace App\Http\Controllers\Views;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Services\CartService;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected CartService $cartService;
+
+    public function __construct()
+    {
+        $this->cartService = new CartService();
+    }
+
+
+
     public function index()
     {
-        return view('cart');
+        $cart = $this->cartService;
+        return view('cart', ['cart' => $cart]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function remove(Product $product)
     {
-        //
+        if ($this->cartService->remove($product)) {
+
+            return back()->with('message', 'Товар успешно удалён!');
+        }
+        session()->flash('message_error', 'Товар не удалён!');
+        return back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

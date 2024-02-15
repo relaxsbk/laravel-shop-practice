@@ -21,6 +21,11 @@ class Product extends Model
         'provider_id'
     ];
 
+    public function money(): string
+    {
+        return number_format($this->price, 0, '', ' ');
+    }
+
     public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Category::class);
