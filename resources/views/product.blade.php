@@ -38,20 +38,18 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chat-fill me-1" viewBox="0 0 16 16">
                                     <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15"/>
                                 </svg>
-                                <p class="card-text mt-3 me-3">21</p>
+                                <p class="card-text ">21</p>
+
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <p class="fs-5 card-text mt-3 me-5">{{$product->price}} Р</p>
+                                <a href="#" class="btn btn-primary text-white flex-grow-1 me-5">Купить</a>
                                 <button type="button" class="btn btn-outline-danger ms-auto" data-bs-toggle="button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                         <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
                                     </svg>
                                     В избранное
                                 </button>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <p class="fs-5 card-text mt-3 me-5">55 550 Р</p>
-                                <a href="#" class="btn btn-primary text-white flex-grow-1 me-5">Купить</a>
-                                <a href="#" class="btn btn-outline-primary  flex-grow-1  " role="button" data-bs-toggle="button" >
-                                    В корзину
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -65,9 +63,9 @@
                                     Доставка
                                 </h3>
                                 <p>
-                                    Доставим по Санкт-Петербургу в течение<br>
-                                    2 часов и бесплатно. Стоимость доставки<br>
-                                    в другие города уточняйте у менеджера.
+                                    Доставим по всей России в течение<br>
+                                    нескольких дней. Стоимость доставки<br>
+                                    в свой город уточняйте у менеджера.
                                 </p>
                             </div>
                         </div>
