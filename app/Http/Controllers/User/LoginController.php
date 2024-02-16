@@ -22,7 +22,7 @@ class LoginController extends Controller
         $validated = $request->validated();
 
         if (auth()->attempt($validated)) {
-            return redirect()->route('HomePage');
+            return redirect()->route('HomePage')->with(['success' => 'Успешный вход в свой аккаунт '] );
         }
         return  back()->with(['invalid' => 'Неверный логин или пароль']);
     }
@@ -31,7 +31,7 @@ class LoginController extends Controller
     {
         auth()->logout();
 
-        return redirect()->route('HomePage');
+        return redirect()->route('HomePage')->with(['success' => 'Вы вышли из своего аккаунта '] );
     }
 
 

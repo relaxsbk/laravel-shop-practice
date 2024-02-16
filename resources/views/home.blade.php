@@ -4,9 +4,9 @@
 
 @section('main')
     {{--  Карусель  --}}
-    @if(session()->has('message'))
+    @if(session()->has('success'))
         <div class="alert alert-success" role="alert">
-            {{session()->get('message')}}
+            {{session()->get('success')}}
         </div>
     @endif
     <div id="carouselExampleCaptions" class="carousel slide mb-4 d-none d-lg-block" data-bs-ride="carousel" data-bs-interval="10000">

@@ -45,12 +45,12 @@ Route::controller(CartController::class)->middleware('cart.items.count')->group(
     Route::get('/cart/{product:id}', 'remove')->name('removeCart');
 });
 
-Route::controller(LoginController::class)->middleware('cart.items.count')->middleware(['guest'])->group(function () {
+Route::controller(LoginController::class)->middleware(['guest', 'cart.items.count'])->group(function () {
     Route::get('/login', 'index')->name('login');
     Route::post('/login', 'loginUser')->name('loginUser');
     Route::post('/logout', 'logout')->withoutMiddleware('guest')->name('logout');
 });
-Route::controller(RegisterController::class)->middleware('cart.items.count')->middleware(['guest'])->group(function () {
+Route::controller(RegisterController::class)->middleware(['guest', 'cart.items.count'])->group(function () {
     Route::get('/register', 'index')->name('register');
     Route::post('/register', 'createUser')->name('createUser');
 });

@@ -22,14 +22,13 @@ class RegisterController extends Controller
     public function createUser(RegisterRequest $request)
     {
         $validated = $request->validated();
-        dd($validated);
         $validated['password'] = Hash::make($validated['password']);
 
         $user = User::query()->create($validated);
 
         auth()->login($user);
 
-        return redirect()->route('HomePage');
+        return redirect()->route('HomePage')->with(['success' => 'Успешный вход в свой аккаунт '] );
     }
 
 

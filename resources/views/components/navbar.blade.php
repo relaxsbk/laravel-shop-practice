@@ -47,12 +47,23 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{route('login')}}">
-                        <div class="d-flex flex-column align-items-center">
-                            <img style="width: 20px;" src="{{asset('storage/static/header/profile.svg')}}" alt="heart">
-                            <span class="ms-1">Аккаунт</span>
-                        </div>
-                    </a>
+                    @if(auth()->guest())
+                        <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{route('login')}}">
+                            <div class="d-flex flex-column align-items-center">
+                                <img style="width: 20px;" src="{{asset('storage/static/header/profile.svg')}}" alt="heart">
+                                <span class="ms-1">Аккаунт</span>
+                            </div>
+                        </a>
+                    @else
+                                            {{--TODO: профиль нужен, пока заглушка--}}
+                        <form action="{{route('logout')}}" method="post" class="nav-link active d-flex align-items-center" aria-current="page">
+                            @csrf
+                            <div class="d-flex flex-column align-items-center">
+                                <button type="submit" class="btn btn-outline-danger">выход</button>
+                            </div>
+                        </form>
+                    @endif
+
                 </li>
             </ul>
         </div>
