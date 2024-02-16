@@ -23,7 +23,7 @@
                 <div class="d-flex flex-column">
                     <div class="card card-hover mb-3" style="background-color: white;">
                         <div class="card-body">
-                            <h1 class="h2 ">{{$product->title}} Apple {{$product->model}} 512Gb, A3108, синий титан</h1>
+                            <h1 class="h2 ">{{$product->title}} {{$product->brand->name}} {{$product->model}} 512Gb, A3108, синий титан</h1>
                             <p class="fs-5 text-secondary">8 ГБ, 2 SIM, OLED, 2796x1290, камера 48+12+12 Мп, NFC, 5G, GPS, 4441 мА*ч</p>
                             <div class="mb-3">
                                 <div class="d-flex">
