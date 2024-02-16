@@ -24,7 +24,8 @@ return new class extends Migration
 
             $table->text('description')->nullable();
             $table->text('img')->nullable();
-            $table->double('price')->nullable();
+            $table->double('price')->default(0);
+            $table->integer('quantity')->default(0);
             //stock_quality_id
 //            $table->foreignId('stock_id')->nullable()->constrained()->cascadeOnDelete();
 

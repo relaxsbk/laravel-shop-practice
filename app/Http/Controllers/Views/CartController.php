@@ -24,7 +24,12 @@ class CartController extends Controller
     {
 
         $cart = $this->cartService;
-        $itemsCount = count($cart->get());
+        if (session()->has('cart')) {
+            $itemsCount = count($cart->get());
+            return view('cart', ['cart' => $cart, 'itemsCount' => $itemsCount]);
+
+        }
+        $itemsCount = 0;
         return view('cart', ['cart' => $cart, 'itemsCount' => $itemsCount]);
     }
 
