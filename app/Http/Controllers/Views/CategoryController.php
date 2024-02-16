@@ -23,7 +23,7 @@ class CategoryController extends Controller
         if (is_null($category)) {
             abort(404);
         }
-        $products = $category->product()->paginate(1);
+        $products = $category->product()->paginate(10);
 
         return view('catalog_products', ['category' => $category, 'products' => $products]);
     }
