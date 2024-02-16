@@ -18,26 +18,21 @@
                     <h2 class="m-lg-3">Регистрация</h2>
                 </div>
                 <div class="card-body">
-                    <form style="width: 95%" action="*" class="m-lg-3 col-md-5 " method="post" >
+                    <form style="width: 95%" action="{{route('createUser')}}" class="m-lg-3 col-md-5 " method="post" >
                         @csrf
-                        @error('auth_error')
-                        <div class="alert alert-danger" role="alert">
-                            {{$message}}
-                        </div>
-                        @enderror
                         <div class="mb-3">
-                            <label for="firstname" class="form-label">Имя</label>
-                            <input name="firstname" value="{{old('firstname')}}" type="text" class="form-control @error('email') is-invalid @enderror" id="firstname" >
-                            @error('firstname')
+                            <label for="name" class="form-label">Имя</label>
+                            <input name="name" value="{{old('name')}}" type="text" class="form-control @error('name') is-invalid @enderror" id="name" >
+                            @error('name')
                             <div id="validationServerUsernameFeedback" class="invalid-feedback">
                                 {{$message}}
                             </div>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="lastname" class="form-label">Фамилия</label>
-                            <input name="lastname" value="{{old('email')}}" type="text" class="form-control @error('email') is-invalid @enderror" id="lastname" >
-                            @error('lastname')
+                            <label for="surname" class="form-label">Фамилия</label>
+                            <input name="surname" value="{{old('surname')}}" type="text" class="form-control @error('surname') is-invalid @enderror" id="surname" >
+                            @error('surname')
                             <div id="validationServerUsernameFeedback" class="invalid-feedback">
                                 {{$message}}
                             </div>
@@ -70,11 +65,14 @@
                             </div>
                             @enderror
                         </div>
-                        <div class="form-check mb-3">
-                            <input name="check" class="form-check-input" type="checkbox" value="" id="check">
-                            <label class="form-check-label" for="check">
-                                Запомнить меня
-                            </label>
+                        <div class="mb-3">
+                            <label for="repeat_password" class="form-label">Подтверждение пароля</label>
+                            <input name="repeat_password"  type="password" class="form-control @error('repeat_password') is-invalid @enderror" id="repeat_password" >
+                            @error('repeat_password')
+                            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-outline-success">Зарегистрироваться</button>
                     </form>

@@ -32,7 +32,7 @@
             @endif
                 @if(session()->has('message_error'))
                     <div class="alert alert-danger" role="alert">
-                        {{session()->get('message')}}
+                        {{session()->get('message_error')}}
                     </div>
                 @endif
             @if($cart->isEmpty())

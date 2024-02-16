@@ -48,6 +48,7 @@ Route::controller(CartController::class)->group(function () {
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'index')->name('login');
     Route::post('/login', 'loginUser')->name('loginUser');
+    Route::post('/logout', 'logout')->name('logout');
 });
 Route::controller(RegisterController::class)->group(function () {
     Route::get('/register', 'index')->name('register');

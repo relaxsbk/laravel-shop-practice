@@ -12,23 +12,25 @@
            </ol>
        </nav>
 
+       @if(session()->has('invalid'))
+           <div class="alert alert-danger" role="alert">
+               {{session()->get('invalid')}}
+           </div>
+       @endif
+
        <div class="row justify-content-center">
            <div class="card p-0" style="width: 40rem; background-color: #e4f1f1 ">
                <div class="card-header w-100">
                    <h2 class="m-lg-3">Вход</h2>
                </div>
                <div class="card-body">
-                   <form style="width: 95%" action="*" class="m-lg-3 col-md-5 " method="post" >
+                   <form style="width: 95%" action="{{route('loginUser')}}" class="m-lg-3 col-md-5 " method="post" >
                        @csrf
-                       @error('auth_error')
-                       <div class="alert alert-danger" role="alert">
-                           {{$message}}
-                       </div>
-                       @enderror
+
                        <div class="mb-3">
-                           <label for="email" class="form-label">Адрес электронной почты</label>
-                           <input name="email" value="{{old('email')}}" type="email" class="form-control @error('email') is-invalid @enderror" id="email" >
-                           @error('email')
+                           <label for="login" class="form-label">Логин</label>
+                           <input name="login" value="{{old('login')}}" type="text" class="form-control @error('login') is-invalid @enderror" id="login" >
+                           @error('login')
                            <div id="validationServerUsernameFeedback" class="invalid-feedback">
                                {{$message}}
                            </div>

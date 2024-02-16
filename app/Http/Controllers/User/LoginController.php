@@ -19,7 +19,19 @@ class LoginController extends Controller
 
     public function loginUser(LoginRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        if (auth()->attempt($validated)) {
+            return redirect()->route('HomePage');
+        }
+        return  back()->with(['invalid' => 'Неверный логин или пароль']);
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+
+        return redirect()->route('HomePage');
     }
 
 
