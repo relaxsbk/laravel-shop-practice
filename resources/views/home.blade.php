@@ -1,6 +1,6 @@
 @extends('templates.main')
 
-@section('title', 'Главная странциа')
+@section('title', 'Главная страница')
 
 @section('main')
     {{--  Карусель  --}}

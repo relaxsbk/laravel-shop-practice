@@ -216,7 +216,7 @@
 {{--            товары--}}
             <div class=" col-lg-9 mx-md-auto">
                <div class="row row-cols-1 row-cols-md-3 g-4">
-                   @foreach($category->product as $product)
+                   @foreach($products as $product)
                    <div class="col mb-4">
                        <div class="card card-hover" style="width: 18rem; background-color: white">
                            <div class="d-flex flex-column justify-content-center align-items-center">
@@ -259,6 +259,7 @@
 
                    </div>
                    @endforeach
+
 {{--                       <div class="col mb-4">--}}
 {{--                           <div class="card card-hover" style="width: 18rem; background-color: white">--}}
 {{--                               <div class="d-flex flex-column justify-content-center align-items-center">--}}
@@ -471,10 +472,8 @@
 {{--                       </div>--}}
 
                </div>
-                <div class="d-flex justify-content-center mt-3">
-                    <!-- Кнопка "Показать ещё" -->
-                    <button class="btn btn-primary text-white w-25">Показать ещё</button>
-                </div>
+                {{ $products->links('pagination::bootstrap-5') }}
+
 
             </div>
         </div>
