@@ -47,9 +47,11 @@ Route::controller(CartController::class)->group(function () {
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'index')->name('login');
+    Route::post('/login', 'loginUser')->name('loginUser');
 });
 Route::controller(RegisterController::class)->group(function () {
     Route::get('/register', 'index')->name('register');
+    Route::post('/register', 'createUser')->name('createUser');
 });
 
 Route::controller(AdminController::class)->group(function () {

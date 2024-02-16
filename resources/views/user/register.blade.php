@@ -44,6 +44,15 @@
                             @enderror
                         </div>
                         <div class="mb-3">
+                            <label for="login" class="form-label">Логин</label>
+                            <input name="login" value="{{old('login')}}" type="text" class="form-control @error('login') is-invalid @enderror" id="login" >
+                            @error('login')
+                            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                {{$message}}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
                             <label for="email" class="form-label">Адрес электронной почты</label>
                             <input name="email" value="{{old('email')}}" type="email" class="form-control @error('email') is-invalid @enderror" id="email" >
                             @error('email')
