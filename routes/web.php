@@ -22,10 +22,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(HomeController::class)->group(function () {
+Route::controller(HomeController::class)->middleware('cart.items.count')->group(function () {
     Route::get('/', 'index')->name('HomePage');
 });
-Route::controller(CategoryController::class)->group(function () {
+Route::controller(CategoryController::class)->middleware('cart.items.count')->group(function () {
     Route::get('/catalog', 'index')->name('CatalogPage');
     Route::get('/catalog/{category}', 'products')->name('ProductsPage');
     Route::get('/catalog/{category}/{product}', 'product')->name('Product');
@@ -36,7 +36,7 @@ Route::controller(ProductController::class)->group(function () {
 });
 
 
-Route::controller(CartController::class)->group(function () {
+Route::controller(CartController::class)->middleware('cart.items.count')->group(function () {
     Route::get('/cart', 'index')->name('cart');
     Route::get('/cart/create', 'createOrder')->middleware('auth')->name('createOrder');
     Route::get('/cart/clear', 'clear')->name('clearCart');
@@ -45,17 +45,17 @@ Route::controller(CartController::class)->group(function () {
     Route::get('/cart/{product:id}', 'remove')->name('removeCart');
 });
 
-Route::controller(LoginController::class)->group(function () {
+Route::controller(LoginController::class)->middleware('cart.items.count')->middleware(['guest'])->group(function () {
     Route::get('/login', 'index')->name('login');
     Route::post('/login', 'loginUser')->name('loginUser');
-    Route::post('/logout', 'logout')->name('logout');
+    Route::post('/logout', 'logout')->withoutMiddleware('guest')->name('logout');
 });
-Route::controller(RegisterController::class)->group(function () {
+Route::controller(RegisterController::class)->middleware('cart.items.count')->middleware(['guest'])->group(function () {
     Route::get('/register', 'index')->name('register');
     Route::post('/register', 'createUser')->name('createUser');
 });
 
-Route::controller(AdminController::class)->group(function () {
+Route::controller(AdminController::class)->middleware('cart.items.count')->group(function () {
     Route::get('/admin', 'index')->name('admin_home');
 });
 

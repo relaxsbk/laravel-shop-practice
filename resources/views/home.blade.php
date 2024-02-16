@@ -107,7 +107,7 @@
                                 <p class="card-text">21</p>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mb-2">
-                                <p class="fs-5 card-text mt-3">{{$product->money()}} Р</p>
+                                <p class="fs-5 card-text mt-3">{{$product->money()}} ₽</p>
                                 <div class="d-flex">
 
                                 </div>

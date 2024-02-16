@@ -32,11 +32,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{route('cart')}}">
+                    <a href="{{route('cart')}}"  class="position-relative text-decoration-none ">
                         <div class="d-flex flex-column align-items-center">
-                            <img style="width: 20px; height: 18px;" src="{{asset('storage/static/header/basket.svg')}}" alt="heart">
-                            <span class="ms-1">Корзина</span>
+                            <img style="width: 20px;" src="{{asset('storage/static/header/basket.svg')}}" alt="heart">
+                            <span class="ms-1 text-dark">Корзина</span>
                         </div>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{$itemsCount}}
+                            <span class="visually-hidden">товары в корзине</span>
+                          </span>
                     </a>
                 </li>
                 <li class="nav-item">

@@ -55,7 +55,7 @@
                                     </label>
                                 </div>
                                 <div class="col-auto mr-3">
-                                    <p class="card-text mb-0">{{$item->money()}} P</p>
+                                    <p class="card-text mb-0">{{$item->money()}} ₽</p>
                                 </div>
                                 <div class="col-auto">
                                     <a href="{{route('removeCart', $item)}}" class="btn btn-danger">Удалить</a>
@@ -73,16 +73,16 @@
                             <h5 class="card-title fw-bold fs-3">Итого</h5>
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <span class="card-text text-secondary">Товаров на сумму:</span>
-                                <span class="card-text fw-bold fs-5">{{$cart->getTotal()}} Р</span>
+                                <span class="card-text fw-bold fs-5">{{$cart->getTotal()}} ₽</span>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <span class="card-text text-secondary">Стоимость доставки:</span>
-                                <span class="card-text fw-bold fs-5">500 Р</span>
+                                <span class="card-text fw-bold fs-5">500 ₽</span>
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <h6 class="card-text fw-bold fs-5 mt-3">К Оплате</h6>
-                                <h6 class="card-text fw-bold fs-4">{{$cart->getTotal()}} Р</h6>
+                                <h6 class="card-text fw-bold fs-4">{{$cart->getTotal()}} ₽</h6>
                             </div>
 
                             <div class="form-check mt-auto mb-3">

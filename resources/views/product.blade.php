@@ -44,7 +44,7 @@
 
                             </div>
                             <div class="d-flex justify-content-between align-items-center mb-2">
-                                <p class="fs-5 card-text mt-3 me-5">{{$product->money()}} Р</p>
+                                <p class="fs-5 card-text mt-3 me-5">{{$product->money()}} ₽</p>
 {{--                                Отправка в корзину--}}
                                 <a href="{{route('addToCart', $product->id)}}" class="btn btn-primary text-white flex-grow-1 me-5">Купить</a>
                                 <button type="button" class="btn btn-outline-danger ms-auto" data-bs-toggle="button">

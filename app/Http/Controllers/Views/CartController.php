@@ -24,7 +24,8 @@ class CartController extends Controller
     {
 
         $cart = $this->cartService;
-        return view('cart', ['cart' => $cart]);
+        $itemsCount = count($cart->get());
+        return view('cart', ['cart' => $cart, 'itemsCount' => $itemsCount]);
     }
 
     public function remove(Product $product)
