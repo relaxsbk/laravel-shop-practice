@@ -24,7 +24,7 @@
             </form>
             <ul class="navbar-nav ms-3 me-auto mb-2 mb-lg-0 d-flex align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link active d-flex align-items-center" aria-current="page" href="#">
+                    <a class="nav-link active d-flex align-items-center" aria-current="page" href="/likes">
                         <div class="d-flex flex-column align-items-center">
                             <img style="width: 20px;" src="{{asset('storage/static/header/heart.svg')}}" alt="heart">
                             <span class="ms-1">Избранное</span>

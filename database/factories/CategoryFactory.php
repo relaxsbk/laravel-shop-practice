@@ -20,6 +20,7 @@ class CategoryFactory extends Factory
             'code' => fake()->unique()->currencyCode,
             'title' => fake()->jobTitle,
             'description' => fake()->text(120),
+            'img' => '/storage/static/homePage/category-smartphone.png',
             'is_public' => fake()->boolean(true)
         ];
     }

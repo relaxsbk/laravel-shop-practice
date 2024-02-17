@@ -86,7 +86,7 @@
                    <div class="col mb-4">
                        <div class="card card-hover" style="width: 18rem; background-color: white">
                            <div class="d-flex flex-column justify-content-center align-items-center">
-                               <img style="width: 60%" src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="card-img mt-3" alt="product">
+                               <img style="width: 60%" src="{{$product->img}}" class="card-img mt-3" alt="product">
                                <div class="card-body w-100">
                                    <h5 class="fs-6 text-secondary card-title">
                                        {{$product->category->title}}

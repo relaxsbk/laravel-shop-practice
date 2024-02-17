@@ -71,7 +71,7 @@
             @foreach( $category as $item)
                 <a href="{{route('ProductsPage', ['category' => $item->code])}}" class="card me-3 mb-4 text-bg-li card-hover text-decoration-none" style="background-color: white; width: 16rem; height: 16rem;">
                     <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
-                        <img style="width: 50%" src="{{asset('storage/static/homePage/category-smartphone.png')}}" class="card-img-top mt-3" alt="category">
+                        <img style="width: 50%" src="{{$item->img}}" class="card-img-top mt-3" alt="category">
                         <div class="card-body text-center">
                             <p class="card-text fs-5 fw-bold">{{$item->title}}</p>
                         </div>
@@ -88,7 +88,7 @@
             @foreach($products as $product)
                 <div class="card card-hover" style="width: 18rem; background-color: white">
                     <div class="d-flex flex-column justify-content-center align-items-center">
-                        <img style="width: 60%" src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="card-img mt-3" alt="product">
+                        <img style="width: 60%" src="{{$product->img}}" class="card-img mt-3" alt="product">
                         <div class="card-body w-100">
                             <h5 class="fs-6 text-secondary card-title">
                                 {{$product->category->title}}

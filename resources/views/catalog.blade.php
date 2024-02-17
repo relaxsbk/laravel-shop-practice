@@ -19,7 +19,7 @@
             @foreach($category as $item)
                 <a href="{{route('ProductsPage', ['category' => $item->code])}}" class="card me-3 mb-4 text-bg-li card-hover" style="background-color: white; width: 16rem; height: 16rem; text-decoration: none">
                     <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%;">
-                        <img style="width: 50%" src="{{asset('storage/static/homePage/category-smartphone.png')}}" class="card-img-top mt-3" alt="category">
+                        <img style="width: 50%" src="{{$item->img}}" class="card-img-top mt-3" alt="category">
                         <div class="card-body text-center">
                             <p class="card-text fs-5 fw-bold">{{$item->title}}</p>
                         </div>

@@ -23,6 +23,7 @@ class ProductFactory extends Factory
             'model' => fake()->title,
             'brand_id' => Brand::all()->random()->id, // Выбираем случайный brand_id из созданных брендов
             'description' => fake()->realText,
+            'img' => '/storage/static/homePage/card/iphone.webp',
             'price' => fake()->numberBetween(1_000, 999_999),
             'quantity' => fake()->numberBetween(1, 15),
             'rating' => fake()->numberBetween(1, 5),

@@ -14,18 +14,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::query()->create([
+            'name' => 'Павел',
+            'surname' => 'Пожидаев',
+            'login' => 'admin',
+            'email' => 'pah4n1989@gmail.com',
+            'password' => Hash::make('admin11'),
+            'role' => 'admin',
+        ]);
+
         $this->call([
             CategoriesWithProducts::class,
             UserWithReviewsProducts::class
         ]);
 
-//        User::query()->create([
-//            'name' => 'Павел',
-//            'surname' => 'Пожидаев',
-//            'login' => 'admin',
-//            'email' => 'pah4n1989@gmail.com',
-//            'password' => Hash::make('admin11'),
-//            'role' => 'admin',
-//        ]);
     }
 }
