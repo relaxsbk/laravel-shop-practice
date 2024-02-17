@@ -36,18 +36,18 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-star-fill me-1" viewBox="0 0 16 16">
                                     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                                 </svg>
-                                <p class="card-text mt-3 me-3">5</p>
+                                <p class="card-text mt-3 me-3">{{$product->rating}}</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-chat-fill me-1" viewBox="0 0 16 16">
                                     <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15"/>
                                 </svg>
-                                <p class="card-text ">21</p>
+                                <p class="card-text ">{{ $product->reviews->count()}}</p>
 
                             </div>
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <p class="fs-5 card-text mt-3 me-5">{{$product->money()}} ₽</p>
 {{--                                Отправка в корзину--}}
                                 <a href="{{route('addToCart', $product->id)}}" class="btn btn-primary text-white flex-grow-1 me-5">Купить</a>
-                                <button type="button" class="btn btn-outline-danger ms-auto" data-bs-toggle="button">
+                                <button type="button" class="btn btn-outline-danger ms-auto disabled" data-bs-toggle="button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
                                         <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
                                     </svg>
@@ -116,40 +116,45 @@
                     </h2>
                     <div id="collapseReviews" class="accordion-collapse collapse" aria-labelledby="headingReviews" data-bs-parent="#accordionExample">
                         <div class="accordion-body fs-5">
-                            <div class="border-bottom border-body">
-                                <div class="user-rating">
-                                    <p><span class="fw-bold">Пользователь 1</span> - Оценка: 5</p>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet,
-                                    consectetur adipisicing elit. Adipisci aliquid autem dolorum eligendi magnam nesciunt
-                                    nostrum obcaecati quis, reprehenderit sunt!
-                                    Ad dolore doloremque id laboriosam necessitatibus nemo rem sint ullam.
-                                </p>
-                            </div>
-                            <div class="border-bottom border-body">
-                                <div class="user-rating">
-                                    <p><span class="fw-bold">Пользователь 2</span> - Оценка: 4</p>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet,
-                                    consectetur adipisicing elit. Adipisci aliquid autem dolorum eligendi magnam nesciunt
-                                    nostrum obcaecati quis, reprehenderit sunt!
-                                    Ad dolore doloremque id laboriosam necessitatibus nemo rem sint ullam.
-                                </p>
-                            </div>
-                            <div class="border-bottom border-body">
-                                <div class="user-rating">
-                                    <p><span class="fw-bold">Пользователь 10</span> - Оценка: 2</p>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet,
-                                    consectetur adipisicing elit. Adipisci aliquid autem dolorum eligendi magnam nesciunt
-                                    nostrum obcaecati quis, reprehenderit sunt!
-                                    Ad dolore doloremque id laboriosam necessitatibus nemo rem sint ullam.
-                                </p>
-                            </div>
-            </div>
+                            @if($reviews->count() === 0)
+                                <p>Отзывов пока нет </p>
+                            @else
+                                @foreach($reviews as $review)
+                                    <div class="border-bottom border-body">
+                                        <div class="user-rating">
+                                            <p><span class="fw-bold">{{$review->user->name}}</span> - Оценка: {{$review->rating}}</p>
+                                        </div>
+                                        <p>
+                                            {{$review->review}}
+                                        </p>
+                                    </div>
+                                @endforeach
+                            @endif
+
+
+{{--                            <div class="border-bottom border-body">--}}
+{{--                                <div class="user-rating">--}}
+{{--                                    <p><span class="fw-bold">Пользователь 2</span> - Оценка: 4</p>--}}
+{{--                                </div>--}}
+{{--                                <p>--}}
+{{--                                    Lorem ipsum dolor sit amet,--}}
+{{--                                    consectetur adipisicing elit. Adipisci aliquid autem dolorum eligendi magnam nesciunt--}}
+{{--                                    nostrum obcaecati quis, reprehenderit sunt!--}}
+{{--                                    Ad dolore doloremque id laboriosam necessitatibus nemo rem sint ullam.--}}
+{{--                                </p>--}}
+{{--                            </div>--}}
+{{--                            <div class="border-bottom border-body">--}}
+{{--                                <div class="user-rating">--}}
+{{--                                    <p><span class="fw-bold">Пользователь 10</span> - Оценка: 2</p>--}}
+{{--                                </div>--}}
+{{--                                <p>--}}
+{{--                                    Lorem ipsum dolor sit amet,--}}
+{{--                                    consectetur adipisicing elit. Adipisci aliquid autem dolorum eligendi magnam nesciunt--}}
+{{--                                    nostrum obcaecati quis, reprehenderit sunt!--}}
+{{--                                    Ad dolore doloremque id laboriosam necessitatibus nemo rem sint ullam.--}}
+{{--                                </p>--}}
+{{--                            </div>--}}
+                </div>
         </div>
     </div>
 @endsection

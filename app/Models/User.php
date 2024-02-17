@@ -36,5 +36,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-
+    public function reviews(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
 }

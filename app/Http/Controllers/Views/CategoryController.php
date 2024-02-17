@@ -78,12 +78,15 @@ class CategoryController extends Controller
        $category = Category::where('code', $categoryCode)->firstOrFail();
         $product = Product::findOrFail($productID);
 
+        $reviews = $product->reviews()->get();
+
+
         // проверка на принадлежность к категории
         if ($product->category_id !== $category->id) {
             abort(404);
         }
 
-        return view('product', ['category' => $category,'product' => $product]);
+        return view('product', ['category' => $category, 'product' => $product, 'reviews' => $reviews]);
     }
     public function search(Request $request)
     {

@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            CategoriesWithProducts::class
+            CategoriesWithProducts::class,
+            UserWithReviewsProducts::class
         ]);
 
 //        User::query()->create([
