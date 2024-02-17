@@ -256,8 +256,12 @@
                                </div>
                            </div>
                        </div>
+
                    </div>
                    @endforeach
+
+
+
                </div>
                 {{ $products->withQueryString()->links('pagination::bootstrap-5') }}
 
