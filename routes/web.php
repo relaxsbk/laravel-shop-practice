@@ -26,6 +26,7 @@ Route::controller(HomeController::class)->middleware('cart.items.count')->group(
     Route::get('/', 'index')->name('HomePage');
 });
 Route::controller(CategoryController::class)->middleware('cart.items.count')->group(function () {
+    Route::get('/search', 'search')->name('search');
     Route::get('/catalog', 'index')->name('CatalogPage');
     Route::get('/catalog/{category}', 'products')->name('ProductsPage');
     Route::get('/catalog/{category}/{product}', 'product')->name('Product');

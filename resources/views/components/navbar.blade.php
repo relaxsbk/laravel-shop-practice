@@ -18,8 +18,8 @@
                     </a>
                 </li>
             </ul>
-            <form class="d-flex w-100 align-items-center" role="search">
-                <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
+            <form action="{{ route('search') }}" class="d-flex w-100 align-items-center" role="search">
+                <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск" name="search" @if(isset($_GET['search'])) value="{{$_GET['search']}}" @endif >
                 <button class="btn btn-outline-success" type="submit">Поиск</button>
             </form>
             <ul class="navbar-nav ms-3 me-auto mb-2 mb-lg-0 d-flex align-items-center">

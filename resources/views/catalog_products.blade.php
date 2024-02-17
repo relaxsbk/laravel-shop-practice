@@ -17,203 +17,69 @@
     <div  class="container mt-5">
         <h2 class="h2 fw-bold mt-4 mb-4">{{$category->title}}</h2>
         <div  class="row">
-{{--            фильтры--}}
+            {{-- Фильтры --}}
             <div class="col-lg-3">
                 <div class="card">
                     <div style="background-color: #CBF3F3" class="card-header">
-                        <button style="text-decoration: none; "  class="btn btn-link text-black w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#priceFilter" aria-expanded="true" aria-controls="priceFilter">
-                            Цена
+                        <button style="text-decoration: none; "  class="btn btn-link text-black w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#filtersCollapse" aria-expanded="true" aria-controls="filtersCollapse">
+                            Настройки фильтров
                         </button>
                     </div>
-                    <div class="card-body collapse show" id="priceFilter">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text">от</span>
-                            <input type="text" class="form-control" placeholder="2000">
-                            <span class="input-group-text">-</span>
-                            <span class="input-group-text">до</span>
-                            <input type="text" class="form-control" placeholder="999999">
-                        </div>
-                        <input type="range" class="form-range mb-3">
-                        <button class="btn btn-primary text-white w-100">Применить</button>
-                    </div>
-                </div>
+                    <div class="card-body collapse show" id="filtersCollapse">
+                        <form action="{{ route('ProductsPage', $category->code) }}" method="GET">
+                            {{-- Фильтр по цене --}}
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">от</span>
+                                <input type="number" class="form-control" name="min_price" placeholder="0" value="{{ request()->input('min_price') }}">
+                                <span class="input-group-text">-</span>
+                                <input type="number" class="form-control" name="max_price" placeholder="999999" value="{{ request()->input('max_price') }}">
+                            </div>
 
-                <div class="card mt-3">
-                    <div style="background-color: #CBF3F3" class="card-header">
-                        <button style="text-decoration: none; " class="btn btn-link text-black w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#brandFilter" aria-expanded="true" aria-controls="brandFilter">
-                            Бренд
-                        </button>
-                    </div>
-                    <div class="card-body collapse" id="brandFilter">
-                        <label>
-                            <select class="form-select mb-3">
-                                <option selected>Выберите бренд</option>
-                                <option value="1">Iphone</option>
-                                <option value="2">Samsung</option>
-                                <option value="3">Realmy</option>
-                            </select>
-                        </label>
-                    </div>
-                </div>
-                <div class="card mt-3">
-                    <div style="background-color: #CBF3F3" class="card-header">
-                        <button style="text-decoration: none; " class="btn btn-link text-black w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#featuresFilter" aria-expanded="true" aria-controls="featuresFilter">
-                            Объем встроенной памяти (ГБ)
-                        </button>
-                    </div>
-                    <div class="card-body collapse" id="featuresFilter">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                16 ГБ
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                                32 ГБ
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                64 ГБ
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                                128 ГБ
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                256 ГБ
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                                512 ГБ
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                1024 ГБ
-                            </label>
-                        </div>
+                            {{-- Фильтр по брендам --}}
+                            <div class="card mt-3">
+                                <div style="background-color: #CBF3F3" class="card-header">
+                                    <button style="text-decoration: none; " class="btn btn-link text-black w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#brandFilter" aria-expanded="true" aria-controls="brandFilter">
+                                        Бренд
+                                    </button>
+                                </div>
+                                <div class="card-body collapse" id="brandFilter">
+                                    @foreach($brands as $brand)
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="brands[]" value="{{ $brand->id }}" id="brand{{ $brand->id }}" {{ request()->has('brands') && in_array($brand->id, request()->input('brands')) ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="brand{{ $brand->id }}">
+                                                {{ $brand->name }}
+                                            </label>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
 
-                    </div>
-                </div>
-                <div class="card mt-3">
-                    <div style="background-color: #CBF3F3" class="card-header">
-                        <button style="text-decoration: none; " class="btn btn-link text-black w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#RAM" aria-expanded="true" aria-controls="featuresFilter">
-                            Объем оперативной памяти (ГБ)
-                        </button>
-                    </div>
-                    <div class="card-body collapse" id="RAM">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                2 ГБ
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                                3 ГБ
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                4 ГБ
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                                6 ГБ
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                8 ГБ
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                                12 ГБ
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                16 ГБ
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mt-3">
-                    <div style="background-color: #CBF3F3" class="card-header">
-                        <button style="text-decoration: none; " class="btn btn-link text-black w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#NFC" aria-expanded="true" aria-controls="featuresFilter">
-                            NFC
-                        </button>
-                    </div>
-                    <div class="card-body collapse" id="NFC">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                Есть
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                                Нет
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mt-3">
-                    <div style="background-color: #CBF3F3" class="card-header">
-                        <button style="text-decoration: none; " class="btn btn-link text-black w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#Vsync" aria-expanded="true" aria-controls="featuresFilter">
-                            Частота обновления экрана (Гц)
-                        </button>
-                    </div>
-                    <div class="card-body collapse" id="Vsync">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                                60 Гц
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                                90 Гц
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                                120 Гц
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                            <label class="form-check-label" for="defaultCheck2">
-                                144 Гц
-                            </label>
-                        </div>
+                            {{-- Фильтр по названию --}}
+                            <div class="card mt-3">
+                                <div style="background-color: #CBF3F3" class="card-header">
+                                    <button style="text-decoration: none; " class="btn btn-link text-black w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#featuresFilter" aria-expanded="true" aria-controls="featuresFilter">
+                                        Название
+                                    </button>
+                                </div>
+                                <div class="card-body collapse" id="featuresFilter">
+                                    <label>
+                                        <select class="form-select mb-3" name="name_order">
+                                            <option selected></option>
+                                            <option value="1" {{ request()->input('name_order') == '1' ? 'selected' : '' }}>В алфавитном порядке</option>
+                                            <option value="2" {{ request()->input('name_order') == '2' ? 'selected' : '' }}>В обратном алфавитном порядке</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary text-white w-100 mt-3">Применить</button>
+                        </form>
                     </div>
                 </div>
             </div>
-{{--            товары--}}
+
+
+
+            {{--            товары--}}
             <div class=" col-lg-9 mx-md-auto">
                <div class="row row-cols-1 row-cols-md-3 g-4">
                    @foreach($products as $product)
@@ -223,10 +89,13 @@
                                <img style="width: 60%" src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="card-img mt-3" alt="product">
                                <div class="card-body w-100">
                                    <h5 class="fs-6 text-secondary card-title">
-                                       {{$category->title}}
+                                       {{$product->category->title}}
+                                   </h5>
+                                   <h5 class="fs-6 text-secondary card-title">
+                                       {{$product->brand->name}}
                                    </h5>
                                    <p class="fs-5 card-text">
-                                       <a href="{{route('Product', ['category' => $category->code, 'product' => $product->id])}}" class="custom-link">{{$product->title}}</a>
+                                       <a href="{{route('Product', ['category' => $product->category->code, 'product' => $product->id])}}" class="custom-link">{{$product->title}}</a>
                                    </p>
                                    <div class="d-flex align-items-center mb-2">
                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-star-fill me-1" viewBox="0 0 16 16">
@@ -239,7 +108,7 @@
                                        <p class="card-text">21</p>
                                    </div>
                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                       <p class="fs-5 card-text mt-3">{{$product->money()}} Р</p>
+                                       <p class="fs-5 card-text mt-3">{{$product->money()}} ₽</p>
                                        <div class="d-flex">
 
 
@@ -263,7 +132,7 @@
 
 
                </div>
-                {{ $products->withQueryString()->links('pagination::bootstrap-5') }}
+                {{ $products->links('pagination::bootstrap-5') }}
 
 
             </div>

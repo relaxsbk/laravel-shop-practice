@@ -54,9 +54,7 @@
                                     <h5 class="card-title mb-0">{{$item->title}}</h5>
                                 </div>
                                 <div class="col-auto mr-3">
-                                    <label>
-                                        <input type="number" value="1" class="form-control ">
-                                    </label>
+                                        <p  class="card-title mb-0"> 1 Шт.</p>
                                 </div>
                                 <div class="col-auto mr-3">
                                     <p class="card-text mb-0">{{$item->money()}} ₽</p>
@@ -81,7 +79,7 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <span class="card-text text-secondary">Стоимость доставки:</span>
-                                <span class="card-text fw-bold fs-5">500 ₽</span>
+                                <span class="card-text fw-bold fs-5">Бесплатно</span>
                             </div>
                             <hr>
                             <div class="d-flex justify-content-between align-items-center mb-2">
