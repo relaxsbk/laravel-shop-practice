@@ -10,7 +10,8 @@ class Brand extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'is_public'
     ];
 
     public function product(): \Illuminate\Database\Eloquent\Relations\HasMany

@@ -55,7 +55,7 @@
                        </div>
                        <div class="form-check mb-3">
                            <input name="check" class="form-check-input" type="checkbox" value="" id="check">
-                           <label class="form-check-label" for="check">
+                           <label class="form-check-label disabled" for="check">
                                Запомнить меня
                            </label>
                        </div>

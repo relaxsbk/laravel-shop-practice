@@ -33,9 +33,10 @@ return new class extends Migration
 
             //provider_id
             $table->foreignId('provider_id')->nullable()->constrained()->cascadeOnDelete();
+
             //procurement_id
 //            $table->foreignId('procurement_id')->nullable()->constrained()->cascadeOnDelete();
-
+            $table->boolean('is_public')->default(false);
             $table->timestamps();
         });
     }

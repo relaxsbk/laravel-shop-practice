@@ -27,6 +27,7 @@ class ProductFactory extends Factory
             'price' => fake()->numberBetween(1_000, 999_999),
             'quantity' => fake()->numberBetween(1, 15),
             'rating' => fake()->numberBetween(1, 5),
+            'is_public' => fake()->boolean(),
         ];
     }
 }

@@ -24,6 +24,8 @@ class CategoryController extends Controller
 
         $products = $category->product();
 
+        $products->where('is_public', 1);
+
         // Фильтрация по цене, если хотя бы одно поле заполнено
         if ($request->filled('min_price') || $request->filled('max_price')) {
             $minPrice = $request->input('min_price');
@@ -86,13 +88,18 @@ class CategoryController extends Controller
             abort(404);
         }
 
+        if ($product->is_public === 0) {
+            abort(404);
+        }
+
         return view('product', ['category' => $category, 'product' => $product, 'reviews' => $reviews]);
     }
     public function search(Request $request)
     {
         $query = $request->input('search');
 
-        $products = Product::where('title', 'like', '%'.$query.'%')
+        $products = Product::where('is_public', 1)
+            ->where('title', 'like', '%'.$query.'%')
             ->paginate(9);
 
         return view('search_results', ['products' => $products, 'query' => $query]);

@@ -13,11 +13,17 @@
 @section('admin_content')
     <h2>Создать товар</h2>
     <div class="card-body">
-        <form style="width: 95%" action="{{route('create.Product')}}" class="m-lg-3 col-md-5 " method="post" >
+        <form style="width: 95%" action="{{route('Form_createProduct')}}" class="m-lg-3 col-md-5 " method="post" >
             @csrf
             <div class="mb-3">
                 <label for="category" class="form-label">Категория</label>
-                <input name="category" value="{{old('category')}}" type="text" class="form-control @error('category') is-invalid @enderror" id="category" >
+                <select name="category_id" class="form-select form-select-lg mb-3 @error('category') is-invalid @enderror" aria-label="Пример большого выбора" id="category">
+                    <option selected>Выбор категории</option>
+                    @foreach($categories as $category)
+                        <option  value="{{$category->id}}">{{$category->title}}</option>
+
+                    @endforeach
+                </select>
                 @error('category')
                 <div id="validationServerUsernameFeedback" class="invalid-feedback">
                     {{$message}}
@@ -44,7 +50,13 @@
             </div>
             <div class="mb-3">
                 <label for="brand" class="form-label">Бренд</label>
-                <input name="brand" value="{{old('brand')}}" type="text" class="form-control @error('brand') is-invalid @enderror" id="brand" >
+                <select name="brand_id" class="form-select form-select-lg mb-3 @error('category') is-invalid @enderror" aria-label="Пример большого выбора" id="brand">
+                    <option selected>Выбор бренда</option>
+                    @foreach($brands as $brand)
+                        <option value="{{$brand->id}}">{{$brand->name}}</option>
+
+                    @endforeach
+                </select>
                 @error('brand')
                 <div id="validationServerUsernameFeedback" class="invalid-feedback">
                     {{$message}}
@@ -53,7 +65,7 @@
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Описание</label>
-                <input name="description" value="{{old('name')}}" type="text" class="form-control @error('description') is-invalid @enderror" id="description" >
+                <input name="description" value="{{old('description')}}" type="text" class="form-control @error('description') is-invalid @enderror" id="description" >
                 @error('description')
                 <div id="validationServerUsernameFeedback" class="invalid-feedback">
                     {{$message}}
@@ -63,7 +75,7 @@
             <div class="mb-3">
 {{--                TODO: файл инпут--}}
                 <label for="img" class="form-label">Изображение</label>
-                <input name="img" value="{{old('img')}}" type="text" class="form-control @error('img') is-invalid @enderror" id="img" >
+                <input class="form-control" type="file" id="img">
                 @error('img')
                 <div id="validationServerUsernameFeedback" class="invalid-feedback">
                     {{$message}}
@@ -79,7 +91,17 @@
                 </div>
                 @enderror
             </div>
-
+            <div class="form-check mb-3">
+                <input name="is_public" class="form-check-input @error('is_public') is-invalid @enderror" type="checkbox"  id="is_public">
+                <label class="form-check-label disabled" for="is_public">
+                    Опубликовать
+                </label>
+            </div>
+            @error('is_public')
+            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                {{$message}}
+            </div>
+            @enderror
 
             <button type="submit" class="btn btn-outline-success">Создать</button>
         </form>

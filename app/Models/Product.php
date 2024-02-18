@@ -19,7 +19,8 @@ class Product extends Model
         'price',
         'quantity',
         'rating',
-        'provider_id'
+        'provider_id',
+        'is_public'
     ];
 
     public function money(): string

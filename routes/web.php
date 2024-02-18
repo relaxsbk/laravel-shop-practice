@@ -69,7 +69,7 @@ Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth
         Route::controller(ProductController::class)->middleware(['auth.admin'])->group(function (){
             Route::get('/products', 'index')->name('admin.products');// форма
             Route::get('/products/create', 'createProduct')->name('createProduct');// форма
-            Route::post('/products/create', 'store')->name('create.Product');// выполнение
+            Route::post('/products/create', 'store')->name('Form_createProduct');// выполнение
         });
 //    Route::get('/', 'index')->name('admin_home');
 //    Route::get('/', 'index')->name('admin_home');
