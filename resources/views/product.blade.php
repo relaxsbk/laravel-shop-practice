@@ -24,7 +24,7 @@
         @endif
         <div class="d-flex flex-column flex-md-row">
             <div class="flex-shrink-0 pe-lg-4 mb-3 mb-md-0" style="max-width: 100%;">
-                <img src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="img-fluid w-100" alt="Product Image">
+                <img src="{{$product->img}}" class="img-fluid w-100" style="max-width: 366px; height: auto;" alt="Product Image">
             </div>
             <div class="flex-grow-1 ps-lg-4">
                 <div class="d-flex flex-column">

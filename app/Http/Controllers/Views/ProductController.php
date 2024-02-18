@@ -55,9 +55,13 @@ class ProductController extends Controller
         $isPublic = $request->has('is_public') ? 1 : 0;
         $validated['is_public'] = $isPublic;
 
+
         if ($request->hasFile('img')) {
-            $validated['img'] = $request->file('img')->store('product/images');
+            $validated['img'] = "/storage/{$request->file('img')->store('product/images', 'public')}";
         }
+
+
+
 
         $product = Product::query()->create($validated);
         return redirect()->route('admin.products')->with(['message' => "Продукт \"$product->title \" успешно добавлен "]);

@@ -27,7 +27,7 @@ class ProductRequest extends FormRequest
             'model' => ['required', 'max:100'],
             'brand_id' => ['required', 'exists:brands,id'],
             'description' => ['required'],
-            'img' => ['nullable', 'mimes:jpg,png,jpeg', 'max:5000'],
+            'img' => ['nullable', 'max:5000'],
             'price' => ['required', 'numeric', 'min:0'],
             'is_public' => ['nullable'],
         ];

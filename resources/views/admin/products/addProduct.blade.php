@@ -13,7 +13,7 @@
 @section('admin_content')
     <h2>Создать товар</h2>
     <div class="card-body">
-        <form style="width: 95%" action="{{route('Form_createProduct')}}" class="m-lg-3 col-md-5 " method="post" >
+        <form style="width: 95%" action="{{route('Form_createProduct')}}" class="m-lg-3 col-md-5 " method="post"  enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="category" class="form-label">Категория</label>
@@ -74,7 +74,7 @@
             </div>
             <div class="mb-3">
                 <label for="img" class="form-label">Изображение</label>
-                <input class="form-control" type="file" id="img">
+                <input name="img" class="form-control  @error('img') is-invalid @enderror" type="file" id="img">
                 @error('img')
                 <div id="validationServerUsernameFeedback" class="invalid-feedback">
                     {{$message}}
