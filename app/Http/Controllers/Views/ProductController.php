@@ -35,9 +35,9 @@ class ProductController extends Controller
     {
         return view('admin.products.products');
     }
-    public function productDontPublic()
+    public function noPublish()
     {
-        //
+        return view('admin.products.products_noPublish');
     }
 
     public function createProduct()

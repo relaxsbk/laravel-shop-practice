@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\Views\BrandController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\RegisterController;
@@ -64,11 +66,27 @@ Route::controller(ProfileController::class)->middleware(['cart.items.count'])->g
 
 Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth.admin'])->prefix('admin')->group(function () {
     Route::get('/', 'index')->name('admin_home');
-//    TODO: сделать разные группы для заказов и категорий
     Route::get('/orders', 'orders')->name('admin_orders');
+
+
+        Route::controller(AdminCategoryController::class)->middleware(['auth.admin'])->group(function (){
+            Route::get('/category', 'index')->name('admin.category');
+            Route::get('/category/NoPublish', 'noPublish')->name('admin.category.NoPublish');
+            Route::get('/category/create', 'createCategory')->name('admin.createCategory');// форма
+            Route::post('/category/create', 'store')->name('Form_createCategory');// выполнение
+        });
+
+        Route::controller(BrandController::class)->middleware(['auth.admin'])->group(function (){
+            Route::get('/brands', 'index')->name('admin.brands');
+            Route::get('/brands/NoPublish', 'noPublish')->name('admin.brands.NoPublish');
+            Route::get('/brands/create', 'createBrand')->name('admin.createBrand');// форма
+            Route::post('/brands/create', 'store')->name('Form_createBrand');// выполнение
+        });
+
         Route::controller(ProductController::class)->middleware(['auth.admin'])->group(function (){
-            Route::get('/products', 'index')->name('admin.products');// форма
-            Route::get('/products/create', 'createProduct')->name('createProduct');// форма
+            Route::get('/products/', 'index')->name('admin.products');
+            Route::get('/products/NoPublish', 'noPublish')->name('admin.products.NoPublish');
+            Route::get('/products/create', 'createProduct')->name('admin.createProduct');// форма
             Route::post('/products/create', 'store')->name('Form_createProduct');// выполнение
         });
 //    Route::get('/', 'index')->name('admin_home');

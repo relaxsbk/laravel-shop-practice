@@ -19,7 +19,22 @@
 
 <main class="flex-grow-1 mt-5 mb-5">
        <div class="container  mt-5">
+
            @yield('nav_bread')
+           @if(session()->has('message'))
+               <div class="alert alert-success" role="alert">
+                   <div class="container">
+                       {{session()->get('message')}}
+                   </div>
+               </div>
+           @endif
+           @if(session()->has('message_errors'))
+               <div class="alert alert-danger" role="alert">
+                   <div class="container">
+                       {{session()->get('message_errors')}}
+                   </div>
+               </div>
+           @endif
            <div class="row">
                <!-- Sidebar -->
                <div class="col-md-3">

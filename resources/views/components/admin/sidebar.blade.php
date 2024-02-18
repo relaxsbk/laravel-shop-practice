@@ -18,13 +18,13 @@
         </li>
         <li class="mb-1">
             <button class="btn btn-toggle fs-4 align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
-                Каталог
+                Категория
             </button>
             <div class="collapse" id="home-collapse" >
                 <ul class="btn-toggle-nav fs-6 list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="nav-link link-dark rounded">Обзор</a></li>
-                    <li><a href="#" class="nav-link link-dark rounded">Неопубликованные</a></li>
-                    <li><a href="#" class="nav-link link-dark rounded">Создать...</a></li>
+                    <li><a href="{{route('admin.category')}}" class="nav-link link-dark rounded">Обзор</a></li>
+                    <li><a href="{{route('admin.category.NoPublish')}}" class="nav-link link-dark rounded">Неопубликованные</a></li>
+                    <li><a href="{{route('admin.createCategory')}}" class="nav-link link-dark rounded">Создать...</a></li>
                 </ul>
             </div>
         </li>
@@ -34,9 +34,9 @@
             </button>
             <div class="collapse" id="brand-collapse" >
                 <ul class="btn-toggle-nav fs-6 list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="nav-link link-dark rounded">Обзор</a></li>
-                    <li><a href="#" class="nav-link link-dark rounded">Неопубликованные</a></li>
-                    <li><a href="#" class="nav-link link-dark rounded">Создать...</a></li>
+                    <li><a href="{{route('admin.brands')}}" class="nav-link link-dark rounded">Обзор</a></li>
+                    <li><a href="{{route('admin.brands.NoPublish')}}" class="nav-link link-dark rounded">Неопубликованные</a></li>
+                    <li><a href="{{route('admin.createBrand')}}" class="nav-link link-dark rounded">Создать...</a></li>
                 </ul>
             </div>
         </li>
@@ -47,8 +47,8 @@
             <div class="collapse" id="dashboard-collapse">
                 <ul class="btn-toggle-nav fs-6 list-unstyled fw-normal pb-1 small">
                     <li><a href="{{route('admin.products')}}" class="nav-link link-dark rounded">Обзор</a></li>
-                    <li><a href="#" class="nav-link link-dark rounded">Неопубликованные</a></li>
-                    <li><a href="{{route('createProduct')}}" class="nav-link link-dark rounded">Создать...</a></li>
+                    <li><a href="{{route('admin.products.NoPublish')}}" class="nav-link link-dark rounded">Неопубликованные</a></li>
+                    <li><a href="{{route('admin.createProduct')}}" class="nav-link link-dark rounded">Создать...</a></li>
                 </ul>
             </div>
         </li>

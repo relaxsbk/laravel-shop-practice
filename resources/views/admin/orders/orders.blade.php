@@ -13,7 +13,13 @@
 @section('admin_content')
     <h2>Заказы</h2>
     @if($orders->isEmpty())
-        <h2 class="fs-2">Заказов нет</h2>
+
+        <div class="alert alert-danger" role="alert">
+            <div class="container fs-2">
+               Заказов нет
+            </div>
+
+        </div>
     @else
         <table class="table">
             <thead>

@@ -73,7 +73,6 @@
                 @enderror
             </div>
             <div class="mb-3">
-{{--                TODO: файл инпут--}}
                 <label for="img" class="form-label">Изображение</label>
                 <input class="form-control" type="file" id="img">
                 @error('img')
