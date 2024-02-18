@@ -12,7 +12,7 @@
 
 @section('admin_content')
     <h2>Список всех продуктов</h2>
-    @if(!$products->isEmpty())
+    @if($products->isEmpty())
         <div class="alert alert-danger" role="alert">
             <div class="container fs-2">
                 Список товаров пуст...
