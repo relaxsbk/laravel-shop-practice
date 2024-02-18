@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\User\LoginController;
+use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\RegisterController;
 use App\Http\Controllers\Views\CartController;
 use App\Http\Controllers\Views\CategoryController;
@@ -55,6 +56,11 @@ Route::controller(RegisterController::class)->middleware(['guest', 'cart.items.c
     Route::get('/register', 'index')->name('register');
     Route::post('/register', 'createUser')->name('createUser');
 });
+
+Route::controller(ProfileController::class)->middleware(['cart.items.count'])->group(function () {
+    Route::get('/profile', 'index')->name('profile');
+});
+
 
 Route::controller(AdminController::class)->middleware('cart.items.count')->group(function () {
     Route::get('/admin', 'index')->name('admin_home');

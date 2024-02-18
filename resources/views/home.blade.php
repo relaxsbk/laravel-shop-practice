@@ -6,7 +6,9 @@
     {{--  Карусель  --}}
     @if(session()->has('success'))
         <div class="alert alert-success" role="alert">
-            {{session()->get('success')}}
+            <div class="container">
+                {{session()->get('success')}}
+            </div>
         </div>
     @endif
     <div id="carouselExampleCaptions" class="carousel slide mb-4 d-none d-lg-block" data-bs-ride="carousel" data-bs-interval="10000">
