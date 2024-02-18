@@ -12,10 +12,13 @@
 
 @section('admin_content')
     <h2>Список всех категорий</h2>
-{{--    TODO: оформить в виде таблицы--}}
-{{--    @if($orders->isEmpty())--}}
-{{--        <h2 class="fs-2">Заказов нет</h2>--}}
-{{--    @else--}}
+
+    @if($categories->isEmpty())
+        <div class="alert alert-danger" role="alert">
+            <div class="container fs-2">
+                Список категорий пуст...
+            </div>
+    @else
         <table class="table">
             <thead>
             <tr>
@@ -23,7 +26,7 @@
                 <th scope="col">code</th>
                 <th scope="col">Картинка</th>
                 <th scope="col">Заголовок</th>
-                <th scope="col">Готовность</th>
+                <th scope="col">Публикация</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
             </tr>
@@ -58,6 +61,6 @@
 {{--                    </tr>--}}
             </tbody>
         </table>
-{{--    @endif--}}
+    @endif
 
 @endsection

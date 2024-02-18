@@ -33,7 +33,9 @@ class ProductController extends Controller
 
     public function index()
     {
-        return view('admin.products.products');
+        $products = Product::query()->paginate(15);
+
+        return view('admin.products.products', compact('products'));
     }
     public function noPublish()
     {

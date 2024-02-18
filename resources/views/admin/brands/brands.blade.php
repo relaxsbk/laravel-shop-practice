@@ -12,48 +12,38 @@
 
 @section('admin_content')
     <h2>Список всех брендов</h2>
-{{--    TODO: оформить в виде таблицы--}}
-{{--    @if($orders->isEmpty())--}}
-{{--        <h2 class="fs-2">Заказов нет</h2>--}}
-{{--    @else--}}
-{{--        <table class="table">--}}
-{{--            <thead>--}}
-{{--            <tr>--}}
-{{--                <th scope="col">№ продукта</th>--}}
-{{--                <th scope="col">Status</th>--}}
-{{--                <th scope="col">login</th>--}}
-{{--                <th scope="col">Total</th>--}}
-{{--                <th scope="col"></th>--}}
-{{--                <th scope="col"></th>--}}
-{{--                <th scope="col"></th>--}}
-{{--            </tr>--}}
-{{--            </thead>--}}
-{{--            <tbody>--}}
-{{--            @foreach($orders as $order)--}}
-{{--                <tr>--}}
-{{--                    <th scope="row">{{$order->id}}</th>--}}
-{{--                    <td>{{$order->status}}</td>--}}
-{{--                    <td>{{$order->user->login}}</td>--}}
-{{--                    <td>{{$order->moneyTotal()}} ₽</td>--}}
-{{--                    <td><a class="btn btn-outline-primary">Доставка</a></td>--}}
-{{--                    <td><a class="btn btn-outline-success">Выполнить</a></td>--}}
-{{--                    <td><a class="btn btn-outline-danger">Отклонить</a></td>--}}
-{{--                </tr>--}}
-{{--            @endforeach--}}
+    @if($brands->isEmpty())
+        <div class="alert alert-danger" role="alert">
+            <div class="container fs-2">
+                Список брендов пуст...
+            </div>
+    @else
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">№ бренда</th>
+            <th scope="col">Картинка</th>
+            <th scope="col">Заголовок</th>
+            <th scope="col">Публикация</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($brands as $brand)
+            <tr>
+                <th scope="row">{{$brand->id}}</th>
+                <td><img style="max-width: 100%; height: 35px" src="{{$brand->img}}" alt="brand"></td>
+                <td>{{$brand->name}}</td>
+                <td>потом</td>
+                <td><a class="btn btn-outline-warning">Изменить</a></td>
+                <td><a class="btn btn-outline-danger">Удалить</a></td>
+            </tr>
+        @endforeach
+        {{ $brands->links('pagination::bootstrap-5') }}
 
-{{--            --}}{{--        <tr>--}}
-{{--            --}}{{--            <th scope="row">2</th>--}}
-{{--            --}}{{--            <td>Jacob</td>--}}
-{{--            --}}{{--            <td>Thornton</td>--}}
-{{--            --}}{{--            <td>@fat</td>--}}
-{{--            --}}{{--        </tr>--}}
-{{--            --}}{{--        <tr>--}}
-{{--            --}}{{--            <th scope="row">3</th>--}}
-{{--            --}}{{--            <td colspan="2">Larry the Bird</td>--}}
-{{--            --}}{{--            <td>@twitter</td>--}}
-{{--            --}}{{--        </tr>--}}
-{{--            </tbody>--}}
-{{--        </table>--}}
-{{--    @endif--}}
+        </tbody>
+    </table>
+    @endif
 
 @endsection
