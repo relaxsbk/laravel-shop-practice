@@ -45,9 +45,14 @@ class CartController extends Controller
 
     public function createOrder()
     {
+        // Получаем общую сумму заказа из сервиса корзины
+        $total = $this->cartService->getTotal();
+        // Убираем пробелы из строки с общей суммой заказа
+        $total = str_replace(' ', '', $total);
+
         $order = Order::query()->create([
             'user_id' => auth()->user()->getAuthIdentifier(),
-            'total' => $this->cartService->getTotal()
+            'total' => $total,
         ]);
 
         foreach ($this->cartService->get() as $item) {
@@ -59,7 +64,7 @@ class CartController extends Controller
 
         $this->cartService->clear();
 
-        return redirect()->route('HomePage')->with('message', 'Заказ зарегистрирован');
+        return redirect()->route('HomePage')->with('success', 'Заказ зарегистрирован');
 
 
     }

@@ -6,6 +6,17 @@
     </a>
     <ul class="list-unstyled ps-0">
         <li class="mb-1">
+            <button class="btn btn-toggle fs-4 align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#order-collapse" aria-expanded="false">
+                Заказы
+            </button>
+            <div class="collapse" id="order-collapse" >
+                <ul class="btn-toggle-nav fs-6 list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="nav-link link-dark rounded">Список всех заказов</a></li>
+                    <li><a href="#" class="nav-link link-dark rounded">Отклонённые</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="mb-1">
             <button class="btn btn-toggle fs-4 align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
                 Каталог
             </button>

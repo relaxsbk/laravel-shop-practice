@@ -56,12 +56,12 @@
                         </a>
                     @else
                                             {{--TODO: профиль нужен, пока заглушка--}}
-                        <form action="{{route('logout')}}" method="post" class="nav-link active d-flex align-items-center" aria-current="page">
-                            @csrf
+                        <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{route('profile')}}">
                             <div class="d-flex flex-column align-items-center">
-                                <button type="submit" class="btn btn-outline-danger">выход</button>
+                                <img style="width: 20px;" src="{{asset('storage/static/header/profile.svg')}}" alt="heart">
+                                <span class="ms-1 fw-bold">{{auth()->user()->login}}</span>
                             </div>
-                        </form>
+                        </a>
                     @endif
 
                 </li>
