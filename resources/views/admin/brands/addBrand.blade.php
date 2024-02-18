@@ -5,15 +5,15 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('HomePage')}}">ГиперКвант</a></li>
             <li class="breadcrumb-item active" aria-current="page">,<a href="{{route('admin_home')}}">Панель Администрирования</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Создать товар</li>
+            <li class="breadcrumb-item active" aria-current="page">Создать бренд</li>
         </ol>
     </nav>
 @endsection
 
 @section('admin_content')
-    <h2>Создать товар</h2>
+    <h2>Создать Бренд</h2>
     <div class="card-body">
-        <form style="width: 95%" action="{{route('Form_createProduct')}}" class="m-lg-3 col-md-5 " method="post" >
+        <form style="width: 95%" action="{{route('Form_createBrand')}}" class="m-lg-3 col-md-5 " method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Заголовок</label>
@@ -26,7 +26,7 @@
             </div>
             <div class="mb-3">
                 <label for="img" class="form-label">Изображение</label>
-                <input class="form-control" type="file" id="img">
+                <input name="img" class="form-control @error('img') is-invalid @enderror " type="file" id="img">
                 @error('img')
                 <div id="validationServerUsernameFeedback" class="invalid-feedback">
                     {{$message}}

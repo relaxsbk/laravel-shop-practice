@@ -16,44 +16,48 @@
 {{--    @if($orders->isEmpty())--}}
 {{--        <h2 class="fs-2">Заказов нет</h2>--}}
 {{--    @else--}}
-{{--        <table class="table">--}}
-{{--            <thead>--}}
-{{--            <tr>--}}
-{{--                <th scope="col">№ продукта</th>--}}
-{{--                <th scope="col">Status</th>--}}
-{{--                <th scope="col">login</th>--}}
-{{--                <th scope="col">Total</th>--}}
-{{--                <th scope="col"></th>--}}
-{{--                <th scope="col"></th>--}}
-{{--                <th scope="col"></th>--}}
-{{--            </tr>--}}
-{{--            </thead>--}}
-{{--            <tbody>--}}
-{{--            @foreach($orders as $order)--}}
-{{--                <tr>--}}
-{{--                    <th scope="row">{{$order->id}}</th>--}}
-{{--                    <td>{{$order->status}}</td>--}}
-{{--                    <td>{{$order->user->login}}</td>--}}
-{{--                    <td>{{$order->moneyTotal()}} ₽</td>--}}
-{{--                    <td><a class="btn btn-outline-primary">Доставка</a></td>--}}
-{{--                    <td><a class="btn btn-outline-success">Выполнить</a></td>--}}
-{{--                    <td><a class="btn btn-outline-danger">Отклонить</a></td>--}}
-{{--                </tr>--}}
-{{--            @endforeach--}}
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">№ категории</th>
+                <th scope="col">code</th>
+                <th scope="col">Картинка</th>
+                <th scope="col">Заголовок</th>
+                <th scope="col">Готовность</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($categories as $category)
+                <tr>
+                    <th scope="row">{{$category->id}}</th>
+                    <td>{{$category->code}}</td>
+                    <td><img style="max-width: 100%; height: 35px" src="{{$category->img}}" alt="category"></td>
+                    <td>{{$category->title}}</td>
+                    <td>потом</td>
+                    <td><a class="btn btn-outline-warning">Изменить</a></td>
+                    <td><a class="btn btn-outline-danger">Удалить</a></td>
+                </tr>
+            @endforeach
+            {{ $categories->links('pagination::bootstrap-5') }}
 
-{{--            --}}{{--        <tr>--}}
-{{--            --}}{{--            <th scope="row">2</th>--}}
-{{--            --}}{{--            <td>Jacob</td>--}}
-{{--            --}}{{--            <td>Thornton</td>--}}
-{{--            --}}{{--            <td>@fat</td>--}}
-{{--            --}}{{--        </tr>--}}
-{{--            --}}{{--        <tr>--}}
-{{--            --}}{{--            <th scope="row">3</th>--}}
-{{--            --}}{{--            <td colspan="2">Larry the Bird</td>--}}
-{{--            --}}{{--            <td>@twitter</td>--}}
-{{--            --}}{{--        </tr>--}}
-{{--            </tbody>--}}
-{{--        </table>--}}
+{{--                    <tr>--}}
+{{--                        <th scope="row">2</th>--}}
+{{--                        <td>Nvidia</td>--}}
+{{--                        <td><img style="max-width: 100%; height: 35px" src="{{asset('storage/static/brand/Nvidia.png')}}" alt="category"></td>--}}
+{{--                        <td>Nvidia</td>--}}
+{{--                        <td>нет</td>--}}
+{{--                        <td><a class="btn btn-outline-warning">Изменить</a></td>--}}
+{{--                        <td><a class="btn btn-outline-danger">Удалить</a></td>--}}
+{{--                    </tr>--}}
+{{--                    <tr>--}}
+{{--                        <th scope="row">3</th>--}}
+{{--                        <td colspan="2">Larry the Bird</td>--}}
+{{--                        <td>@twitter</td>--}}
+{{--                    </tr>--}}
+            </tbody>
+        </table>
 {{--    @endif--}}
 
 @endsection

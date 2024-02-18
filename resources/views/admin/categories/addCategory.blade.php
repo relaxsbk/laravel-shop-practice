@@ -13,7 +13,7 @@
 @section('admin_content')
     <h2>Создать Категорию</h2>
     <div class="card-body">
-        <form style="width: 95%" action="{{route('Form_createProduct')}}" class="m-lg-3 col-md-5 " method="post" >
+        <form style="width: 95%" action="{{route('Form_createCategory')}}" class="m-lg-3 col-md-5 " method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-3">
@@ -26,8 +26,17 @@
                 @enderror
             </div>
             <div class="mb-3">
+                <label for="code" class="form-label">Код категории</label>
+                <input name="code" value="{{old('code')}}" type="text" class="form-control @error('code') is-invalid @enderror" id="code" >
+                @error('code')
+                <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
+            <div class="mb-3">
                 <label for="img" class="form-label">Изображение</label>
-                <input class="form-control" type="file" id="img">
+                <input name="img" class="form-control @error('is_public') is-invalid @enderror" type="file" id="img">
                 @error('img')
                 <div id="validationServerUsernameFeedback" class="invalid-feedback">
                     {{$message}}

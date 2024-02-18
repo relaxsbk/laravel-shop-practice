@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Views;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Brand\BrandRequest;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
@@ -26,7 +27,18 @@ class BrandController extends Controller
 
     public function store(BrandRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        $isPublic = $request->has('is_public') ? 1 : 0;
+        $validated['is_public'] = $isPublic;
+
+        if ($request->hasFile('img')) {
+            $validated['img'] = "/storage/{$request->file('img')->store('brands/images', 'public')}";
+        }
+
+        $brand = Brand::query()->create($validated);
+        return redirect()->route('admin.brands')->with(['message' => "Бренд \"$brand->name\" успешно добавлен "]);
+
     }
 
 

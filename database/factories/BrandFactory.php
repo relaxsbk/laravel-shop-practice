@@ -18,6 +18,7 @@ class BrandFactory extends Factory
     {
         return [
             'name' => fake()->unique()->jobTitle,
+            'img' => '/storage/static/brand/Nvidia.png',
             'is_public' => fake()->boolean(true),
         ];
     }

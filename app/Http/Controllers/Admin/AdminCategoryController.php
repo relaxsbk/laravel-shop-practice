@@ -12,7 +12,8 @@ class AdminCategoryController extends Controller
 
     public function index()
     {
-        return view('admin.categories.categories');
+        $categories = Category::query()->paginate(10);
+        return view('admin.categories.categories', compact('categories'));
     }
 
     public function noPublish()
@@ -34,7 +35,7 @@ class AdminCategoryController extends Controller
         $validated['is_public'] = $isPublic;
 
         if ($request->hasFile('img')) {
-            $validated['img'] = $request->file('img')->store('category/images');
+            $validated['img'] = "/storage/{$request->file('img')->store('category/images', 'public')}";
         }
 
         $category = Category::query()->create($validated);

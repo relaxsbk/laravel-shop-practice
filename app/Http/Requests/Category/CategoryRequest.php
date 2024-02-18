@@ -23,6 +23,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'title' => ['required', 'max:100'],
+            'code' => ['required', 'max:100'],
             'img' => ['nullable', 'mimes:jpg,png,jpeg', 'max:5000'],
             'is_public' => ['nullable'],
         ];

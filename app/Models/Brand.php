@@ -11,6 +11,7 @@ class Brand extends Model
 
     protected $fillable = [
         'name',
+        'img',
         'is_public'
     ];
 
