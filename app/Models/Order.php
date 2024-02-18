@@ -15,6 +15,11 @@ class Order extends Model
         'status',
     ];
 
+    public function moneyTotal(): string
+    {
+        return number_format($this->total, 0, '', ' ');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

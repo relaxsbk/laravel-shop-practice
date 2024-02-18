@@ -64,7 +64,13 @@ Route::controller(ProfileController::class)->middleware(['cart.items.count'])->g
 
 Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth.admin'])->prefix('admin')->group(function () {
     Route::get('/', 'index')->name('admin_home');
-//    Route::get('/orders', 'index')->name('admin_home');
+//    TODO: сделать разные группы для заказов и категорий
+    Route::get('/orders', 'orders')->name('admin_orders');
+        Route::controller(ProductController::class)->middleware(['auth.admin'])->group(function (){
+            Route::get('/products', '*')->name('admin.products');// форма
+            Route::get('/products/create', 'createProduct')->name('createProduct');// форма
+            Route::post('/products/create', '*')->name('create.Product');// выполнение
+        });
 //    Route::get('/', 'index')->name('admin_home');
 //    Route::get('/', 'index')->name('admin_home');
 //    Route::get('/', 'index')->name('admin_home');

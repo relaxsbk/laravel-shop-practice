@@ -27,4 +27,14 @@ class ProductController extends Controller
         $this->cartService->add($product);
         return back();
     }
+
+    public function createProduct()
+    {
+        return view('admin.products.addProduct');
+    }
+
+    public function create()
+    {
+
+    }
 }

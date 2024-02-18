@@ -11,7 +11,7 @@
             </button>
             <div class="collapse" id="order-collapse" >
                 <ul class="btn-toggle-nav fs-6 list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="nav-link link-dark rounded">Список всех заказов</a></li>
+                    <li><a href="{{route('admin_orders')}}" class="nav-link link-dark rounded">Список всех заказов</a></li>
                     <li><a href="#" class="nav-link link-dark rounded">Отклонённые</a></li>
                 </ul>
             </div>
@@ -29,14 +29,26 @@
             </div>
         </li>
         <li class="mb-1">
+            <button class="btn btn-toggle fs-4 align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#brand-collapse" aria-expanded="false">
+                Бренд
+            </button>
+            <div class="collapse" id="brand-collapse" >
+                <ul class="btn-toggle-nav fs-6 list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="nav-link link-dark rounded">Обзор</a></li>
+                    <li><a href="#" class="nav-link link-dark rounded">Неопубликованные</a></li>
+                    <li><a href="#" class="nav-link link-dark rounded">Создать...</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="mb-1">
             <button class="btn btn-toggle fs-4 align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
                 Товар
             </button>
             <div class="collapse" id="dashboard-collapse">
                 <ul class="btn-toggle-nav fs-6 list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="nav-link link-dark rounded">Обзор</a></li>
+                    <li><a href="{{route('admin.products')}}" class="nav-link link-dark rounded">Обзор</a></li>
                     <li><a href="#" class="nav-link link-dark rounded">Неопубликованные</a></li>
-                    <li><a href="#" class="nav-link link-dark rounded">Создать...</a></li>
+                    <li><a href="{{route('createProduct')}}" class="nav-link link-dark rounded">Создать...</a></li>
                 </ul>
             </div>
         </li>
@@ -48,9 +60,7 @@
             </button>
             <div class="collapse" id="account-collapse">
                 <ul class="btn-toggle-nav fs-6 list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="nav-link link-dark rounded">Новый...</a></li>
-                    <li><a href="#" class="nav-link link-dark rounded">Профиль</a></li>
-                    <li><a href="#" class="nav-link link-dark rounded">Настройка</a></li>
+                    <li><a href="#" class="nav-link link-dark rounded">Все пользователи</a></li>
                     <li><a href="#" class="nav-link text-danger link-dark rounded">Выйти</a></li>
                 </ul>
             </div>
