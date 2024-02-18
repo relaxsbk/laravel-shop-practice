@@ -10,6 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    const IS_USER = 'user';
+    const IS_ADMIN = 'admin';
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -36,6 +39,12 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function isUser(): bool
+    {
+        return $this->role === self::IS_USER;
+    }
+
+//отношения
     public function reviews(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Review::class);

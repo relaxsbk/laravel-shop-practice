@@ -5,6 +5,7 @@
 @section('main')
 
     <div class="container mt-4">
+
         <nav class="fs-6 mt-4 mb-" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('HomePage')}}">ГиперКвант</a></li>
@@ -15,6 +16,13 @@
     </div>
 
     <div  class="container mt-5">
+        @if(session()->has('message_errors'))
+            <div class="alert alert-danger" role="alert">
+                <div class="container">
+                    {{session()->get('message_errors')}}
+                </div>
+            </div>
+        @endif
         <h2 class="h2 fw-bold mt-4 mb-4">{{$category->title}}</h2>
         <div  class="row">
             {{-- Фильтры --}}

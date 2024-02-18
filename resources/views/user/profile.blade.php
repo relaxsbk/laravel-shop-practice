@@ -13,6 +13,14 @@
             </ol>
         </nav>
 
+        @if(session()->has('message_errors'))
+            <div class="alert alert-danger" role="alert">
+                <div class="container">
+                    {{session()->get('message_errors')}}
+                </div>
+            </div>
+        @endif
+
         @if(session()->has('invalid'))
             <div class="alert alert-danger" role="alert">
                 {{session()->get('invalid')}}
@@ -60,6 +68,7 @@
                 </tr>
                 </thead>
                 <tbody>
+{{--                тут форыч чуть позже--}}
                 <tr>
                     <th scope="row">ID</th>
                     <td>login</td>

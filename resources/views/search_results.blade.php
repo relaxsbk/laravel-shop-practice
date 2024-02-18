@@ -14,6 +14,13 @@
     </div>
 
     <div  class="container mt-5">
+        @if(session()->has('message_errors'))
+            <div class="alert alert-danger" role="alert">
+                <div class="container">
+                    {{session()->get('message_errors')}}
+                </div>
+            </div>
+        @endif
         @if($products->isEmpty())
             <div class="alert alert-danger" role="alert">
                 <h2 class="h2 fw-bold mt-4 mb-4 text-center">Ничего не найдено по запросу "{{$query}}"</h2>

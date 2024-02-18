@@ -55,7 +55,7 @@
                             </div>
                         </a>
                     @else
-                                            {{--TODO: профиль нужен, пока заглушка--}}
+
                         <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{route('profile')}}">
                             <div class="d-flex flex-column align-items-center">
                                 <img style="width: 20px;" src="{{asset('storage/static/header/profile.svg')}}" alt="heart">

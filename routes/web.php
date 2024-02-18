@@ -62,12 +62,12 @@ Route::controller(ProfileController::class)->middleware(['cart.items.count'])->g
 });
 
 
-Route::controller(AdminController::class)->middleware('cart.items.count')->prefix('admin')->group(function () {
+Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth.admin'])->prefix('admin')->group(function () {
     Route::get('/', 'index')->name('admin_home');
-    Route::get('/orders', 'index')->name('admin_home');
-    Route::get('/', 'index')->name('admin_home');
-    Route::get('/', 'index')->name('admin_home');
-    Route::get('/', 'index')->name('admin_home');
+//    Route::get('/orders', 'index')->name('admin_home');
+//    Route::get('/', 'index')->name('admin_home');
+//    Route::get('/', 'index')->name('admin_home');
+//    Route::get('/', 'index')->name('admin_home');
 
 });
 

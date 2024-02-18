@@ -39,7 +39,7 @@ class CartController extends Controller
 
             return back()->with('message', 'Товар успешно удалён!');
         }
-        session()->flash('message_error', 'Товар не удалён!');
+        session()->flash('message_errors', 'Товар не удалён!');
         return back();
     }
 
@@ -76,7 +76,7 @@ class CartController extends Controller
             $this->cartService->clear();
             return back()->with('message', 'Корзина очищена');
         }
-        return back()->with('message_error', 'Корзина пуста');
+        return back()->with('message_errors', 'Корзина пуста');
 
     }
 

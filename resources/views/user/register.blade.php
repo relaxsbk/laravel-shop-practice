@@ -12,6 +12,14 @@
             </ol>
         </nav>
 
+        @if(session()->has('message_errors'))
+            <div class="alert alert-danger" role="alert">
+                <div class="container">
+                    {{session()->get('message_errors')}}
+                </div>
+            </div>
+        @endif
+
         <div class="row justify-content-center">
             <div class="card p-0" style="width: 40rem; background-color: #e4f1f1 ">
                 <div class="card-header w-100">

@@ -15,6 +15,13 @@
 
 
     <div class="container mt-5">
+        @if(session()->has('message_errors'))
+            <div class="alert alert-danger" role="alert">
+                <div class="container">
+                    {{session()->get('message_errors')}}
+                </div>
+            </div>
+        @endif
         <div class="d-flex flex-column flex-md-row">
             <div class="flex-shrink-0 pe-lg-4 mb-3 mb-md-0" style="max-width: 100%;">
                 <img src="{{asset('storage/static/homePage/card/iphone.webp')}}" class="img-fluid w-100" alt="Product Image">
