@@ -67,9 +67,9 @@ Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth
 //    TODO: сделать разные группы для заказов и категорий
     Route::get('/orders', 'orders')->name('admin_orders');
         Route::controller(ProductController::class)->middleware(['auth.admin'])->group(function (){
-            Route::get('/products', '*')->name('admin.products');// форма
+            Route::get('/products', 'index')->name('admin.products');// форма
             Route::get('/products/create', 'createProduct')->name('createProduct');// форма
-            Route::post('/products/create', '*')->name('create.Product');// выполнение
+            Route::post('/products/create', 'store')->name('create.Product');// выполнение
         });
 //    Route::get('/', 'index')->name('admin_home');
 //    Route::get('/', 'index')->name('admin_home');

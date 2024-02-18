@@ -11,7 +11,7 @@ class ProductRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return auth()->check() && auth()->user()->isAdmin();
     }
 
     /**
@@ -22,7 +22,13 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'category_id' => ['required', 'exists:categories,id'],
+            'title' => ['required', 'max:100'],
+            'model' => ['required', 'max:100'],
+            'brand_id' => ['required', 'exists:brands,id'],
+            'description' => ['required'],
+            'img' => ['nullable', 'mimes:jpg,png,jpeg', 'max:5000'],
+            'price' => ['required', 'numeric', 'min:0'],
         ];
     }
 }

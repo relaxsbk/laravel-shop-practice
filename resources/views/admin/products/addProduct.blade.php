@@ -13,7 +13,7 @@
 @section('admin_content')
     <h2>Создать товар</h2>
     <div class="card-body">
-        <form style="width: 95%" action="*" class="m-lg-3 col-md-5 " method="post" >
+        <form style="width: 95%" action="{{route('create.Product')}}" class="m-lg-3 col-md-5 " method="post" >
             @csrf
             <div class="mb-3">
                 <label for="category" class="form-label">Категория</label>
