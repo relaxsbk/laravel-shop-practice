@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\CategoryRequest;
+use App\Http\Requests\Category\CategoryUpdateRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -58,7 +59,7 @@ class AdminCategoryController extends Controller
         //
     }
 
-    public function update(Request $request, string $id)
+    public function update(CategoryUpdateRequest $request, string $id)
     {
         //
     }

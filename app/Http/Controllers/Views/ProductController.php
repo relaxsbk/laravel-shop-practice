@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Views;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductRequest;
+use App\Http\Requests\Product\ProductUpdateRequest;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -54,6 +55,16 @@ class ProductController extends Controller
         return view('admin.products.addProduct', compact('categories', 'brands'));
     }
 
+    public function show($id)
+    {
+        $categories = Category::all();
+        $brands = Brand::all();
+
+        $product = Product::findOrFail($id);
+
+        return view('admin.products.product', compact('product', 'categories', 'brands'));
+    }
+
     public function store(ProductRequest $request)
     {
         $validated = $request->validated();
@@ -71,5 +82,18 @@ class ProductController extends Controller
 
         $product = Product::query()->create($validated);
         return redirect()->route('admin.products')->with(['message' => "Продукт \"$product->title \" успешно добавлен "]);
+    }
+
+    public function update(ProductUpdateRequest $request, $id)
+    {
+        $product = Product::findOrFail($id);
+
+        $validated = $request->validated();
+
+        $product->update($validated);
+
+        return redirect()->back()->with('success', 'Статус заказа успешно изменен');
+
+
     }
 }

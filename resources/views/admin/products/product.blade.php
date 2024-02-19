@@ -5,20 +5,20 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('HomePage')}}">ГиперКвант</a></li>
             <li class="breadcrumb-item active" aria-current="page">,<a href="{{route('admin_home')}}">Панель Администрирования</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Создать товар</li>
+            <li class="breadcrumb-item active" aria-current="page">Редактирование товара {{$product->title}}</li>
         </ol>
     </nav>
 @endsection
 
 @section('admin_content')
-    <h2>Создать товар</h2>
+    <h2>Редактирование товара <span class="fw-bold">{{$product->title}}</span></h2>
     <div class="card-body">
-        <form style="width: 95%" action="{{route('Form_createProduct')}}" class="m-lg-3 col-md-5 " method="post"  enctype="multipart/form-data">
+        <form style="width: 95%" action="{{route('admin.productUpdate', $product->id)}}" class="m-lg-3 col-md-5 " method="post"  enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="category" class="form-label">Категория</label>
                 <select name="category_id" class="form-select form-select-lg mb-3 @error('category') is-invalid @enderror" aria-label="Пример большого выбора" id="category">
-                    <option selected>Выбор категории</option>
+                    <option selected value="{{$product->category->id}}">{{$product->category->title}}</option>
                     @foreach($categories as $category)
                         <option  value="{{$category->id}}">{{$category->title}}</option>
 
@@ -32,7 +32,7 @@
             </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Заголовок</label>
-                <input name="title" value="{{old('title')}}" type="text" class="form-control @error('title') is-invalid @enderror" id="title" >
+                <input name="title" value="{{$product->title}}" type="text" class="form-control @error('title') is-invalid @enderror" id="title" >
                 @error('title')
                 <div id="validationServerUsernameFeedback" class="invalid-feedback">
                     {{$message}}
@@ -41,7 +41,7 @@
             </div>
             <div class="mb-3">
                 <label for="model" class="form-label">Модель</label>
-                <input name="model" value="{{old('model')}}" type="text" class="form-control @error('model') is-invalid @enderror" id="model" >
+                <input name="model" value="{{$product->model}}" type="text" class="form-control @error('model') is-invalid @enderror" id="model" >
                 @error('model')
                 <div id="validationServerUsernameFeedback" class="invalid-feedback">
                     {{$message}}
@@ -51,7 +51,7 @@
             <div class="mb-3">
                 <label for="brand" class="form-label">Бренд</label>
                 <select name="brand_id" class="form-select form-select-lg mb-3 @error('category') is-invalid @enderror" aria-label="Пример большого выбора" id="brand">
-                    <option selected>Выбор бренда</option>
+                    <option value="{{$product->brand->id}}" selected>{{$product->brand->name}}</option>
                     @foreach($brands as $brand)
                         <option value="{{$brand->id}}">{{$brand->name}}</option>
 
@@ -65,7 +65,7 @@
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Описание</label>
-                <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description"></textarea>
+                <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description">{{$product->description}}</textarea>
                 @error('description')
                 <div id="validationServerUsernameFeedback" class="invalid-feedback">
                     {{$message}}
@@ -83,7 +83,7 @@
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Цена</label>
-                <input name="price" value="{{old('price')}}" type="text" class="form-control @error('price') is-invalid @enderror" id="price" >
+                <input name="price" value="{{$product->price}}" type="text" class="form-control @error('price') is-invalid @enderror" id="price" >
                 @error('price')
                 <div id="validationServerUsernameFeedback" class="invalid-feedback">
                     {{$message}}
@@ -91,7 +91,7 @@
                 @enderror
             </div>
             <div class="form-check mb-3">
-                <input name="is_public" class="form-check-input @error('is_public') is-invalid @enderror" type="checkbox"  id="is_public">
+                <input name="is_public" class="form-check-input @error('is_public') is-invalid @enderror" type="checkbox"  id="is_public" @if($product->is_public) checked @endif>
                 <label class="form-check-label disabled" for="is_public">
                     Опубликовать
                 </label>

@@ -37,7 +37,7 @@
             <tbody>
             @foreach($products as $product)
                 <tr>
-                    <th scope="row">{{$product->id}}</th>
+                    <th scope="row"><a href="{{route('admin.productId', $product->id)}}">{{$product->id}}</a></th>
                     <td><img style="max-width: 100%; height: 35px" src="{{$product->img}}" alt="brand"></td>
                     <td>{{$product->category->title}}</td>
                     <td>{{$product->brand->name}}</td>
@@ -47,7 +47,7 @@
                     <td>{{$product->rating}}</td>
 
                     <td>@if($product->is_public === 0) Нет @else Да @endif</td>
-                    <td><a class="btn btn-outline-warning">Изменить</a></td>
+                    <td><a href="{{route('admin.productId', $product->id)}}" class="btn btn-outline-warning">Изменить</a></td>
                     <td><a class="btn btn-outline-danger">Удалить</a></td>
                 </tr>
             @endforeach

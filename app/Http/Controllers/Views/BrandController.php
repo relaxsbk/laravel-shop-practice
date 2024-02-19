@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Views;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Brand\BrandRequest;
+use App\Http\Requests\Brand\BrandUpdateRequest;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 
@@ -54,7 +55,7 @@ class BrandController extends Controller
     }
 
 
-    public function update(BrandRequest $request, string $id)
+    public function update(BrandUpdateRequest $request, string $id)
     {
         //
     }
