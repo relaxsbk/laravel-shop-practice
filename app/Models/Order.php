@@ -20,6 +20,11 @@ class Order extends Model
         return number_format($this->total, 0, '', ' ');
     }
 
+    public function detail()
+    {
+        return $this->hasMany(Detail_order::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

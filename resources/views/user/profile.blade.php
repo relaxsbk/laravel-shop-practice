@@ -55,16 +55,12 @@
                 </div>
 
             </div>
-            <h2>Заказы</h2>
             @if(auth()->user()->orders->isEmpty())
 
-                <div class="alert alert-danger" role="alert">
-                    <div class="container fs-2">
-                        Заказов нет
-                    </div>
 
-                </div>
+
             @else
+                <h2>Заказы</h2>
                 <table class="table">
                     <thead>
                     <tr>

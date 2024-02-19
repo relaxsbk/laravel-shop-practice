@@ -22,6 +22,14 @@ class OrderController extends Controller
         return view('admin.orders.orders_canceled', compact('orders'));
     }
 
+    public function order($id)
+    {
+        $order = Order::findOrFail($id);
+
+        return view('admin.orders.order', compact('order'));
+    }
+
+
     public function updateStatus(Request $request, $id)
     {
         $order = Order::findOrFail($id);

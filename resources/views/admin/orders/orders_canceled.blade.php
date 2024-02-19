@@ -31,13 +31,31 @@
                 <th scope="col"></th>
                 <th scope="col"></th>
                 <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
             @foreach($orders as $order)
                 <tr>
                     <th scope="row">{{$order->id}}</th>
-                    <td>{{$order->status}}</td>
+                    <td>
+                        @switch($order->status)
+                            @case('new')
+                                <span class="text-info-emphasis">Новый</span>
+                                @break
+                            @case('delivered')
+                                <span class="text-success-emphasis">Доставляется</span>
+                                @break
+                            @case('completed')
+                                <span class="text-success">Выполнен</span>
+                                @break
+                            @case('canceled')
+                                <span class="text-danger">Отменён</span>
+                                @break
+                            @default
+                                Неизвестный статус
+                        @endswitch
+                    </td>
                     <td>{{$order->user->login}}</td>
                     <td>{{$order->moneyTotal()}} ₽</td>
                     <td>

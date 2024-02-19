@@ -75,7 +75,8 @@ Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth
             Route::get('/orders', 'orders')->name('admin_orders');
             Route::get('/orders/canceled', 'canceled')->name('admin_orders.canceled');
 
-            Route::put('/orders/{id}', 'updateStatus')->name('admin_orders.updateStatus');
+            Route::get('/orders/{id}', 'order')->name('admin_order');
+            Route::put('/orders/{id}/update', 'updateStatus')->name('admin_orders.updateStatus');
             Route::delete('/orders/{id}/delete', 'destroy')->name('admin_orders.destroy');
         });
 

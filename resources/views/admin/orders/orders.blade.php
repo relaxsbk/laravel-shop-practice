@@ -36,7 +36,7 @@
             <tbody>
             @foreach($orders as $order)
                 <tr>
-                    <th scope="row">{{$order->id}}</th>
+                    <th scope="row"><a href="{{route('admin_order', $order->id)}}" >{{$order->id}}</a></th>
                     <td>
                         @switch($order->status)
                             @case('new')
