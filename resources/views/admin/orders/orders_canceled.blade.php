@@ -40,9 +40,39 @@
                     <td>{{$order->status}}</td>
                     <td>{{$order->user->login}}</td>
                     <td>{{$order->moneyTotal()}} ₽</td>
-                    <td><a class="btn btn-outline-primary">Доставка</a></td>
-                    <td><a class="btn btn-outline-success">Выполнить</a></td>
-                    <td><a class="btn btn-outline-danger">Отклонить</a></td>
+                    <td>
+                        <form action="{{ route('admin_orders.updateStatus', $order->id) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="status" value="delivered">
+                            <button type="submit" class="btn btn-outline-primary" {{ $order->status == 'delivered' ? 'disabled' : '' }}>Доставка</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{{ route('admin_orders.updateStatus', $order->id) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="status" value="completed">
+                            <button type="submit" class="btn btn-outline-success" {{ $order->status == 'completed' ? 'disabled' : '' }}>Выполнить</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{{ route('admin_orders.updateStatus', $order->id) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="status" value="canceled">
+                            <button type="submit" class="btn btn-outline-danger" {{ $order->status == 'canceled' ? 'disabled' : '' }}>Отклонить</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{{route('admin_orders.destroy', $order->id)}}" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-outline-danger">Удалить заказ</button>
+                        </form>
+                    </td>
+
+
                 </tr>
             @endforeach
 

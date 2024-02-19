@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminCategoryController;
-use App\Http\Controllers\Admin\AdminUser;
+use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Views\BrandController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\ProfileController;
@@ -11,6 +11,7 @@ use App\Http\Controllers\Views\CartController;
 use App\Http\Controllers\Views\CategoryController;
 use App\Http\Controllers\Views\HomeController;
 use App\Http\Controllers\Views\ProductController;
+use App\Http\Controllers\Views\OrderController;
 use Illuminate\Support\Facades\Route;
 
 //admin
@@ -70,6 +71,13 @@ Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth
     Route::get('/orders', 'orders')->name('admin_orders');
     Route::get('/orders/canceled', 'canceled')->name('admin_orders.canceled');
 
+        Route::controller(OrderController::class)->middleware(['auth.admin'])->group(function (){
+            Route::get('/orders', 'orders')->name('admin_orders');
+            Route::get('/orders/canceled', 'canceled')->name('admin_orders.canceled');
+
+            Route::put('/orders/{id}', 'updateStatus')->name('admin_orders.updateStatus');
+            Route::delete('/orders/{id}/delete', 'destroy')->name('admin_orders.destroy');
+        });
 
         Route::controller(AdminCategoryController::class)->middleware(['auth.admin'])->group(function (){
             Route::get('/category', 'index')->name('admin.category');
@@ -92,7 +100,7 @@ Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth
             Route::post('/products/create', 'store')->name('Form_createProduct');// выполнение
         });
 
-        Route::controller(AdminUser::class)->middleware(['auth.admin'])->group(function (){
+        Route::controller(AdminUserController::class)->middleware(['auth.admin'])->group(function (){
             Route::get('/users', 'index')->name('admin.users');
             Route::get('/users/admin', 'admin')->name('admin.users.admin');
         });
