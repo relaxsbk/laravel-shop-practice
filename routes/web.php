@@ -68,6 +68,7 @@ Route::controller(ProfileController::class)->middleware(['cart.items.count'])->g
 Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth.admin'])->prefix('admin')->group(function () {
     Route::get('/', 'index')->name('admin_home');
     Route::get('/orders', 'orders')->name('admin_orders');
+    Route::get('/orders/canceled', 'canceled')->name('admin_orders.canceled');
 
 
         Route::controller(AdminCategoryController::class)->middleware(['auth.admin'])->group(function (){

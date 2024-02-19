@@ -11,7 +11,7 @@
 @endsection
 
 @section('admin_content')
-    <h2>Список всех продуктов</h2>
+    <h2>Список всех товаров</h2>
     @if($products->isEmpty())
         <div class="alert alert-danger" role="alert">
             <div class="container fs-2">
@@ -46,7 +46,7 @@
                     <td>{{$product->money()}} P</td>
                     <td>{{$product->rating}}</td>
 
-                    <td>потом</td>
+                    <td>@if($product->is_public === 0) Нет @else Да @endif</td>
                     <td><a class="btn btn-outline-warning">Изменить</a></td>
                     <td><a class="btn btn-outline-danger">Удалить</a></td>
                 </tr>

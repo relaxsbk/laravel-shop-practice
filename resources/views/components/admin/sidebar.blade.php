@@ -12,7 +12,7 @@
             <div class="collapse" id="order-collapse" >
                 <ul class="btn-toggle-nav fs-6 list-unstyled fw-normal pb-1 small">
                     <li><a href="{{route('admin_orders')}}" class="nav-link link-dark rounded">Список всех заказов</a></li>
-                    <li><a href="#" class="nav-link link-dark rounded">Отклонённые</a></li>
+                    <li><a href="{{route('admin_orders.canceled')}}" class="nav-link link-dark rounded">Отклонённые</a></li>
                 </ul>
             </div>
         </li>

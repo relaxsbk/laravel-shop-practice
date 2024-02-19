@@ -19,7 +19,9 @@ class BrandController extends Controller
 
     public function noPublish()
     {
-        return view('admin.brands.brands_noPublish');
+        $brands = Brand::where('is_public', false)->paginate(10);
+
+        return view('admin.brands.brands_noPublish', compact('brands'));
     }
 
     public function createBrand()
