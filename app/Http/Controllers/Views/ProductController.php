@@ -27,6 +27,20 @@ class ProductController extends Controller
         if (is_null($product)){
             return back();
         }
+
+        // Получаем текущие товары в корзине
+        $cartItems = $this->cartService->get();
+
+        // Проверяем, есть ли товар уже в корзине
+        if (is_array($cartItems) || is_object($cartItems)) {
+            foreach ($cartItems as $item) {
+                if ($item->id === $product->id) {
+                    // Если товар уже в корзине, просто вернемся обратно
+                    return back();
+                }
+            }
+        }
+
         /** @var Product $product */
         $this->cartService->add($product);
         return back();

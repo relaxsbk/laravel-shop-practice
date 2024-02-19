@@ -41,14 +41,28 @@ class CartService
 
     public function remove(Product $product): bool
     {
-        if (!in_array($product, $this->get())) {
-            return false;
+        $cart = $this->get();
+
+
+        $index = array_search($product->id, array_column($cart, 'id'));
+
+        if ($index !== false) {
+
+            unset($cart[$index]);
+
+            $this->set(array_values($cart));
+            return true;
         }
-        $items = array_filter($this->get(), fn($element) => $element->id !== $product->id);
 
-        $this->set($items);
-
-        return true;
+        return false;
+//        if (!in_array($product, $this->get())) {
+//            return false;
+//        }
+//        $items = array_filter($this->get(), fn($element) => $element->id !== $product->id);
+//
+//        $this->set($items);
+//
+//        return true;
     }
 
     public function isEmpty(): bool

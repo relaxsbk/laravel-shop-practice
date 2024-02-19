@@ -48,10 +48,10 @@
                         <div class="card bg-white border mb-3" style="max-width: 100%;">
                             <div class="card-body row align-items-center">
                                 <div class="col-auto">
-                                    <img src="https://via.placeholder.com/100" alt="Product Image" class="img-fluid">
+                                    <img src="{{$item->img}}" alt="Product Image" class="img-fluid" style="width: 100px; height: 100%;">
                                 </div>
                                 <div class="col">
-                                    <h5 class="card-title mb-0">{{$item->title}}</h5>
+                                    <h5 class="card-title mb-0 text-decoration-none"><a href="{{ route('Product', ['category' => $item->category->code, 'product' => $item->id]) }}">{{$item->title}}</a></h5>
                                 </div>
                                 <div class="col-auto mr-3">
                                         <p  class="card-title mb-0"> 1 Шт.</p>
