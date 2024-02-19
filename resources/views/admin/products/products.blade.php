@@ -48,7 +48,13 @@
 
                     <td>@if($product->is_public === 0) Нет @else Да @endif</td>
                     <td><a href="{{route('admin.productId', $product->id)}}" class="btn btn-outline-warning">Изменить</a></td>
-                    <td><a class="btn btn-outline-danger">Удалить</a></td>
+                    <td>
+                        <form action="{{route('admin.productDelete', $product->id)}}" method="post">
+                            @csrf
+                            <button class="btn btn-outline-danger">Удалить</button>
+                        </form>
+
+                    </td>
                 </tr>
             @endforeach
             {{ $products->links('pagination::bootstrap-5') }}

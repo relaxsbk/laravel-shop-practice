@@ -52,7 +52,7 @@ class OrderController extends Controller
         // Удалить заказ
         $order->delete();
 
-        return redirect()->back()->with('success', 'Товар успешно удалён');
+        return redirect()->back()->with('success', 'Заказ успешно удалён');
 
     }
 }

@@ -85,7 +85,7 @@ Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth
 
             Route::get('/category/{id}', 'show')->name('admin.CategoryId');
             Route::post('/category/{id}/update', 'update')->name('admin.CategoryUpdate');
-            Route::post('/category/{id}/delete', '')->name('admin.CategoryDelete');
+            Route::post('/category/{id}/delete', 'destroy')->name('admin.CategoryDelete');
         });
 
         Route::controller(BrandController::class)->middleware(['auth.admin'])->group(function (){
@@ -96,7 +96,7 @@ Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth
 
             Route::get('/brands/{id}', 'show')->name('admin.brandId');
             Route::post('/brands/{id}/update', 'update')->name('admin.brandUpdate');
-            Route::post('/brands/{id}/delete', '')->name('admin.brandDelete');
+            Route::post('/brands/{id}/delete', 'destroy')->name('admin.brandDelete');
         });
 
         Route::controller(ProductController::class)->middleware(['auth.admin'])->group(function (){
@@ -107,7 +107,7 @@ Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth
 
             Route::get('/products/{id}', 'show')->name('admin.productId');
             Route::post('/products/{id}/update', 'update')->name('admin.productUpdate');
-            Route::post('/products/{id}/delete', '')->name('admin.productDelete');
+            Route::post('/products/{id}/delete', 'destroy')->name('admin.productDelete');
         });
 
         Route::controller(AdminUserController::class)->middleware(['auth.admin'])->group(function (){
