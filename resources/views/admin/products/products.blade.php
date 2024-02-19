@@ -21,7 +21,7 @@
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">№ товара</th>
+                <th scope="col">№</th>
                 <th scope="col">Картинка</th>
                 <th scope="col">категория</th>
                 <th scope="col">бренд</th>

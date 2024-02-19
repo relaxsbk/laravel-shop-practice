@@ -60,8 +60,14 @@
             </button>
             <div class="collapse" id="account-collapse">
                 <ul class="btn-toggle-nav fs-6 list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="nav-link link-dark rounded">Все пользователи</a></li>
-                    <li><a href="#" class="nav-link text-danger link-dark rounded">Выйти</a></li>
+                    <li><a href="{{route('admin.users')}}" class="nav-link link-dark rounded">Все пользователи</a></li>
+                    <li><a href="{{route('admin.users.admin')}}" class="nav-link link-dark rounded">Администраторы</a></li>
+                    <li>
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                            <button type="submit" class="nav-link text-danger link-dark rounded">Выйти</button>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </li>

@@ -22,7 +22,7 @@
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">№ категории</th>
+                <th scope="col">№</th>
                 <th scope="col">code</th>
                 <th scope="col">Картинка</th>
                 <th scope="col">Заголовок</th>

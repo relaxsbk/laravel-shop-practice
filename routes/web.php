@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\Admin\AdminUser;
 use App\Http\Controllers\Views\BrandController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\ProfileController;
@@ -84,10 +85,15 @@ Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth
         });
 
         Route::controller(ProductController::class)->middleware(['auth.admin'])->group(function (){
-            Route::get('/products/', 'index')->name('admin.products');
+            Route::get('/products', 'index')->name('admin.products');
             Route::get('/products/NoPublish', 'noPublish')->name('admin.products.NoPublish');
             Route::get('/products/create', 'createProduct')->name('admin.createProduct');// форма
             Route::post('/products/create', 'store')->name('Form_createProduct');// выполнение
+        });
+
+        Route::controller(AdminUser::class)->middleware(['auth.admin'])->group(function (){
+            Route::get('/users', 'index')->name('admin.users');
+            Route::get('/users/admin', 'admin')->name('admin.users.admin');
         });
 //    Route::get('/', 'index')->name('admin_home');
 //    Route::get('/', 'index')->name('admin_home');

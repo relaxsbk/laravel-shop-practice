@@ -24,7 +24,7 @@
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">№ Заказа</th>
+                <th scope="col">№ </th>
                 <th scope="col">Status</th>
                 <th scope="col">login</th>
                 <th scope="col">Total</th>
