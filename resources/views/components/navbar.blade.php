@@ -37,7 +37,7 @@
                             <img style="width: 20px;" src="{{asset('storage/static/header/basket.svg')}}" alt="heart">
                             <span class="ms-1 text-dark">Корзина</span>
                         </div>
-                        @if($itemsCount > 0)
+                        @if(isset($itemsCount) && $itemsCount > 0)
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             {{$itemsCount}}
                             <span class="visually-hidden">товары в корзине</span>
