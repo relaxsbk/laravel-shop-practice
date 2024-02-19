@@ -32,6 +32,13 @@ class BrandController extends Controller
         return view('admin.brands.addBrand');
     }
 
+    public function show(string $id)
+    {
+        $brand = Brand::findOrFail($id);
+
+        return view('admin.brands.brand', compact('brand'));
+    }
+
     public function store(BrandRequest $request)
     {
         $validated = $request->validated();
@@ -49,20 +56,27 @@ class BrandController extends Controller
     }
 
 
-    public function show(string $id)
-    {
-        //
-    }
-
-
     public function update(BrandUpdateRequest $request, string $id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+
+        $validated = $request->validated();
+
+        $isPublic = $request->has('is_public') ? 1 : 0;
+        $validated['is_public'] = $isPublic;
+
+        $brand->update($validated);
+
+        return redirect()->back()->with('success', 'Бренд успешно изменён');
     }
 
 
     public function destroy(string $id)
     {
-        //
+        $brand = Brand::findOrFail($id);
+
+        $brand->delete();
+
+        return redirect()->back()->with('success', 'Бренд успешно удалён');
     }
 }

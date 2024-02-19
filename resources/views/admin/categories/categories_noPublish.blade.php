@@ -12,6 +12,7 @@
 
 @section('admin_content')
     <h2>Список всех неопубликованных категорий</h2>
+    @include('components.alerts.alert')
 
     @if($categories->isEmpty())
         <div class="alert alert-danger" role="alert">
@@ -34,31 +35,24 @@
                     <tbody>
                     @foreach($categories as $category)
                         <tr>
-                            <th scope="row">{{$category->id}}</th>
+                            <th scope="row"><a href="{{route('admin.CategoryId', $category->id)}}">{{$category->id}}</a></th>
                             <td>{{$category->code}}</td>
                             <td><img style="max-width: 100%; height: 35px" src="{{$category->img}}" alt="category"></td>
                             <td>{{$category->title}}</td>
-                            <td>потом</td>
-                            <td><a class="btn btn-outline-warning">Изменить</a></td>
-                            <td><a class="btn btn-outline-danger">Удалить</a></td>
+                            <td>@if($category->is_public === 0) Нет@endif</td>
+                            <td><a href="{{route('admin.CategoryId', $category->id)}}" class="btn btn-outline-warning">Изменить</a></td>
+                            <td>
+                                <form action="{{route('admin.CategoryDelete', $category->id)}}" method="post">
+                                    @csrf
+                                    <button class="btn btn-outline-danger">Удалить</button>
+                                </form>
+
+                            </td>
                         </tr>
                     @endforeach
                     {{ $categories->links('pagination::bootstrap-5') }}
 
-                    {{--                    <tr>--}}
-                    {{--                        <th scope="row">2</th>--}}
-                    {{--                        <td>Nvidia</td>--}}
-                    {{--                        <td><img style="max-width: 100%; height: 35px" src="{{asset('storage/static/brand/Nvidia.png')}}" alt="category"></td>--}}
-                    {{--                        <td>Nvidia</td>--}}
-                    {{--                        <td>нет</td>--}}
-                    {{--                        <td><a class="btn btn-outline-warning">Изменить</a></td>--}}
-                    {{--                        <td><a class="btn btn-outline-danger">Удалить</a></td>--}}
-                    {{--                    </tr>--}}
-                    {{--                    <tr>--}}
-                    {{--                        <th scope="row">3</th>--}}
-                    {{--                        <td colspan="2">Larry the Bird</td>--}}
-                    {{--                        <td>@twitter</td>--}}
-                    {{--                    </tr>--}}
+
                     </tbody>
                 </table>
     @endif

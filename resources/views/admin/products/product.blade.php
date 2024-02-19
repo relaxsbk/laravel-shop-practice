@@ -12,6 +12,8 @@
 
 @section('admin_content')
     <h2>Редактирование товара <span class="fw-bold">{{$product->title}}</span></h2>
+    @include('components.alerts.alert')
+
     <div class="card-body">
         <form style="width: 95%" action="{{route('admin.productUpdate', $product->id)}}" class="m-lg-3 col-md-5 " method="post"  enctype="multipart/form-data">
             @csrf
@@ -102,7 +104,7 @@
             </div>
             @enderror
 
-            <button type="submit" class="btn btn-outline-success">Создать</button>
+            <button type="submit" class="btn btn-outline-success">Обновить</button>
         </form>
     </div>
 

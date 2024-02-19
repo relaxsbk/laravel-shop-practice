@@ -12,6 +12,8 @@
 
 @section('admin_content')
     <h2>Заказы</h2>
+    @include('components.alerts.alert')
+
     @if($orders->isEmpty())
 
         <div class="alert alert-danger" role="alert">

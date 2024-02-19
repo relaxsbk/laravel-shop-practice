@@ -11,7 +11,7 @@ class BrandUpdateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return auth()->check() && auth()->user()->isAdmin();
     }
 
     /**
@@ -22,7 +22,9 @@ class BrandUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'max:100'],
+            'img' => ['nullable', 'mimes:jpg,png,jpeg', 'max:5000'],
+            'is_public' => ['nullable'],
         ];
     }
 }

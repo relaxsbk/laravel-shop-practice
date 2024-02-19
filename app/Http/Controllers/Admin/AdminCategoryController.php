@@ -50,23 +50,35 @@ class AdminCategoryController extends Controller
 
     public function show(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        return view('admin.categories.category', compact('category'));
     }
 
 
-    public function edit(string $id)
-    {
-        //
-    }
+
 
     public function update(CategoryUpdateRequest $request, string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        $validated = $request->validated();
+
+        $isPublic = $request->has('is_public') ? 1 : 0;
+        $validated['is_public'] = $isPublic;
+
+        $category->update($validated);
+
+        return redirect()->back()->with('success', 'Категория успешно изменена');
     }
 
 
     public function destroy(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        $category->delete();
+
+        return redirect()->back()->with('success', 'Категория успешно удалена');
     }
 }

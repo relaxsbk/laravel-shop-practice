@@ -12,6 +12,8 @@
 
 @section('admin_content')
     <h2>Список всех неопубликованных товаров</h2>
+    @include('components.alerts.alert')
+
     @if($products->isEmpty())
         <div class="alert alert-danger" role="alert">
             <div class="container fs-2">

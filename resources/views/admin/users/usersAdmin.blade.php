@@ -5,13 +5,15 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('HomePage')}}">ГиперКвант</a></li>
             <li class="breadcrumb-item active" aria-current="page">,<a href="{{route('admin_home')}}">Панель Администрирования</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Пользователи</li>
+            <li class="breadcrumb-item active" aria-current="page">Администраторы</li>
         </ol>
     </nav>
 @endsection
 
 @section('admin_content')
     <h2>Список всех администраторов </h2>
+    @include('components.alerts.alert')
+
     @if($users->isEmpty())
         <div class="alert alert-danger" role="alert">
             <div class="container fs-2">
@@ -41,7 +43,6 @@
                     <td>{{$user->role}}</td>
                     <td>{{$user->created_at}}</td>
 
-                    <td><a class="btn btn-outline-warning">Изменить</a></td>
                     <td><a class="btn btn-outline-danger">Удалить</a></td>
                 </tr>
             @endforeach

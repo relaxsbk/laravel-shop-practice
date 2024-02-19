@@ -16,6 +16,8 @@
             <div class="card-header">
                 Заказ № {{$order->id}}
             </div>
+            @include('components.alerts.alert')
+
             <div class="card-body fs-3">
                 <h5 class="card-title fw-bold fs-3">{{$order->user->login}}</h5>
                 <h5 class="card-title">

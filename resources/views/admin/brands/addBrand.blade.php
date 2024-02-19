@@ -12,6 +12,8 @@
 
 @section('admin_content')
     <h2>Создать Бренд</h2>
+    @include('components.alerts.alert')
+
     <div class="card-body">
         <form style="width: 95%" action="{{route('Form_createBrand')}}" class="m-lg-3 col-md-5 " method="post" enctype="multipart/form-data">
             @csrf

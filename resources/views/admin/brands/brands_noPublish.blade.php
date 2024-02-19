@@ -12,6 +12,8 @@
 
 @section('admin_content')
     <h2>Список всех неопубликованных брендов</h2>
+    @include('components.alerts.alert')
+
     @if($brands->isEmpty())
         <div class="alert alert-danger" role="alert">
             <div class="container fs-2">
@@ -32,12 +34,18 @@
                     <tbody>
                     @foreach($brands as $brand)
                         <tr>
-                            <th scope="row">{{$brand->id}}</th>
+                            <th scope="row"><a href="{{route('admin.brandId', $brand->id)}}">{{$brand->id}}</a></th>
                             <td><img style="max-width: 100%; height: 35px" src="{{$brand->img}}" alt="brand"></td>
                             <td>{{$brand->name}}</td>
-                            <td>потом</td>
-                            <td><a class="btn btn-outline-warning">Изменить</a></td>
-                            <td><a class="btn btn-outline-danger">Удалить</a></td>
+                            <td>@if($brand->is_public === 0) Нет @endif</td>
+                            <td><a href="{{route('admin.brandId', $brand->id)}}" class="btn btn-outline-warning">Изменить</a></td>
+                            <td>
+                                <form action="{{route('admin.brandDelete', $brand->id)}}" method="post">
+                                    @csrf
+                                    <button class="btn btn-outline-danger">Удалить</button>
+                                </form>
+
+                            </td>
                         </tr>
                     @endforeach
                     {{ $brands->links('pagination::bootstrap-5') }}

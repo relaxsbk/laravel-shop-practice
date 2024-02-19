@@ -12,6 +12,8 @@
 
 @section('admin_content')
     <h2>Список всех пользователей</h2>
+    @include('components.alerts.alert')
+
     @if($users->isEmpty())
         <div class="alert alert-danger" role="alert">
             <div class="container fs-2">
@@ -41,7 +43,6 @@
                     <td>{{$user->role}}</td>
                     <td>{{$user->created_at}}</td>
 
-                    <td><a class="btn btn-outline-warning">Изменить</a></td>
                     <td><a class="btn btn-outline-danger">Удалить</a></td>
                 </tr>
             @endforeach

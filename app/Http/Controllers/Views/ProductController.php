@@ -89,10 +89,12 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         $validated = $request->validated();
+        $isPublic = $request->has('is_public') ? 1 : 0;
+        $validated['is_public'] = $isPublic;
 
         $product->update($validated);
 
-        return redirect()->back()->with('success', 'Статус заказа успешно изменен');
+        return redirect()->back()->with('success', 'Товар успешно изменён');
 
 
     }
