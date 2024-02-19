@@ -34,7 +34,7 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <p class="fs-5">Добро пожаловать в свой профиль <span class="fw-bold"> {{auth()->user()->name}} {{auth()->user()->surname}} !</span></p>
+                        <p class="fs-5">Добро пожаловать в свой профиль <span class="fw-bold">{{auth()->user()->surname}} {{auth()->user()->name}} !</span></p>
                     </div>
                     <div class="mb-3">
                         <p>{{auth()->user()->login}}</p>
@@ -45,8 +45,6 @@
                     <div class="mb-3">
                         @if(auth()->user()->role === 'admin')
                             <a href="{{route('admin_home')}}" class="btn btn-outline-success">Перейти в панель администрирования</a>
-                        @else
-                            <p class="fs-1 fw-bold" >Придумать отображение заказов</p>
                         @endif
 
                     </div>
@@ -58,36 +56,56 @@
 
             </div>
             <h2>Заказы</h2>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">№ заказа</th>
-                    <th scope="col">Пользователь</th>
-                    <th scope="col">Статус заказа</th>
-                    <th scope="col">Цена</th>
-                </tr>
-                </thead>
-                <tbody>
-{{--                тут форыч чуть позже--}}
-                <tr>
-                    <th scope="row">ID</th>
-                    <td>login</td>
-                    <td>new</td>
-                    <td>99 999 P</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                </tbody>
-            </table>
+            @if(auth()->user()->orders->isEmpty())
+
+                <div class="alert alert-danger" role="alert">
+                    <div class="container fs-2">
+                        Заказов нет
+                    </div>
+
+                </div>
+            @else
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">№ </th>
+                        <th scope="col">Status</th>
+                        <th scope="col">login</th>
+                        <th scope="col">Total</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach(auth()->user()->orders as $order)
+                        <tr>
+                            <th scope="row">{{$order->id}}</th>
+                            <td>
+                                @switch($order->status)
+                                    @case('new')
+                                        <span class="text-info-emphasis">Ожидается</span>
+                                        @break
+                                    @case('delivered')
+                                        <span class="text-success-emphasis">Доставляется</span>
+                                        @break
+                                    @case('completed')
+                                        <span class="text-success">Выполнен</span>
+                                        @break
+                                    @case('canceled')
+                                        <span class="text-danger">Отменён</span>
+                                        @break
+                                    @default
+                                        Неизвестный статус
+                                @endswitch
+                            </td>
+                            <td>{{$order->user->login}}</td>
+                            <td>{{$order->moneyTotal()}} ₽</td>
+
+                        </tr>
+                    @endforeach
+
+                    </tbody>
+                </table>
+            @endif
         </div>
 
 
