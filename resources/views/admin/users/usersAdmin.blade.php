@@ -43,7 +43,13 @@
                     <td>{{$user->role}}</td>
                     <td>{{$user->created_at}}</td>
 
-                    <td><a class="btn btn-outline-danger">Удалить</a></td>
+                    <td>
+                        <form action="{{route('admin.users.delete', $user->id)}}" method="post">
+                            @csrf
+                            <button class="btn btn-outline-danger">Удалить</button>
+                        </form>
+
+                    </td>
                 </tr>
             @endforeach
             {{ $users->links('pagination::bootstrap-5') }}

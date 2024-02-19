@@ -113,6 +113,7 @@ Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth
         Route::controller(AdminUserController::class)->middleware(['auth.admin'])->group(function (){
             Route::get('/users', 'index')->name('admin.users');
             Route::get('/users/admin', 'admin')->name('admin.users.admin');
+            Route::post('/users/{id}/delete', 'destroy')->name('admin.users.delete');
         });
 
 

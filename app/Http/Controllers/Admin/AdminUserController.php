@@ -40,6 +40,10 @@ class AdminUserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->delete();
+
+        return redirect()->back()->with('success', 'Пользователь успешно удалён');
     }
 }
