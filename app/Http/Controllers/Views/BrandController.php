@@ -19,7 +19,9 @@ class BrandController extends Controller
 
     public function noPublish()
     {
-        $brands = Brand::where('is_public', false)->paginate(10);
+        $brands = Brand::where('is_public', false)
+            ->orderBy('id', 'desc')
+            ->paginate(10);
 
         return view('admin.brands.brands_noPublish', compact('brands'));
     }

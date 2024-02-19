@@ -39,7 +39,9 @@ class ProductController extends Controller
     }
     public function noPublish()
     {
-        $products = Product::where('is_public', false)->paginate(10);
+        $products = Product::where('is_public', false)
+            ->orderBy('id', 'desc')
+            ->paginate(10);
 
         return view('admin.products.products_noPublish', compact('products'));
     }

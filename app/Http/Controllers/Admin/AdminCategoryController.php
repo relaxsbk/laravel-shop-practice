@@ -18,7 +18,9 @@ class AdminCategoryController extends Controller
 
     public function noPublish()
     {
-        $categories = Category::where('is_public', false)->paginate(10);
+        $categories = Category::where('is_public', false)
+            ->orderBy('id', 'desc')
+            ->paginate(10);
 
         return view('admin.categories.categories_noPublish', compact('categories'));
     }
