@@ -12,8 +12,17 @@ class HomeController extends Controller
 
     public function index()
     {
-        $category = Category::take(4)->get();
-        $products = Product::where('rating', 5)->inRandomOrder()->take(4)->get();
+        $category = Category::where('is_public', true)
+            ->inRandomOrder()
+            ->take(4)
+            ->get();
+
+
+        $products = Product::where('rating', 5)
+            ->where('is_public', true)
+            ->inRandomOrder()
+            ->take(4)
+            ->get();
 
         return view('home', ['category' => $category, 'products' => $products]);
     }
