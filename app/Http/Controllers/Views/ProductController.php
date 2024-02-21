@@ -9,15 +9,18 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Services\CartService;
+use App\Services\FavoritesService;
 
 
 class ProductController extends Controller
 {
     protected CartService $cartService;
+    protected FavoritesService $favoritesService;
 
     public function __construct()
     {
         $this->cartService = new CartService();
+        $this->favoritesService = new FavoritesService();
 
     }
 
@@ -44,6 +47,32 @@ class ProductController extends Controller
 
         /** @var Product $product */
         $this->cartService->add($product);
+        return back();
+    }
+
+    public function addToFavorites($id)
+    {
+        $product = Product::query()->find($id);
+
+        if (is_null($product)){
+            return back();
+        }
+
+        // Получаем текущие товары в корзине
+        $favoriteItems = $this->favoritesService->get();
+
+        // Проверяем, есть ли товар уже в корзине
+        if (is_array($favoriteItems) || is_object($favoriteItems)) {
+            foreach ($favoriteItems as $item) {
+                if ($item->id === $product->id) {
+
+                    return back();
+                }
+            }
+        }
+
+        /** @var Product $product */
+        $this->favoritesService->add($product);
         return back();
     }
 

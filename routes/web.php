@@ -13,6 +13,7 @@ use App\Http\Controllers\Views\HomeController;
 use App\Http\Controllers\Views\ProductController;
 use App\Http\Controllers\Views\OrderController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\Views\FavoritesController;
 use Illuminate\Support\Facades\Route;
 
 //admin
@@ -40,6 +41,7 @@ Route::controller(CategoryController::class)->middleware('cart.items.count')->gr
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/product/{id}/addToCart', 'addToCart')->name('addToCart');
+    Route::get('/product/{id}/addToFavorites', 'addToFavorites')->name('addToFavorites');
 });
 
 
@@ -48,9 +50,15 @@ Route::controller(CartController::class)->middleware('cart.items.count')->group(
     Route::get('/cart/create', 'createOrder')->middleware('auth')->name('createOrder');
     Route::get('/cart/clear', 'clear')->name('clearCart');
 
-
     Route::get('/cart/{product:id}', 'remove')->name('removeCart');
 });
+
+Route::controller(FavoritesController::class)->middleware('cart.items.count')->group(function (){
+    Route::get('/favorites', 'index')->name('favorites');
+    Route::get('/favorites/clear', 'clear')->name('favorites.clear');
+    Route::get('/favorites/{product:id}', 'remove')->name('favorites.remove');
+});
+
 
 Route::controller(LoginController::class)->middleware(['guest', 'cart.items.count'])->group(function () {
     Route::get('/login', 'index')->name('login');

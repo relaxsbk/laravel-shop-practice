@@ -23,15 +23,22 @@
                 <button class="btn btn-outline-success" type="submit">Поиск</button>
             </form>
             <ul class="navbar-nav ms-3 me-auto mb-2 mb-lg-0 d-flex align-items-center">
-                <li class="nav-item">
-                    <a class="nav-link active d-flex align-items-center" aria-current="page" href="/likes">
+                <li class="nav-item me-3">
+                    <a href="{{route('favorites')}}"  class="position-relative text-decoration-none ">
                         <div class="d-flex flex-column align-items-center">
                             <img style="width: 20px;" src="{{asset('storage/static/header/heart.svg')}}" alt="heart">
-                            <span class="ms-1">Избранное</span>
+                            <span class="ms-1 text-dark">Избранное</span>
                         </div>
+                        @if(isset($favoritesCount) && $favoritesCount > 0)
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{$favoritesCount}}
+                            <span class="visually-hidden">товары в корзине</span>
+                          </span>
+                        @endif
+
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item m-auto">
                     <a href="{{route('cart')}}"  class="position-relative text-decoration-none ">
                         <div class="d-flex flex-column align-items-center">
                             <img style="width: 20px;" src="{{asset('storage/static/header/basket.svg')}}" alt="heart">
@@ -46,7 +53,7 @@
 
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item ms-3">
                     @if(auth()->guest())
                         <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{route('login')}}">
                             <div class="d-flex flex-column align-items-center">
