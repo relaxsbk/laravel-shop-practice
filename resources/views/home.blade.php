@@ -1,6 +1,6 @@
 @extends('templates.main')
 
-@section('title', 'Главная страница')
+@section('title', 'ГиперКвант')
 
 @section('main')
     {{--  Карусель  --}}

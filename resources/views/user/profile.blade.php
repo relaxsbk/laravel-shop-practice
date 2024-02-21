@@ -1,6 +1,6 @@
 @extends('templates.main')
 
-@section('title', 'Профиль |')
+@section('title', "Профиль |" .' '. auth()->user()->login)
 
 
 @section('main')

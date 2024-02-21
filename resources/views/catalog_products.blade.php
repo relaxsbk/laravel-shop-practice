@@ -1,6 +1,6 @@
 @extends('templates.main')
 
-@section('title', $category->title)
+@section('title', "Категория" . " " . $category->title)
 
 @section('main')
 

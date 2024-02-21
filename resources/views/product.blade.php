@@ -1,6 +1,6 @@
 @extends('templates.main')
 
-@section('title', $product->title)
+@section('title', 'Товар' . ' ' . $product->title)
 
 @section('main')
     <div class="container mt-4">

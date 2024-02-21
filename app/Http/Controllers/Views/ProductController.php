@@ -36,7 +36,7 @@ class ProductController extends Controller
         if (is_array($cartItems) || is_object($cartItems)) {
             foreach ($cartItems as $item) {
                 if ($item->id === $product->id) {
-                    // Если товар уже в корзине, просто вернемся обратно
+
                     return back();
                 }
             }

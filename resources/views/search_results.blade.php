@@ -1,6 +1,6 @@
 @extends('templates.main')
 
-@section('title', "Результаты поиска" )
+@section('title', "Результаты поиска | " . " " . $query )
 
 @section('main')
 
