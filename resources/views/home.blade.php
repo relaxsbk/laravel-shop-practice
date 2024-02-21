@@ -32,8 +32,8 @@
                     <p class="h3 text-black fw-bolder">Изогнутый экран, Новый опыт</p>
                     <p class="p-1 text-black h-25">120Hz Curved Vision display | 108MP Pro light Camera</p>
                     <p class="fs-3 fw-bold p-1 text-black">74 999 ₽</p>
-                    <a href="#" class="btn btn-dark me-3 btn-sm" >Узнать подробнее</a>
-                    <a href="#" class="btn btn-warning btn-sm">Купить</a>
+                    <a href="/continue" class="btn btn-dark me-3 btn-sm" >Узнать подробнее</a>
+                    <a href="/continue" class="btn btn-warning btn-sm">Купить</a>
                 </div>
             </div>
             <div class="carousel-item active">
@@ -43,8 +43,8 @@
                     <p class="h3 text-black fw-bolder">Изогнутый экран, Новый опыт</p>
                     <p class="p-1 text-black h-25">120Hz Curved Vision display | 108MP Pro light Camera</p>
                     <p class="fs-3 fw-bold p-1 text-black">74 999 ₽</p>
-                    <a href="#" class="btn btn-dark me-3 btn-sm" >Узнать подробнее</a>
-                    <a href="#" class="btn btn-warning btn-sm">Купить</a>
+                    <a href="/continue" class="btn btn-dark me-3 btn-sm" >Узнать подробнее</a>
+                    <a href="/continue" class="btn btn-warning btn-sm">Купить</a>
                 </div>
             </div>
             <div class="carousel-item active">
@@ -54,8 +54,8 @@
                     <p class="h3 text-black fw-bolder">Изогнутый экран, Новый опыт</p>
                     <p class="p-1 text-black h-25">120Hz Curved Vision display | 108MP Pro light Camera</p>
                     <p class="fs-3 fw-bold p-1 text-black">74 999 ₽</p>
-                    <a href="#" class="btn btn-dark me-3 btn-sm" >Узнать подробнее</a>
-                    <a href="#" class="btn btn-warning btn-sm">Купить</a>
+                    <a href="/continue" class="btn btn-dark me-3 btn-sm" >Узнать подробнее</a>
+                    <a href="/continue" class="btn btn-warning btn-sm">Купить</a>
                 </div>
             </div>
 
