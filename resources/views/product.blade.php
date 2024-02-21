@@ -207,6 +207,14 @@
                                         <p>
                                             {{$review->review}}
                                         </p>
+                                        @if(auth()->user()->role === 'admin')
+                                            <form action="{{route('review.delete', $review->id)}}" method="post">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-outline-danger mb-3">Удалить</button>
+                                            </form>
+                                        @endif
+
                                     </div>
                                 @endforeach
                             @endif

@@ -25,4 +25,18 @@ class ReviewController extends Controller
 
         return redirect()->back()->with(['message' => 'Отзыв создан']);
     }
+
+    public function destroy($id)
+    {
+        $review = Review::findOrFail($id);
+        $review->delete();
+
+
+        $product = Product::findOrFail($review->product_id);
+        $averageRating = $product->reviews()->avg('rating');
+        $product->rating = $averageRating;
+        $product->save();
+
+        return redirect()->back()->with(['message' => 'Отзыв удалён']);
+    }
 }

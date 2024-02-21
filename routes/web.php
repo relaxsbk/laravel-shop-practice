@@ -68,6 +68,7 @@ Route::controller(ProfileController::class)->middleware(['cart.items.count'])->g
 
 Route::controller(ReviewController::class)->middleware(['auth'])->group(function (){
     Route::post('/review/create','store')->name('review.create');
+    Route::delete('/review/{id}/delete','destroy')->name('review.delete');
 });
 
 

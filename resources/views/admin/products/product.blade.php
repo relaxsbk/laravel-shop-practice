@@ -106,6 +106,87 @@
 
             <button type="submit" class="btn btn-outline-success">Обновить</button>
         </form>
+        <div class="accordion w-100" id="accordionExample">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingReviews">
+                    <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReviews" aria-expanded="false" aria-controls="collapseReviews">
+                        Отзывы
+                    </button>
+                </h2>
+                <div id="collapseReviews" class="accordion-collapse collapse" aria-labelledby="headingReviews" data-bs-parent="#accordionExample">
+                    <div class="accordion-body fs-5">
+                        {{--modal--}}
+                        @if(auth()->user())
+                            <button type="button" class="btn btn-outline-success fs-6 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Оставить отзыв</button>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Форма заполнения отзыва</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{{route('review.create')}}" method="post">
+                                                @csrf
+                                                <div class="mb-3">
+                                                    <label for="user_id" class="col-form-label fw-bold">{{auth()->user()->email}}</label>
+                                                    <input name="user_id" value="{{auth()->user()->id}}" type="hidden" class="form-control" id="user_id">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input name="product_id" value="{{$product->id}}" type="hidden" class="form-control" id="product_id">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="rating" class="col-form-label">Оценка:</label>
+                                                    <select name="rating" class="form-select" id="rating" required>
+                                                        <option selected value="5">5 - отлично</option>
+                                                        <option value="4">4 - хорошо</option>
+                                                        <option value="3">3 - удовлетворительно</option>
+                                                        <option value="2">2 - плохо</option>
+                                                        <option value="1">1 - ужасно</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="message-text" class="col-form-label">Отзыв:</label>
+                                                    <textarea name="review" class="form-control" id="message-text" required></textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                                    <button type="submit" class="btn btn-primary text-white">Отправить отзыв</button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                        {{--reviews--}}
+                        @if($product->reviews->count() === 0)
+                            <p class="fs-4">Отзывов пока нет </p>
+                        @else
+                            @foreach($product->reviews as $review)
+                                <div class="border-bottom border-body">
+                                    <div class="user-rating">
+                                        <p><span class="fw-bold">{{$review->user->login}}</span> - Оценка: {{$review->rating}}</p>
+                                    </div>
+                                    <p>
+                                        {{$review->review}}
+                                    </p>
+                                    <form action="{{route('review.delete', $review->id)}}" method="post">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-outline-danger mb-3">Удалить</button>
+                                    </form>
+                                </div>
+                            @endforeach
+                        @endif
+
+
+                    </div>
+                </div>
+            </div>
     </div>
 
 @endsection
