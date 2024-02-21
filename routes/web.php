@@ -12,6 +12,7 @@ use App\Http\Controllers\Views\CategoryController;
 use App\Http\Controllers\Views\HomeController;
 use App\Http\Controllers\Views\ProductController;
 use App\Http\Controllers\Views\OrderController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 //admin
@@ -63,6 +64,10 @@ Route::controller(RegisterController::class)->middleware(['guest', 'cart.items.c
 
 Route::controller(ProfileController::class)->middleware(['cart.items.count'])->group(function () {
     Route::get('/profile', 'index')->name('profile');
+});
+
+Route::controller(ReviewController::class)->middleware(['auth'])->group(function (){
+    Route::post('/review/create','store')->name('review.create');
 });
 
 

@@ -9,7 +9,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Services\CartService;
-use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
@@ -18,6 +18,7 @@ class ProductController extends Controller
     public function __construct()
     {
         $this->cartService = new CartService();
+
     }
 
     public function addToCart($id)
@@ -46,6 +47,8 @@ class ProductController extends Controller
         return back();
     }
 
+
+//    админка
     public function index()
     {
         $products = Product::query()->paginate(15);

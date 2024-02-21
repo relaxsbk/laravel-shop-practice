@@ -7,9 +7,16 @@ use App\Models\Brand;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Services\ProductService;
 
 class CategoryController extends Controller
 {
+    protected ProductService $productService;
+
+    public function __construct()
+    {
+        $this->productService = new ProductService();
+    }
 
     public function index()
     {

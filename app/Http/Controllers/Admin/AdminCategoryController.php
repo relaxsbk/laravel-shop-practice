@@ -32,6 +32,16 @@ class AdminCategoryController extends Controller
         return view('admin.categories.addCategory');
     }
 
+
+
+
+    public function show(string $id)
+    {
+        $category = Category::findOrFail($id);
+
+        return view('admin.categories.category', compact('category'));
+    }
+
     public function store(CategoryRequest $request)
     {
         $validated = $request->validated();
@@ -46,16 +56,6 @@ class AdminCategoryController extends Controller
         $category = Category::query()->create($validated);
         return redirect()->route('admin.category')->with(['message' => "Категория \"$category->title \" успешно добавлена "]);
     }
-
-
-    public function show(string $id)
-    {
-        $category = Category::findOrFail($id);
-
-        return view('admin.categories.category', compact('category'));
-    }
-
-
 
 
     public function update(CategoryUpdateRequest $request, string $id)
