@@ -193,17 +193,28 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="rating" class="col-form-label">Оценка:</label>
-                                                        <select name="rating" class="form-select" id="rating" required>
+                                                        <select name="rating" class="form-select @error('rating') is-invalid @enderror" id="rating" required>
                                                             <option selected value="5">5 - отлично</option>
                                                             <option value="4">4 - хорошо</option>
                                                             <option value="3">3 - удовлетворительно</option>
                                                             <option value="2">2 - плохо</option>
                                                             <option value="1">1 - ужасно</option>
                                                         </select>
+                                                        review
+                                                        @error('title')
+                                                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="message-text" class="col-form-label">Отзыв:</label>
-                                                        <textarea name="review" class="form-control" id="message-text" required></textarea>
+                                                        <textarea name="review" class="form-control @error('review') is-invalid @enderror" id="message-text" >{{old('review')}}</textarea>
+                                                        @error('review')
+                                                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
