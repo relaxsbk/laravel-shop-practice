@@ -1,6 +1,6 @@
 @extends('templates.main')
 
-@section('title', 'Каталог')
+@section('title', 'Каталог товаров | Интернет-магазин бытовой и цифровой техники в городе Красноярск | ГиперКвант')
 
 @section('main')
     <div class="container mt-4">

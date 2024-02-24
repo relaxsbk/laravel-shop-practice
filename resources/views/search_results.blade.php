@@ -21,7 +21,7 @@
                 </div>
             </div>
         @endif
-        @if($products->isEmpty())
+        @if($products->isEmpty() || $query = " ")
             <div class="alert alert-danger" role="alert">
                 <h2 class="h2 fw-bold mt-4 mb-4 text-center">Ничего не найдено по запросу "{{ $query }}"</h2>
             </div>

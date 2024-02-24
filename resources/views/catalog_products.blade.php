@@ -1,6 +1,6 @@
 @extends('templates.main')
 
-@section('title', "Категория" . " " . $category->title)
+@section('title', $category->title . " " . "Купить в интернет-магазине ГиперКвант." . " ". "| " . "Страница" . " " . $products->currentPage() . " " . "из". " ". $products->lastPage())
 
 @section('main')
 

@@ -1,6 +1,6 @@
 @extends('templates.main')
 
-@section('title', 'Избранное')
+@section('title', 'Избранное | Интернет-магазин бытовой и цифровой техники в городе Красноярск | ГиперКвант')
 
 
 @section('main')

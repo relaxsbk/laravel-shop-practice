@@ -1,6 +1,6 @@
 @extends('templates.main')
 
-@section('title', 'Товар' . ' ' . $product->title)
+@section('title', 'Купить' . ' ' . $product->title . ' ' . 'в интернет-магазине бытовой и цифровой техники в городе Красноярск | ГиперКвант')
 
 @section('main')
     <div class="container mt-4">
