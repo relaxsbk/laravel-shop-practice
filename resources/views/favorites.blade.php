@@ -2,6 +2,9 @@
 
 @section('title', 'Избранное | Интернет-магазин бытовой и цифровой техники в городе Красноярск | ГиперКвант')
 
+@section('meta')
+    <link rel="canonical" href="{{ route('favorites') }}">
+@endsection
 
 @section('main')
 

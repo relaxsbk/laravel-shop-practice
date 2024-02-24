@@ -2,6 +2,10 @@
 
 @section('title', 'Каталог товаров | Интернет-магазин бытовой и цифровой техники в городе Красноярск | ГиперКвант')
 
+@section('meta')
+    <link rel="canonical" href="{{ route('CatalogPage') }}">
+@endsection
+
 @section('main')
     <div class="container mt-4">
 

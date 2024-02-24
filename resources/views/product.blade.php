@@ -2,6 +2,10 @@
 
 @section('title', 'Купить' . ' ' . $product->title . ' ' . 'в интернет-магазине бытовой и цифровой техники в городе Красноярск | ГиперКвант')
 
+@section('meta')
+    <link rel="canonical" href="{{ route('Product',['category' => $product->category->code, 'product' => $product->id]) }}">
+@endsection
+
 @section('main')
     <div class="container mt-4">
         <nav class="fs-6 mt-4 mb-" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">

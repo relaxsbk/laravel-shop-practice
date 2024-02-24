@@ -2,6 +2,10 @@
 
 @section('title', $category->title . " " . "Купить в интернет-магазине ГиперКвант." . " ". "| " . "Страница" . " " . $products->currentPage() . " " . "из". " ". $products->lastPage())
 
+@section('meta')
+    <link rel="canonical" href="{{ $products->currentPage() === 1 ? route('ProductsPage', $category->code) : route('ProductsPage', ['category' => $category->code, 'page' => $products->currentPage()]) }}">
+@endsection
+
 @section('main')
 
     <div class="container mt-4">
