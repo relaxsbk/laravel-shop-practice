@@ -171,8 +171,15 @@
                     @endforeach
                 </div>
                 {{ $products->links('pagination::bootstrap-5') }}
+                @if($products->currentPage() === 1)
+                    <div class="container">
+                        <p class="fs-5">{{$category->description}}</p>
+                    </div>
+                @endif
             </div>
+
         </div>
+
     </div>
 
 @endsection
