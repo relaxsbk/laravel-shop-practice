@@ -1,2 +1,12 @@
 User-agent: *
-Disallow:
+Disallow: /?=*
+Disallow: /?utm_source=*
+Disallow: /?erid=*
+Disallow: /?=tmp*
+Disallow: /search?=*
+Disallow: /admin/
+Disallow: /cart
+Disallow: /favorites
+
+
+
