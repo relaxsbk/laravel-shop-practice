@@ -24,7 +24,7 @@ class RegisterRequest extends FormRequest
         return [
             'name' => ['required', 'regex:/^[А-Яа-яёЁ\s-]+$/iu'],
             'surname' => ['required', 'regex:/^[А-Яа-яёЁ\s-]+$/iu'],
-            'login' => ['required', 'unique:users,login', 'regex:/^[A-Za-z]+$/u'],
+            'login' => ['required','max:255', 'unique:users,login', 'regex:/^[A-Za-z]+$/u'],
             'email' => ['required', 'unique:users,email', 'email'],
             'password' => ['required', 'min:6'],
             'repeat_password' => ['required', 'same:password'],

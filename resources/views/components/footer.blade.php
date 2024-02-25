@@ -11,22 +11,25 @@
                     <li class="nav-item mb-2"><span class="nav-link p-0 text-white phone-number">+7 (777) 777-77-77</span></li>
                 </ul>
             </div>
-            <div class="col-lg-2 mb-1 d-flex">
-                <ul class="nav flex-column flex-fill ml-3 mt-2 text-primary">
-                    <li class="nav-item mb-2 flex-fill"><a href="{{route('CatalogPage')}}" class="nav-link p-0 ">Каталог товаров</a></li>
-                    <li class="nav-item mb-2 flex-fill"><a href="/save" class="nav-link p-0 ">Гарантия и возврат</a></li>
-                    <li class="nav-item mb-2 flex-fill"><a href="/forum" class="nav-link p-0 ">Форум</a></li>
-                    <li class="nav-item mb-2 flex-fill"><a href="/about" class="nav-link p-0 ">О нас</a></li>
-                </ul>
+            <div class="col-lg-2 mb-1 d-flex justify-content-lg-start justify-content-center flex-md-row"> <!-- изменен класс d-flex на justify-content-lg-start и добавлен justify-content-center и flex-md-row -->
+                <div class="d-flex flex-column flex-md-column"> <!-- добавлен класс flex-column и flex-md-column -->
+                    <ul class="nav flex-column flex-fill ml-3 mt-2 text-primary text-center text-lg-start"> <!-- изменен класс text-center на text-lg-start -->
+                        <li class="nav-item mb-2 flex-fill"><a href="{{route('CatalogPage')}}" class="nav-link p-0 ">Каталог товаров</a></li>
+                        <li class="nav-item mb-2 flex-fill"><a href="/save" class="nav-link p-0 ">Гарантия и возврат</a></li>
+                        <li class="nav-item mb-2 flex-fill"><a href="/forum" class="nav-link p-0 ">Форум</a></li>
+                        <li class="nav-item mb-2 flex-fill"><a href="/about" class="nav-link p-0 ">О нас</a></li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="col-lg-2 mb-1 d-flex">
-                <ul class="nav flex-column flex-fill ml-3 mt-2 text-primary">
-                    <li class="nav-item mb-2 flex-fill"><a href="/support" class="nav-link p-0 ">Служба поддержки</a></li>
-                    <li class="nav-item mb-2 flex-fill"><a href="/delivery" class="nav-link p-0 ">Доставка и оплата</a></li>
-                    <li class="nav-item mb-2 flex-fill"><a href="/reviews" class="nav-link p-0 ">Отзывы клиентов</a></li>
-                    <li class="nav-item mb-2 flex-fill"><a href="/FAQ" class="nav-link p-0 ">FAQ</a></li>
-                </ul>
+            <div class="col-lg-2 mb-1 d-flex justify-content-lg-start justify-content-center flex-md-row"> <!-- изменен класс d-flex на justify-content-lg-start и добавлен justify-content-center и flex-md-row -->
+                <div class="d-flex flex-column flex-md-column"> <!-- добавлен класс flex-column и flex-md-column -->
+                    <ul class="nav flex-column flex-fill ml-3 mt-2 text-primary text-center text-lg-start"> <!-- изменен класс text-center на text-lg-start -->
+                        <li class="nav-item mb-2 flex-fill"><a href="/support" class="nav-link p-0 ">Служба поддержки</a></li>
+                        <li class="nav-item mb-2 flex-fill"><a href="/delivery" class="nav-link p-0 ">Доставка и оплата</a></li>
+                        <li class="nav-item mb-2 flex-fill"><a href="/reviews" class="nav-link p-0 ">Отзывы клиентов</a></li>
+                        <li class="nav-item mb-2 flex-fill"><a href="/FAQ" class="nav-link p-0 ">FAQ</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="col-lg-2 mb-3 d-flex flex-column">
                 <ul class="nav flex-column ml-3 mt-auto">

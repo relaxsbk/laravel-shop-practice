@@ -22,8 +22,8 @@
                 <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск" name="search" @if(isset($_GET['search'])) value="{{$_GET['search']}}" @endif >
                 <button class="btn btn-outline-success" type="submit">Поиск</button>
             </form>
-            <ul class="navbar-nav ms-3 me-auto mb-2 mb-lg-0 d-flex align-items-center">
-                <li class="nav-item me-3">
+            <ul class="navbar-nav ms-3 me-auto mb-2 mb-lg-0 mt-md-3 mt-sm-3  d-flex align-items-center">
+                <li class="nav-item me-lg-3">
                     <a href="{{route('favorites')}}"  class="position-relative text-decoration-none ">
                         <div class="d-flex flex-column align-items-center">
                             <img style="width: 20px;" src="{{asset('storage/static/header/heart.svg')}}" alt="heart">
@@ -38,7 +38,7 @@
 
                     </a>
                 </li>
-                <li class="nav-item m-auto">
+                <li class="nav-item m-auto m-lg-auto m-sm-auto">
                     <a href="{{route('cart')}}"  class="position-relative text-decoration-none ">
                         <div class="d-flex flex-column align-items-center">
                             <img style="width: 20px;" src="{{asset('storage/static/header/basket.svg')}}" alt="heart">
@@ -53,7 +53,7 @@
 
                     </a>
                 </li>
-                <li class="nav-item ms-3">
+                <li class="nav-item ms-lg-3">
                     @if(auth()->guest())
                         <a class="nav-link active d-flex align-items-center" aria-current="page" href="{{route('login')}}">
                             <div class="d-flex flex-column align-items-center">
