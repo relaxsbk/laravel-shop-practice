@@ -20,3 +20,4 @@ yarn-error.log
 
 !public/
 !storage/app/public/static/
+public_html
