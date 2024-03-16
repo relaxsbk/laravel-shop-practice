@@ -3,6 +3,7 @@
 @section('title', 'Интернет-магазин бытовой и цифровой техники в городе Красноярск | ГиперКвант')
 
 @section('meta')
+    <meta name="keywords" content="интернет магазин, бытовая техника, цифровая техника, смартфоны, электроника, Красноярск, доставка по красноярску">
     <link rel="canonical" href="{{ route('HomePage') }}">
 @endsection
 @section('main')

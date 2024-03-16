@@ -7,6 +7,9 @@ Disallow: /search?=*
 Disallow: /admin/
 Disallow: /cart
 Disallow: /favorites
+Disallow: /login
+Disallow: /register
+Disallow: /orders/
 
 
 
