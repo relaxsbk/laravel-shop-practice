@@ -138,6 +138,10 @@ class ProductController extends Controller
         $isPublic = $request->has('is_public') ? 1 : 0;
         $validated['is_public'] = $isPublic;
 
+        if ($request->hasFile('img')) {
+            $validated['img'] = "/storage/{$request->file('img')->store('prodicts/images', 'public')}";
+        }
+
         $product->update($validated);
 
         return redirect()->back()->with('success', 'Товар успешно изменён');
