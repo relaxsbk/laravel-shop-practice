@@ -43,7 +43,6 @@
                         <div class="card-body">
                             <p class="fs-6 text-secondary">{{$product->category->title}}</p>
                             <h1 class="h2 ">{{$product->title}} {{$product->brand->name}} {{$product->model}} </h1>
-{{--                            <p class="fs-5 text-secondary">8 ГБ, 2 SIM, OLED, 2796x1290, камера 48+12+12 Мп, NFC, 5G, GPS, 4441 мА*ч</p>--}}
                             <p class="fs-5 text-secondary">{{$product->description}}</p>
                             <div class="mb-3">
                                 <div class="d-flex">

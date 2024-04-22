@@ -119,7 +119,6 @@
                                         <div class="d-flex justify-content-between align-items-center mb-2">
                                             <p class="fs-5 card-text mt-3">{{ $product->money() }} ₽</p>
                                             <div class="d-flex">
-                                                <!-- Добавьте дополнительные элементы управления, если необходимо -->
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between">

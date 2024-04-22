@@ -29,6 +29,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+require_once __DIR__ . '/../routes/test_api/placeholder.php';
+
 Route::controller(HomeController::class)->middleware('cart.items.count')->group(function () {
     Route::get('/', 'index')->name('HomePage');
 });
