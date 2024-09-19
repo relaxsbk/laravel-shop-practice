@@ -34,11 +34,12 @@ require_once __DIR__ . '/../routes/test_api/placeholder.php';
 Route::controller(HomeController::class)->middleware('cart.items.count')->group(function () {
     Route::get('/', 'index')->name('HomePage');
 });
+
 Route::controller(CategoryController::class)->middleware('cart.items.count')->group(function () {
-    Route::get('/search', 'search')->name('search');
+    Route::get('/search', 'search')->name('search'); // лишнее
     Route::get('/catalog', 'index')->name('CatalogPage');
     Route::get('/catalog/{category}', 'products')->name('ProductsPage');
-    Route::get('/catalog/{category}/{product}', 'product')->name('Product');
+    Route::get('/catalog/{category}/{product}', 'product')->name('Product'); //Лишнее перенести в продукт
 });
 
 Route::controller(ProductController::class)->group(function () {
@@ -61,7 +62,9 @@ Route::controller(FavoritesController::class)->middleware('cart.items.count')->g
     Route::get('/favorites/{product:id}', 'remove')->name('favorites.remove');
 });
 
-
+/*
+ * Возможно желательно объединить в user контроллер
+ */
 Route::controller(LoginController::class)->middleware(['guest', 'cart.items.count'])->group(function () {
     Route::get('/login', 'index')->name('login');
     Route::post('/login', 'loginUser')->name('loginUser');

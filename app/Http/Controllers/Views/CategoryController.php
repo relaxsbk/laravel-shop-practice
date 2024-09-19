@@ -105,9 +105,15 @@ class CategoryController extends Controller
     {
         $query = $request->input('search');
 
+        if (empty($query)) {
+            return view('search_results', ['products' => collect(), 'query' => $query]);
+        }
+
         $products = Product::where('is_public', 1)
             ->where('title', 'like', '%'.$query.'%')
             ->paginate(9);
+
+        
 
         return view('search_results', ['products' => $products, 'query' => $query]);
     }

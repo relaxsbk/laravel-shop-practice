@@ -21,7 +21,8 @@
                 </div>
             </div>
         @endif
-        @if($products->isEmpty() || $query = " ")
+{{--        @if($products->isEmpty() || $query = "")--}}
+        @if($products->count() === 0)
             <div class="alert alert-danger" role="alert">
                 <h2 class="h2 fw-bold mt-4 mb-4 text-center">Ничего не найдено по запросу "{{ $query }}"</h2>
             </div>
@@ -32,7 +33,7 @@
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 @foreach($products as $product)
                     <div class="col mb-4">
-                        <div class="card card-hover">
+                        <div class="card card-hover" style="background-color: white">
                             <div class="d-flex flex-column justify-content-center align-items-center">
                                 <img style="width: 60%" src="{{ $product->img }}" class="card-img mt-3" alt="product">
                                 <div class="card-body w-100">
