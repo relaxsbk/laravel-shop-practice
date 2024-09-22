@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Views\AboutController;
 use App\Http\Controllers\Views\BrandController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\ProfileController;
@@ -34,6 +35,11 @@ require_once __DIR__ . '/../routes/test_api/placeholder.php';
 Route::controller(HomeController::class)->middleware('cart.items.count')->group(function () {
     Route::get('/', 'index')->name('HomePage');
 });
+
+Route::controller(AboutController::class)->middleware('cart.items.count')->group(function () {
+    Route::get('/about', 'index')->name('about');
+});
+
 
 Route::controller(CategoryController::class)->middleware('cart.items.count')->group(function () {
     Route::get('/search', 'search')->name('search'); // лишнее
