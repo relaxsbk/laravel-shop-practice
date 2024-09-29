@@ -84,6 +84,10 @@ class CategoryController extends Controller
 //    }
     public function product($categoryCode ,$productID)
     {
+        /**
+         * @var Product $product
+         */
+
        $category = Category::where('code', $categoryCode)->firstOrFail();
         $product = Product::findOrFail($productID);
 
@@ -98,6 +102,7 @@ class CategoryController extends Controller
         if ($product->is_public === 0) {
             abort(404);
         }
+        //product->characteristics->characteristics обращение к характеристике
 
         return view('product', ['category' => $category, 'product' => $product, 'reviews' => $reviews]);
     }
@@ -113,7 +118,7 @@ class CategoryController extends Controller
             ->where('title', 'like', '%'.$query.'%')
             ->paginate(9);
 
-        
+
 
         return view('search_results', ['products' => $products, 'query' => $query]);
     }

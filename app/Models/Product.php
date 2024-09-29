@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Product extends Model
 {
@@ -43,9 +44,9 @@ class Product extends Model
         return $this->belongsTo(Brand::class);
     }
 
-    public function characteristics(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function characteristics(): HasOne
     {
-        return $this->hasMany(Characteristic::class);
+        return $this->hasOne(Characteristic::class);
     }
 
     public function product_images(): \Illuminate\Database\Eloquent\Relations\HasMany

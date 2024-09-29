@@ -10,7 +10,12 @@ class Characteristic extends Model
     use HasFactory;
 
     protected $fillable = [
-        'characteristic'
+        'product_id',
+        'characteristics'
+    ];
+
+    protected $casts = [
+      'characteristics' => 'array'
     ];
 
     public function product(): \Illuminate\Database\Eloquent\Relations\BelongsTo
