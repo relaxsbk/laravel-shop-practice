@@ -4,7 +4,7 @@
     <nav class="fs-6 mt-4 mb-4" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{route('HomePage')}}">ГиперКвант</a></li>
-            <li class="breadcrumb-item active" aria-current="page">,<a href="{{route('admin_home')}}">Панель Администрирования</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{route('admin_home')}}">Панель Администрирования</a></li>
             <li class="breadcrumb-item active" aria-current="page">Создать товар</li>
         </ol>
     </nav>

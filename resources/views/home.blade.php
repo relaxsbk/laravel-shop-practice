@@ -99,7 +99,7 @@
 
         <div class="d-flex justify-content-between flex-wrap">
             @foreach($products as $product)
-                <div class="card card-hover" style="width: 18rem; background-color: white">
+                <div id="card-product" class="card card-hover" style="width: 18rem; background-color: white">
                     <div class="d-flex flex-column justify-content-center align-items-center">
                         <img style="width: 60%; height: 200px;" src="{{$product->img}}" class="card-img mt-3" alt="product">
                         <div class="card-body w-100">

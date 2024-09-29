@@ -71,5 +71,17 @@
                 </ul>
             </div>
         </li>
+        <li class="border-top my-3"></li>
+        <li class="mb-1">
+            <button class="btn btn-toggle fs-4 align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#slider-collapse" aria-expanded="false">
+                Слайдер
+            </button>
+            <div class="collapse" id="slider-collapse">
+                <ul class="btn-toggle-nav fs-6 list-unstyled fw-normal pb-1 small">
+                    <li><a href="{{route('admin.slider')}}" class="nav-link link-dark rounded">Посмотреть слайдер</a></li>
+                    <li><a href="{{route('admin.users.admin')}}" class="nav-link link-dark rounded">Добавить картинку</a></li>
+                </ul>
+            </div>
+        </li>
     </ul>
 </div>
