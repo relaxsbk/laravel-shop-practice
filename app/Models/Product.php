@@ -42,4 +42,14 @@ class Product extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+
+    public function characteristics(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Characteristic::class);
+    }
+
+    public function product_images(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(ProductImage::class);
+    }
 }
