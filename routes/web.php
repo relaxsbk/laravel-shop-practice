@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Views\AboutController;
 use App\Http\Controllers\Views\BrandController;
 use App\Http\Controllers\User\LoginController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\RegisterController;
 use App\Http\Controllers\Views\CartController;
 use App\Http\Controllers\Views\CategoryController;
+use App\Http\Controllers\Views\CompareController;
 use App\Http\Controllers\Views\HomeController;
 use App\Http\Controllers\Views\ProductController;
 use App\Http\Controllers\Views\OrderController;
@@ -40,6 +42,10 @@ Route::controller(AboutController::class)->middleware('cart.items.count')->group
     Route::get('/about', 'index')->name('about');
 });
 
+Route::controller(CompareController::class)->group(function () {
+    Route::get('/compare', 'index')->name('compare');
+});
+
 
 Route::controller(CategoryController::class)->middleware('cart.items.count')->group(function () {
     Route::get('/search', 'search')->name('search'); // лишнее
@@ -49,7 +55,7 @@ Route::controller(CategoryController::class)->middleware('cart.items.count')->gr
 });
 
 Route::controller(ProductController::class)->group(function () {
-    Route::get('/product/{id}/addToCart', 'addToCart')->name('addToCart');
+    Route::post('/product/{id}/addToCart', 'addToCart')->name('addToCart');
     Route::get('/product/{id}/addToFavorites', 'addToFavorites')->name('addToFavorites');
 });
 
@@ -139,6 +145,10 @@ Route::controller(AdminController::class)->middleware(['cart.items.count', 'auth
             Route::get('/users', 'index')->name('admin.users');
             Route::get('/users/admin', 'admin')->name('admin.users.admin');
             Route::post('/users/{id}/delete', 'destroy')->name('admin.users.delete');
+        });
+
+        Route::controller(SliderController::class)->middleware('auth.admin')->group(function () {
+            Route::get('/slider', 'index')->name('admin.slider');
         });
 
 

@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Services\CartService;
 use App\Services\FavoritesService;
+use Illuminate\Http\Request;
 
 
 class ProductController extends Controller
@@ -26,29 +27,69 @@ class ProductController extends Controller
 
     public function addToCart($id)
     {
+        // Находим продукт по ID
         $product = Product::query()->find($id);
 
-        if (is_null($product)){
-            return back();
+        // Проверяем, существует ли продукт
+        if (is_null($product)) {
+            return response()->json(['success' => false, 'message' => 'Product not found'], 404);
         }
 
         // Получаем текущие товары в корзине
         $cartItems = $this->cartService->get();
 
         // Проверяем, есть ли товар уже в корзине
-        if (is_array($cartItems) || is_object($cartItems)) {
-            foreach ($cartItems as $item) {
-                if ($item->id === $product->id) {
-
-                    return back();
-                }
-            }
+        if (collect($cartItems)->contains('id', $product->id)) {
+            return response()->json(['success' => false, 'message' => 'Product already in cart'], 400);
         }
 
-        /** @var Product $product */
+        // Добавляем товар в корзину
         $this->cartService->add($product);
-        return back();
+
+        // Получаем обновленное количество товаров в корзине
+        $cartItemCount = count($this->cartService->get());
+
+        // Возвращаем успешный ответ с количеством товаров в корзине
+        return response()->json([
+            'success' => true,
+            'message' => 'Product added to cart',
+            'cartItemCount' => $cartItemCount,
+        ]);
     }
+
+
+
+//    public function addToCart(Request $request, $id)
+//    {
+//        $product = Product::query()->find($id);
+//
+//        if (is_null($product)) {
+//            return response()->json(['success' => false, 'message' => 'Товар не найден'], 404);
+//        }
+//
+//        // Получаем текущие товары в корзине
+//        $cartItems = $this->cartService->get();
+//
+//        // Проверяем, есть ли товар уже в корзине
+//        if (is_array($cartItems) || is_object($cartItems)) {
+//            foreach ($cartItems as $item) {
+//                if ($item->id === $product->id) {
+//                    return response()->json(['success' => false, 'message' => 'Товар уже в корзине'], 400);
+//                }
+//            }
+//        }
+//
+//        // Добавляем товар в корзину
+//        $this->cartService->add($product);
+//
+//        // Возвращаем JSON-ответ
+//        return response()->json([
+//            'success' => true,
+//            'message' => 'Товар добавлен в корзину',
+//            'cartItemCount' => count($cartItems) + 1, // Обновляем количество товаров
+//        ]);
+//    }
+
 
     public function addToFavorites($id)
     {

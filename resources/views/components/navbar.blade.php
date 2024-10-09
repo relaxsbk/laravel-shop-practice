@@ -22,7 +22,17 @@
                 <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск" name="search" @if(isset($_GET['search'])) value="{{$_GET['search']}}" @endif required>
                 <button class="btn btn-outline-success" type="submit">Поиск</button>
             </form>
-            <ul class="navbar-nav ms-3 me-auto mb-2 mb-lg-0 mt-md-3 mt-sm-3  d-flex align-items-center">
+            <ul class="navbar-nav ms-3 me-auto mb-2 mb-lg-0 mt-md-3 mt-sm-3   d-flex align-items-center">
+                <li class="nav-item me-3 ms-sm-3 ">
+                    <a href="{{route('compare')}}"  class="position-relative text-decoration-none ">
+                        <div class="d-flex flex-column align-items-center">
+                            <img style="width: 20px;" src="{{asset('storage/static/header/bar-chart-fill.svg')}}" alt="heart">
+                            <span class="ms-1 text-dark">Сравнить</span>
+                        </div>
+
+
+                    </a>
+                </li>
                 <li class="nav-item me-lg-3">
                     <a href="{{route('favorites')}}"  class="position-relative text-decoration-none ">
                         <div class="d-flex flex-column align-items-center">
@@ -44,12 +54,12 @@
                             <img style="width: 20px;" src="{{asset('storage/static/header/basket.svg')}}" alt="heart">
                             <span class="ms-1 text-dark">Корзина</span>
                         </div>
-                        @if(isset($itemsCount) && $itemsCount > 0)
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            {{$itemsCount}}
+
+                            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: {{ isset($itemsCount) && $itemsCount > 0 ? 'inline' : 'none' }};">
+                            {{ $itemsCount ?? 0 }}
                             <span class="visually-hidden">товары в корзине</span>
                           </span>
-                        @endif
+
 
                     </a>
                 </li>
