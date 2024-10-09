@@ -21,9 +21,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(data => {
                     if (data.success) {
                         // Изменяем интерфейс кнопки
-                        button.classList.remove('btn-outline-primary');
-                        button.classList.add('btn-success');
-                        button.textContent = 'В корзине';
+                        const cartLink = document.createElement('a')
+                        cartLink.href = '/cart';
+                        cartLink.className = 'btn btn-success flex-grow-1 me-2';
+                        cartLink.innerHTML = 'В корзине';
+
+                        button.replaceWith(cartLink)
+
+
+                        // button.classList.remove('btn-outline-primary');
+                        // button.classList.add('btn-success');
+                        // button.textContent = 'В корзине';
 
                         // Обновляем или показываем счетчик товаров в корзине
                         const cartCountElement = document.getElementById('cart-count');

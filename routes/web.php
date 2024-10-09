@@ -56,7 +56,7 @@ Route::controller(CategoryController::class)->middleware('cart.items.count')->gr
 
 Route::controller(ProductController::class)->group(function () {
     Route::post('/product/{id}/addToCart', 'addToCart')->name('addToCart');
-    Route::get('/product/{id}/addToFavorites', 'addToFavorites')->name('addToFavorites');
+    Route::post('/product/{id}/addToFavorites', 'addToFavorites')->name('addToFavorites');
 });
 
 

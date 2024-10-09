@@ -96,26 +96,34 @@ class ProductController extends Controller
         $product = Product::query()->find($id);
 
         if (is_null($product)){
-            return back();
+            return response()->json(['success' => false, 'message' => 'Product not found'], 404);
         }
 
-        // Получаем текущие товары в корзине
+        // Получаем текущие избранные товары
         $favoriteItems = $this->favoritesService->get();
 
-        // Проверяем, есть ли товар уже в корзине
+        // Проверяем, есть ли товар уже в избранном
         if (is_array($favoriteItems) || is_object($favoriteItems)) {
             foreach ($favoriteItems as $item) {
                 if ($item->id === $product->id) {
-
-                    return back();
+                    return response()->json(['success' => false, 'message' => 'Product already in favorites'], 400);
                 }
             }
         }
 
-        /** @var Product $product */
+        // Добавляем товар в избранное
         $this->favoritesService->add($product);
-        return back();
+
+        // Получаем новое количество товаров в избранном
+        $favoriteItemCount = count($this->favoritesService->get());
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Product added to favorites',
+            'favoriteItemCount' => $favoriteItemCount
+        ]);
     }
+
 
 
 //    админка

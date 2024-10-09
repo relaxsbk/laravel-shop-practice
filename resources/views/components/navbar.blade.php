@@ -39,12 +39,10 @@
                             <img style="width: 20px;" src="{{asset('storage/static/header/heart.svg')}}" alt="heart">
                             <span class="ms-1 text-dark">Избранное</span>
                         </div>
-                        @if(isset($favoritesCount) && $favoritesCount > 0)
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            {{$favoritesCount}}
-                            <span class="visually-hidden">товары в корзине</span>
+                        <span id="favorite-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: {{ isset($favoritesCount) && $favoritesCount > 0 ? 'inline' : 'none' }};">
+                            {{ $favoritesCount ?? 0 }}
+                            <span class="visually-hidden">товары в избранном</span>
                           </span>
-                        @endif
 
                     </a>
                 </li>
