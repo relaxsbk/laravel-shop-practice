@@ -34,6 +34,9 @@
                 </div>
             @endif
         <div class="d-flex flex-column flex-md-row">
+            <form id="add-to-cart-form" method="POST" style="display: none;">
+                @csrf
+            </form>
             <div class="flex-shrink-0 pe-lg-4 mb-3 mb-md-0" style="max-width: 100%;">
                 <img src="{{$product->img}}" class="img-fluid w-100" style="max-width: 366px; height: auto;" alt="Product Image">
             </div>
@@ -78,9 +81,9 @@
                                 @endphp
 
                                 @if($inCart)
-                                    <a href="{{ route('cart', $product->id) }}" class=" btn btn-outline-success flex-grow-1 me-2">В корзине</a>
+                                    <a href="{{ route('cart') }}" class="btn btn-outline-success flex-grow-1 me-2">В корзине</a>
                                 @else
-                                    <a href="{{ route('addToCart', $product->id) }}" class="btn btn-outline-primary flex-grow-1 me-2">Купить</a>
+                                    <button class="btn btn-outline-primary flex-grow-1 me-2 add-to-cart-btn" data-id="{{ $product->id }}">Купить</button>
                                 @endif
                                 @php
                                     $inFavorite = false;
