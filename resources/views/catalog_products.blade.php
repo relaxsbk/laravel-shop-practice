@@ -92,6 +92,11 @@
             <div class="col-lg-9">
                 <div class="row row-cols-1 row-cols-md-3 g-4 align-items-stretch">
                     @foreach($products as $product)
+
+                        <form id="add-to-cart-form" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+
                         <div class="col-12 col-sm-6 col-lg-4 mb-4">
                             <div class="card card-hover align-items-start" style="background-color: white; min-height: 100%">
                                 <div class="d-flex flex-column justify-content-center align-items-center">
@@ -135,9 +140,9 @@
                                             @endphp
 
                                             @if($inCart)
-                                                <a href="{{ route('cart', $product->id) }}" class=" btn btn-outline-success flex-grow-1 me-2">В корзине</a>
+                                                <a href="{{ route('cart') }}" class="btn btn-outline-success flex-grow-1 me-2">В корзине</a>
                                             @else
-                                                <a href="{{ route('addToCart', $product->id) }}" class="btn btn-outline-primary flex-grow-1 me-2">Купить</a>
+                                                <button class="btn btn-outline-primary flex-grow-1 me-2 add-to-cart-btn" data-id="{{ $product->id }}">Купить</button>
                                             @endif
 
 
