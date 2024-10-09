@@ -159,9 +159,15 @@
                     <div id="collapseCharacteristics" class="accordion-collapse collapse show" aria-labelledby="headingCharacteristics" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <!-- Здесь контент с характеристиками -->
-                            <p>Характеристика 1: Значение 1</p>
-                            <p>Характеристика 2: Значение 2</p>
-                            <p>Характеристика 3: Значение 3</p>
+                            @if(!empty($product->characteristics->characteristics))
+
+                                @foreach($product->characteristics->characteristics as $key => $value)
+                                    <p class="fs-4"><strong style="color: #1d4242;">{{ $key }}</strong>: {{ $value }}</p>
+                                @endforeach
+                            @else
+                            <p class="fs-4">Упс... Характеристики пока нет :(</p>
+
+                            @endif
                         </div>
                     </div>
                 </div>
