@@ -34,9 +34,7 @@
             <div class="col-lg-2 mb-3 d-flex flex-column">
                 <ul class="nav flex-column ml-3 mt-auto">
                     <li class="nav-item mb-4 d-flex justify-content-center">
-                        <a href="#" class="d-inline-block me-2 me-md-4 mt-2">
-                            <img src="{{asset('storage/static/footer/vk.svg')}}"  alt="vk">
-                        </a>
+                       
                         <a href="#" class="d-inline-block me-2 me-md-4">
                             <img src="{{asset('storage/static/footer/tg.svg')}}" alt="tg">
                         </a>
