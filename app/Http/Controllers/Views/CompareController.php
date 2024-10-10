@@ -36,14 +36,20 @@ class CompareController extends Controller
         $product = Product::find($id);
 
         if (!$product) {
-            return response()->json(['success' => false, 'message' => 'Product not found'], 404);
+            return response()->json([
+                'success' => false,
+                'message' => 'Product not found'
+            ], 404);
         }
 
         $compareItems = $this->compareService->get();
 
         // Проверяем, если товар уже в сравнении
         if (collect($compareItems)->contains('id', $product->id)) {
-            return response()->json(['success' => false, 'message' => 'Product already in compare'], 400);
+            return response()->json([
+                'success' => false,
+                'message' => 'Product already in compare'
+            ], 400);
         }
 
         $this->compareService->add($product);
