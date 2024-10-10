@@ -2,8 +2,10 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CompareMiddleware;
 use App\Http\Middleware\FavoritesMiddleware;
 use App\Http\Middleware\ProductInCartMiddleware;
+use App\Http\Middleware\ProductInCompareMiddleware;
 use App\Http\Middleware\ProductInFavoritesMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -41,7 +43,9 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             ProductInCartMiddleware::class,
             ProductInFavoritesMiddleware::class,
-            FavoritesMiddleware::class
+            ProductInCompareMiddleware::class,
+            FavoritesMiddleware::class,
+            CompareMiddleware::class
 
         ],
 
