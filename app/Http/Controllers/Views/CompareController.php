@@ -48,7 +48,13 @@ class CompareController extends Controller
 
         $this->compareService->add($product);
 
-        return response()->json(['success' => true, 'message' => 'Product added to compare']);
+        $compareItemCount = count($this->compareService->get());
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Product added to compare',
+            'compareItemCount' => $compareItemCount
+        ]);
     }
 
 }

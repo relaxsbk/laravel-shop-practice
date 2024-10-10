@@ -20,10 +20,11 @@ document.addEventListener('DOMContentLoaded', function () {
             })
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data)
                     if (data.success) {
                         // Создаем новую ссылку на избранное
                         const compareLink = document.createElement('a');
-                        compareLink.href = `/compare`;  // Ссылка на страницу избранного
+                        compareLink.href = `/compare`;  // Ссылка на страницу
                         compareLink.className = 'btn btn-primary me-2';
                         compareLink.innerHTML = `
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-bar-chart" viewBox="0 0 16 16">
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         // Обновляем счетчик избранных товаров
                         const compareCountElement = document.getElementById('compare-count');
                         if (compareCountElement) {
-                            compareCountElement.textContent = data.compareCountElement; // Обновляем счетчик
+                            compareCountElement.textContent = data.compareItemCount; // Обновляем счетчик
                             compareCountElement.style.display = 'inline'; // Показываем счетчик
                         }
 

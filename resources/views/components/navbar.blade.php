@@ -29,6 +29,10 @@
                             <img style="width: 20px;" src="{{asset('storage/static/header/bar-chart-fill.svg')}}" alt="heart">
                             <span class="ms-1 text-dark">Сравнить</span>
                         </div>
+                        <span id="compare-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: {{ isset($comparesCount) && $comparesCount > 0 ? 'inline' : 'none' }};">
+                            {{ $comparesCount ?? 0 }}
+                            <span class="visually-hidden">товары в избранном</span>
+                          </span>
 
 
                     </a>
