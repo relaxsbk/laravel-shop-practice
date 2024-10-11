@@ -63,4 +63,14 @@ class CompareController extends Controller
         ]);
     }
 
+    public function remove(Product $product)
+    {
+        if ($this->compareService->remove($product)) {
+
+            return back()->with('message', 'Товар успешно удалён!');
+        }
+        session()->flash('message_errors', 'Товар не удалён!');
+        return back();
+    }
+
 }

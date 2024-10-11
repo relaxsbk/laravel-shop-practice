@@ -52,7 +52,7 @@
                     </form>
 
 
-                    <div id="card-product" class="card card-hover" style="width: 18rem; background-color: white">
+                    <div id="card-product" class="card card-hover mb-2" style="width: 18rem; background-color: white">
                         <div class="d-flex flex-column justify-content-center align-items-center">
                             <img style="width: 60%; height: 200px;" src="{{$product->img}}" class="card-img mt-3" alt="product">
                             <div class="card-body w-100">
@@ -62,7 +62,6 @@
                                 </h5>
                                 <p class="fs-5 card-text">
                                     <a href="{{route('Product', ['category' => $product->category->code, 'product' => $product->id])}}"  class="custom-link">{{$product->title}} {{$product->model}}</a>
-                                    dada
                                 </p>
                                 <div class="d-flex align-items-center mb-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-star-fill me-1" viewBox="0 0 16 16">
@@ -128,7 +127,7 @@
 
 
                                     @if($inCompare)
-                                        <a href="{{route('compare', $product->id)}}" class="btn btn-primary me-2">
+                                        <a href="{{route('removeCompare', $product->id)}}" class="btn btn-primary me-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-bar-chart" viewBox="0 0 16 16">
                                                 <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/>
                                             </svg>

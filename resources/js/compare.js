@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (data.success) {
                         // Создаем новую ссылку на избранное
                         const compareLink = document.createElement('a');
-                        compareLink.href = `/compare`;  // Ссылка на страницу
+                        compareLink.href = `/compare/${productId}`;  // Ссылка на страницу
                         compareLink.className = 'btn btn-primary me-2';
                         compareLink.innerHTML = `
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-bar-chart" viewBox="0 0 16 16">

@@ -45,6 +45,7 @@ Route::controller(AboutController::class)->middleware('cart.items.count')->group
 Route::controller(CompareController::class)->group(function () {
     Route::get('/compare', 'index')->name('compare');
     Route::post('/product/{product}/addToCompare', 'add')->name('addToCompare');
+    Route::get('/compare/{product:id}', 'remove')->name('removeCompare');
 });
 
 
