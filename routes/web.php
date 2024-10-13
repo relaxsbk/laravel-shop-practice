@@ -46,6 +46,7 @@ Route::controller(CompareController::class)->group(function () {
     Route::get('/compare', 'index')->name('compare');
     Route::post('/product/{product}/addToCompare', 'add')->name('addToCompare');
     Route::get('/compare/{product:id}', 'remove')->name('removeCompare');
+    Route::get('/compareClear', 'clear')->name('clearCompare');
 });
 
 

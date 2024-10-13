@@ -171,7 +171,6 @@
 
                                 @php
                                     $inCompare = false;
-
                                     if(session()->has('compare')) {
                                         foreach ($compare->get() as $compareItem) {
                                             if ($compareItem->id === $product->id) {

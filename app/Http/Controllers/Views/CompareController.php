@@ -73,4 +73,13 @@ class CompareController extends Controller
         return back();
     }
 
+    public function clear()
+    {
+        if (session()->has('compare')) {
+            $this->compareService->clear();
+            return back()->with('message', 'Сравнение очищено');
+        }
+        return back()->with('message_errors', 'В сравнение ничего нет');
+    }
+
 }

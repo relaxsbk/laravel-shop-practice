@@ -5,39 +5,22 @@
 @section('main')
 
     <div class="container mt-5 mb-3">
-        <h2 class="h1">Сравнение товаров</h2>
+        <h2 class="h1">Сравнение товаров
+
+            @if(!$compare->isEmpty())
+                <a class="fs-6 text-decoration-none" href="{{route('clearCompare')}}">очистить</a>
+            @endif
+
+        </h2>
     </div>
 
     <div class="container">
 
-        @php
-
-        @endphp
 
         @if($compare->isEmpty())
-            net
+            <h2>Товаров в сравнении нет!</h2>
         @else
-            <div>
-                <section class="d-flex align-items-center justify-content-start flex-nowrap">
-                    <div style="border-radius: 8px" class="bg-primary-subtle p-3 fw-bold fs-5 me-3 d-flex justify-content-around">
-                        Смартфон 2
-                        <span class="ms-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                        </svg>
-                    </span>
-                    </div>
-                    <div style="border-radius: 8px" class="bg-primary-subtle p-3 fw-bold fs-5 d-flex justify-content-around">
-                        Стиралка
-                        <span class="ms-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-x-lg" viewBox="0 0 16 16">
-                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                        </svg>
-                    </span>
-                    </div>
 
-                </section>
-            </div>
 
             <hr>
 
