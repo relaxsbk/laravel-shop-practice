@@ -15,7 +15,7 @@ class Category_Characteristic extends Model
     ];
 
     protected $casts = [
-        'characteristic_name' => 'array'
+        'characteristic_name' => 'string'
     ];
 
     public function product(): \Illuminate\Database\Eloquent\Relations\BelongsTo
